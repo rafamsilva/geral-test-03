@@ -22,7 +22,10 @@
     "@angular/router": "^6.1.0",
     "@types/lodash": "^4.14.117",
     "core-js": "^2.5.4",
+    "express": "^4.16.4",
     "lodash": "^4.17.11",
+    "mongo": "^0.1.0",
+    "mongoose": "^5.3.4",
     "rxjs": "~6.2.0",
     "zone.js": "~0.8.26"
   },
