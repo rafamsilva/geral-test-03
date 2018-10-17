@@ -11,11 +11,8 @@
       "schematics": {},
       "architect": {
         "build": {
-          "builder": "@angular-builders/custom-webpack:browser",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "customWebpackConfig": {
-                "path": "./extra-webpack.config.js"
-            },
             "outputPath": "dist/imobiliaria-project",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -26,7 +23,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.less"
             ],
             "scripts": []
           },
