@@ -1,0 +1,25 @@
+@import '../../styles.less';
+
+.header{
+    background-color: @primary-color;
+    box-shadow: @shadow;
+    display: flex;
+    .header__icon{
+      color: @text-navbar;
+    }
+    .header__title{
+      margin-left: 5px;
+      color: @text-navbar
+    }
+    .header__item{
+      color: @text-navbar;
+      margin-left: 5px
+    }
+}
+
+@media (max-width: 990px){
+  .header__list{
+    margin-top: 5%
+  }
+}
+
