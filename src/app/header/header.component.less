@@ -3,13 +3,23 @@
 .header{
     background-color: @primary-color;
     box-shadow: @shadow-navbar;
+    display: flex;
+    .header__icon{
+      color: @text-navbar;
+    }
+    .header__title{
+      margin-left: 5px;
+      color: @text-navbar
+    }
+    .header__item{
+      color: @text-navbar;
+      margin-left: 5px
+    }
 }
 
-.header-logo__icon{
-    color: white;
+@media (max-width: 990px){
+  .header__list{
+    margin-top: 5%
+  }
 }
 
-.header-logo__title{
-    margin-left: 5px;
-    color: white
-}
