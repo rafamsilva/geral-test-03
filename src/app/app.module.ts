@@ -7,7 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { HousesListComponent } from './houses-list/houses-list.component';
 import { AppRoutingModule } from './app-routing.module';
-import { LoginPanelComponent } from './login-panel/login-panel.component';
+
 
 
 
@@ -18,7 +18,6 @@ import { LoginPanelComponent } from './login-panel/login-panel.component';
     HomeComponent,
     FooterComponent,
     HousesListComponent,
-    LoginPanelComponent,
   ],
   imports: [
     BrowserModule,
