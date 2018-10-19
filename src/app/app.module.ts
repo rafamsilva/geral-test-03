@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { HousesListComponent } from './houses-list/houses-list.component';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { HousesListComponent } from './houses-list/houses-list.component';
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
