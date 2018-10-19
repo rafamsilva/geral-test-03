@@ -7,6 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { HousesListComponent } from './houses-list/houses-list.component';
 import { AppRoutingModule } from './app-routing.module';
+import { LoginPanelComponent } from './login-panel/login-panel.component';
+
 
 
 @NgModule({
@@ -15,7 +17,8 @@ import { AppRoutingModule } from './app-routing.module';
     HeaderComponent,
     HomeComponent,
     FooterComponent,
-    HousesListComponent
+    HousesListComponent,
+    LoginPanelComponent,
   ],
   imports: [
     BrowserModule,

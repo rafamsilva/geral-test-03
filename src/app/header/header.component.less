@@ -1,20 +1,24 @@
 @import '../../styles.less';
 
 .header{
-    background-color: @primary-color;
-    box-shadow: @shadow;
-    display: flex;
-    .header__logo{
-      height: 50%;
-    }
-    .header__title{
-      margin-left: 5px;
-      color: @text-navbar
-    }
-    .header__item{
-      color: @text-navbar;
-      margin-left: 5px
-    }
+  background-color: @primary-color;
+  box-shadow: @shadow;
+  display: flex;
+  .header__logo{
+    height: 50%;
+  }
+  .header__title{
+    margin-left: 5px;
+    color: @text-navbar
+  }
+  .header__item{
+    color: @text-navbar;
+    margin-left: 5px
+  }
+  .header__login-icon{
+    cursor: pointer;
+    border: none
+  }
 }
 
 @media (max-width: 990px){
