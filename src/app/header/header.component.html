@@ -16,9 +16,12 @@
         <a class="header__item" href="#">Fale Conosco</a>
       </li>
     </ul>
-    <div class="header__login-icon" data-toggle="modal" data-target="#modalLogin">
+    <div *ngIf="!isLogged; else nameUser" class="header__login-icon" data-toggle="modal" data-target="#modalLogin">
       <i class="fas fa-2x fa-user-lock header__icon"></i>
     </div>
+    <ng-template #nameUser>
+      <span>Olá, {{userName}}</span>
+  </ng-template>
   </div>
 </nav>
 

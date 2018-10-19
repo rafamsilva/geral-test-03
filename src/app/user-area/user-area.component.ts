@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-area.component.less']
 })
 export class UserAreaComponent implements OnInit {
+  public userType: number = 1
 
   constructor() { }
 
