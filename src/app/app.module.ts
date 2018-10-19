@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { HousesListComponent } from './houses-list/houses-list.component';
 import { AppRoutingModule } from './app-routing.module';
+import { UserAreaComponent } from './user-area/user-area.component';
 
 
 
@@ -18,6 +19,7 @@ import { AppRoutingModule } from './app-routing.module';
     HomeComponent,
     FooterComponent,
     HousesListComponent,
+    UserAreaComponent,
   ],
   imports: [
     BrowserModule,
