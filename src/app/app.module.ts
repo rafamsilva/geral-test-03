@@ -5,6 +5,10 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
+import { HousesListComponent } from './houses-list/houses-list.component';
+import { AppRoutingModule } from './app-routing.module';
+import { LoginPanelComponent } from './login-panel/login-panel.component';
+
 
 
 @NgModule({
@@ -12,10 +16,13 @@ import { FooterComponent } from './footer/footer.component';
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    HousesListComponent,
+    LoginPanelComponent,
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

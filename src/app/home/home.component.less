@@ -5,9 +5,24 @@
     margin: @margin-content;
     padding: @padding-content;
     box-shadow: @shadow;
+    display: flex;
+    flex-direction: column;
+    border-radius: @border;
+    .quem-somos__descricao{
+        text-align: justify;
+    }
+    .quem-somos__imagem{
+        align-self: center;
+        border-radius: @border;
+    }
+
 }
 
-.quem-somos__descricao{
-  text-align: justify;
+
+
+@media (max-width: 650px){
+    .quem-somos{
+        margin: 10px
+    }
 }
 
