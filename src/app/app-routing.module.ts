@@ -13,12 +13,12 @@ import { FavoritesComponent } from './user-area/favorites/favorites.component';
 
 
 const routes: Routes = [
-  { path: 'favoritos', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'imoveis', component: HousesListComponent },
   { path: 'area-do-usuario',
     component: UserAreaComponent,
       children: [
-        { path: '', component: FavoritesComponent },
+        { path: 'favoritos', component: FavoritesComponent },
         { path: 'configurações', component: ConfigurationAreaComponent },
         { path: 'cadastrar-funcionario', component: RegisterEmployeeComponent },
         { path: 'cadastrar-imovel', component: RegisterHouseComponent },

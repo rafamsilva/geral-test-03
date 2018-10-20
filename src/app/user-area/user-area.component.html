@@ -1,35 +1,47 @@
 <div class="panel">
-    <div class="container user-nav" *ngIf="userType == 1 ; else employeeNav">
-      <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a class="nav-link active" routerLink="/area-do-usuario/favoritos">Meus Favoritos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/area-do-usuario/configurações">Configurações</a>
-        </li>
-      </ul>
+  <h2>Seja bem vindo ao painel exclusivo para clientes</h2>
+  <div class="container user-nav" *ngIf="userType == 1 ; else employeeNav">
+    <div class="row">
+      <a routerLink="/area-do-usuario/favoritos">
+        <div class="panel__btn">
+          Meuns Favoritos
+        </div>
+      </a>
+      <a routerLink="/area-do-usuario/configurações">
+        <div class="panel__btn">
+          Configurações
+        </div>
+      </a>
     </div>
-
-    <ng-template #employeeNav>
-      <div class="container employeeOrAdm-nav">
-        <ul class="nav nav-tabs">
-          <li class="nav-item">
-            <a class="nav-link active" routerLink="/area-do-usuario/cadastrar-funcionario">Cadastrar Funcionário</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/area-do-usuario/cadastrar-imovel">Cadastrar Imóvel</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" routerLink="/area-do-usuario/remover-imovel">Remover Imóvel</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/area-do-usuario/configurações">Configurações</a>
-          </li>
-        </ul>
-      </div>
-  </ng-template>
-  <div class="tab-content">
-    <router-outlet></router-outlet>
   </div>
+
+  <ng-template #employeeNav>
+    <div class="panel__nav-menu">
+      <a routerLink="/area-do-usuario/cadastrar-funcionario">
+        <div class="panel__btn">
+          Cadastrar novo funcionário
+        </div>
+      </a>
+      <a routerLink="/area-do-usuario/cadastrar-imovel">
+        <div class="panel__btn">
+          Cadastrar novo imóvel
+        </div>
+      </a>
+
+      <a routerLink="/area-do-usuario/remover-imovel">
+        <div class="panel__btn">
+          Remover um imóvel
+        </div>
+      </a>
+
+      <a routerLink="/area-do-usuario/configurações">
+        <div class="panel__btn">
+          Configurações
+        </div>
+      </a>
+    </div>
+  </ng-template>
+
+  <router-outlet></router-outlet>
 
 </div>

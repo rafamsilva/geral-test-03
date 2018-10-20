@@ -16,7 +16,7 @@ import {
     @ViewChild('btnClear') btnClear: ElementRef;
     public userName: string = "Danillo";
     public isLogged: boolean = false;
-    public userType: number = 1
+    public userType: number = 2
 
 
     constructor(
@@ -29,11 +29,8 @@ import {
       }
 
       public enterUserArea(): void{
-        if(this.userType === 1){
-          this.route.navigate(['/area-do-usuario/favoritos'])
-        }else{
-          this.route.navigate(['/area-do-usuario/cadastrar-funcionario'])
-        }
+
+        this.route.navigate(['/area-do-usuario'])
 
         this.render.setAttribute(this.btnClear.nativeElement,'data-dismiss','modal')
         this.isLogged = true
