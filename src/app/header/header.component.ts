@@ -29,9 +29,19 @@ import {
       }
 
       public enterUserArea(): void{
-        this.route.navigate(['/area-do-usuario'])
+        if(this.userType === 1){
+          this.route.navigate(['/area-do-usuario/favoritos'])
+        }else{
+          this.route.navigate(['/area-do-usuario/cadastrar-funcionario'])
+        }
+
         this.render.setAttribute(this.btnClear.nativeElement,'data-dismiss','modal')
         this.isLogged = true
+      }
+
+      public logout(): void{
+        this.isLogged = false
+        this.route.navigate(['/'])
       }
 
     }

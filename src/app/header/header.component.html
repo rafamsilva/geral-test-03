@@ -21,6 +21,9 @@
     </div>
     <ng-template #nameUser>
       <span>Olá, {{userName}}</span>
+      <br>
+      <a (click)="logout()" href="#">sair</a>
+      <a routerLink="./area-do-usuario">Acessar meu painel</a>
   </ng-template>
   </div>
 </nav>

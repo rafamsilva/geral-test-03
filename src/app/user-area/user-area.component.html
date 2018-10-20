@@ -1,11 +1,11 @@
 <div class="panel">
-    <div class="container user-nav" *ngIf="userType == 1; else employeeNav">
+    <div class="container user-nav" *ngIf="userType == 1 ; else employeeNav">
       <ul class="nav nav-tabs">
         <li class="nav-item">
-          <a class="nav-link active" href="#">Meus Favoritos</a>
+          <a class="nav-link active" routerLink="/area-do-usuario/favoritos">Meus Favoritos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Configurações</a>
+          <a class="nav-link" routerLink="/area-do-usuario/configurações">Configurações</a>
         </li>
       </ul>
     </div>
@@ -14,19 +14,22 @@
       <div class="container employeeOrAdm-nav">
         <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link active" href="#">Cadastrar Funcionário</a>
+            <a class="nav-link active" routerLink="/area-do-usuario/cadastrar-funcionario">Cadastrar Funcionário</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Cadastrar Imóvel</a>
+            <a class="nav-link" routerLink="/area-do-usuario/cadastrar-imovel">Cadastrar Imóvel</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Remover Imóvel</a>
+              <a class="nav-link" routerLink="/area-do-usuario/remover-imovel">Remover Imóvel</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Configurações</a>
+            <a class="nav-link" routerLink="/area-do-usuario/configurações">Configurações</a>
           </li>
         </ul>
       </div>
   </ng-template>
+  <div class="tab-content">
+    <router-outlet></router-outlet>
+  </div>
 
 </div>
