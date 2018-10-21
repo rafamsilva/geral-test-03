@@ -2,14 +2,13 @@
 
 .panel{
     background-color: @secondary-color;
-    margin: @margin-content;
+    margin: @margin-user-area;
     padding: @padding-content;
     box-shadow: @shadow;
-    height: calc(100vh - (@navbar - @footer));
+    min-height: calc(100vh - (@navbar - @footer));
     .panel__nav-menu{
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-around;
       .panel__btn{
         background-color: red;
         padding: 6px 8px;
