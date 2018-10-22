@@ -18,11 +18,15 @@
   <ng-template #employeeNav>
     <div class="container user-nav">
       <div class="panel__nav-menu">
-        <a class="panel__link--selected" routerLink="/area-do-usuario/imoveis">
-          <div class="panel__btn panel__btn--selected">
-            Imóveis
-          </div>
-        </a>
+          <div class="dropdown">
+              <button class="panel__btn panel__btn--selected dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Imóveis
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item panel__link--selected" routerLink="/area-do-usuario/imoveis">Imóveis cadastrados</a>
+                <a class="dropdown-item panel__link--selected" routerLink="/area-do-usuario/cadastrar-imovel">Cadastrar imóvel</a>
+              </div>
+            </div>
         <div class="dropdown">
           <button class="panel__btn panel__btn--selected dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Clientes

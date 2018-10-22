@@ -11,6 +11,7 @@ import { HousesComponent } from './user-area/houses/houses.component';
 import { ClientsComponent } from './user-area/clients/clients.component';
 import { RegisterClientComponent } from './user-area/register-client/register-client.component';
 import { RegisterEmployeeComponent } from './user-area/register-employee/register-employee.component';
+import { RegisterHouseComponent } from './user-area/register-house/register-house.component';
 
 
 
@@ -26,7 +27,8 @@ const routes: Routes = [
         { path: 'imoveis', component: HousesComponent },
         { path: 'clientes', component: ClientsComponent },
         { path: 'cadastrar-cliente', component: RegisterClientComponent},
-        { path: 'cadastrar-funcionario', component: RegisterEmployeeComponent}
+        { path: 'cadastrar-funcionario', component: RegisterEmployeeComponent},
+        { path: 'cadastrar-imovel', component: RegisterHouseComponent}
       ]
   }
 

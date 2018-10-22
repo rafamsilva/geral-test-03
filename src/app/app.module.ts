@@ -15,6 +15,7 @@ import { HousesComponent } from './user-area/houses/houses.component';
 import { ClientsComponent } from './user-area/clients/clients.component';
 import { RegisterClientComponent } from './user-area/register-client/register-client.component';
 import { RegisterEmployeeComponent } from './user-area/register-employee/register-employee.component';
+import { RegisterHouseComponent } from './user-area/register-house/register-house.component';
 
 
 
@@ -35,6 +36,7 @@ import { RegisterEmployeeComponent } from './user-area/register-employee/registe
     ClientsComponent,
     RegisterClientComponent,
     RegisterEmployeeComponent,
+    RegisterHouseComponent,
   ],
   imports: [
     BrowserModule,
