@@ -22,7 +22,7 @@
     <ng-template #nameUser>
       <span>Olá, {{userName}}</span>
       <br>
-      <a (click)="logout()" href="#">sair</a>
+      <a (click)="logout()" routerLink="/">sair</a>
       <a routerLink="./area-do-usuario">Acessar meu painel</a>
   </ng-template>
   </div>
@@ -40,20 +40,18 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
+        <form [formGroup]="form">
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Usuário:</label>
-            <input type="text" class="form-control" id="userName">
+            <label class="col-form-label">Usuário:</label>
+            <input type="text" class="form-control" formControlName="user">
           </div>
           <div class="form-group">
-            <label for="message-text" class="col-form-label">Senha:</label>
-            <input type="password" class="form-control" id="userPassword">
+            <label class="col-form-label">Senha:</label>
+            <input type="password" class="form-control" formControlName="password">
           </div>
+          <button  type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+          <button #btnClear type="button" class="btn btn-primary" (click)="enterUserArea()">Login</button>
         </form>
-      </div>
-      <div class="modal-footer">
-        <button  type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
-        <button #btnClear type="button" class="btn btn-primary" (click)="enterUserArea()">Login</button>
       </div>
     </div>
   </div>
