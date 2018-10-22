@@ -23,31 +23,24 @@
             Imóveis
           </div>
         </a>
-        <a class="panel__link--selected" routerLink="/area-do-usuario/clientes">
-          <div class="panel__btn panel__btn--selected">
+        <div class="dropdown">
+          <button class="panel__btn panel__btn--selected dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Clientes
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item panel__link--selected" routerLink="/area-do-usuario/clientes">Clientes cadastrados</a>
+            <a class="dropdown-item panel__link--selected" routerLink="/area-do-usuario/cadastrar-cliente">Cadastrar cliente</a>
           </div>
-
-
-          <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown button
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
+        </div>
+        <div class="dropdown">
+            <button class="panel__btn panel__btn--selected dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Funcionários
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item panel__link--selected" routerLink="/area-do-usuario/funcionarios">Funcionários cadastrados</a>
+              <a class="dropdown-item panel__link--selected" routerLink="/area-do-usuario/cadastrar-funcionario">Cadastrar funcionário</a>
             </div>
-
-
-
-        </a>
-        <a class="panel__link--selected" routerLink="/area-do-usuario/funcionarios">
-          <div class="panel__btn panel__btn--selected">
-            Funcionários
           </div>
-        </a>
         <a class="panel__link--selected" routerLink="/area-do-usuario/configurações">
           <div class="panel__btn panel__btn--selected">
             Configurações

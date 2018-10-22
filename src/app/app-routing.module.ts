@@ -9,6 +9,8 @@ import { EmployeesComponent } from './user-area/employees/employees.component';
 import { FavoritesComponent } from './user-area/favorites/favorites.component';
 import { HousesComponent } from './user-area/houses/houses.component';
 import { ClientsComponent } from './user-area/clients/clients.component';
+import { RegisterClientComponent } from './user-area/register-client/register-client.component';
+import { RegisterEmployeeComponent } from './user-area/register-employee/register-employee.component';
 
 
 
@@ -23,6 +25,8 @@ const routes: Routes = [
         { path: 'funcionarios', component: EmployeesComponent },
         { path: 'imoveis', component: HousesComponent },
         { path: 'clientes', component: ClientsComponent },
+        { path: 'cadastrar-cliente', component: RegisterClientComponent},
+        { path: 'cadastrar-funcionario', component: RegisterEmployeeComponent}
       ]
   }
 

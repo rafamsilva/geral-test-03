@@ -13,6 +13,8 @@ import { EmployeesComponent } from './user-area/employees/employees.component';
 import { FavoritesComponent } from './user-area/favorites/favorites.component';
 import { HousesComponent } from './user-area/houses/houses.component';
 import { ClientsComponent } from './user-area/clients/clients.component';
+import { RegisterClientComponent } from './user-area/register-client/register-client.component';
+import { RegisterEmployeeComponent } from './user-area/register-employee/register-employee.component';
 
 
 
@@ -31,6 +33,8 @@ import { ClientsComponent } from './user-area/clients/clients.component';
     FavoritesComponent,
     HousesComponent,
     ClientsComponent,
+    RegisterClientComponent,
+    RegisterEmployeeComponent,
   ],
   imports: [
     BrowserModule,
