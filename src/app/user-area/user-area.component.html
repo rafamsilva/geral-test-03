@@ -1,7 +1,7 @@
 <div class="panel">
   <h2>Seja bem vindo ao painel exclusivo para clientes</h2>
   <div class="container user-nav" *ngIf="userType == 1 ; else employeeNav">
-      <div class="panel__nav-menu">
+    <div class="panel__nav-menu">
       <a class="panel__link--selected" routerLink="/area-do-usuario/favoritos">
         <div class="panel__btn panel__btn--selected">
           Meuns Favoritos
@@ -16,29 +16,31 @@
   </div>
 
   <ng-template #employeeNav>
-    <div class="panel__nav-menu">
-      <a class="panel__link--selected" routerLink="/area-do-usuario/cadastrar-funcionario">
-        <div class="panel__btn panel__btn--selected">
-          Cadastrar novo funcionário
-        </div>
-      </a>
-      <a class="panel__link--selected" routerLink="/area-do-usuario/cadastrar-imovel">
-        <div class="panel__btn panel__btn--selected">
-          Cadastrar novo imóvel
-        </div>
-      </a>
+    <div class="container user-nav">
+      <div class="panel__nav-menu">
+        <a class="panel__link--selected" routerLink="/area-do-usuario/cadastrar-funcionario">
+          <div class="panel__btn panel__btn--selected">
+            Cadastrar novo funcionário
+          </div>
+        </a>
+        <a class="panel__link--selected" routerLink="/area-do-usuario/cadastrar-imovel">
+          <div class="panel__btn panel__btn--selected">
+            Cadastrar novo imóvel
+          </div>
+        </a>
 
-      <a class="panel__link--selected" routerLink="/area-do-usuario/remover-imovel">
-        <div class="panel__btn panel__btn--selected">
-          Remover um imóvel
-        </div>
-      </a>
+        <a class="panel__link--selected" routerLink="/area-do-usuario/remover-imovel">
+          <div class="panel__btn panel__btn--selected">
+            Remover um imóvel
+          </div>
+        </a>
 
-      <a class="panel__link--selected" routerLink="/area-do-usuario/configurações">
-        <div class="panel__btn panel__btn--selected">
-          Configurações
-        </div>
-      </a>
+        <a class="panel__link--selected" routerLink="/area-do-usuario/configurações">
+          <div class="panel__btn panel__btn--selected">
+            Configurações
+          </div>
+        </a>
+      </div>
     </div>
   </ng-template>
 
