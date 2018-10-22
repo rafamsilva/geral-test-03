@@ -18,23 +18,36 @@
   <ng-template #employeeNav>
     <div class="container user-nav">
       <div class="panel__nav-menu">
-        <a class="panel__link--selected" routerLink="/area-do-usuario/cadastrar-funcionario">
+        <a class="panel__link--selected" routerLink="/area-do-usuario/imoveis">
           <div class="panel__btn panel__btn--selected">
-            Cadastrar novo funcionário
+            Imóveis
           </div>
         </a>
-        <a class="panel__link--selected" routerLink="/area-do-usuario/cadastrar-imovel">
+        <a class="panel__link--selected" routerLink="/area-do-usuario/clientes">
           <div class="panel__btn panel__btn--selected">
-            Cadastrar novo imóvel
+            Clientes
           </div>
-        </a>
 
-        <a class="panel__link--selected" routerLink="/area-do-usuario/remover-imovel">
+
+          <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown button
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </div>
+
+
+
+        </a>
+        <a class="panel__link--selected" routerLink="/area-do-usuario/funcionarios">
           <div class="panel__btn panel__btn--selected">
-            Remover um imóvel
+            Funcionários
           </div>
         </a>
-
         <a class="panel__link--selected" routerLink="/area-do-usuario/configurações">
           <div class="panel__btn panel__btn--selected">
             Configurações

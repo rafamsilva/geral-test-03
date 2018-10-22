@@ -9,10 +9,10 @@ import { HousesListComponent } from './houses-list/houses-list.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UserAreaComponent } from './user-area/user-area.component';
 import { ConfigurationAreaComponent } from './user-area/configuration-area/configuration-area.component';
-import { RegisterHouseComponent } from './user-area/register-house/register-house.component';
-import { RegisterEmployeeComponent } from './user-area/register-employee/register-employee.component';
+import { EmployeesComponent } from './user-area/employees/employees.component';
 import { FavoritesComponent } from './user-area/favorites/favorites.component';
-import { RemoveHouseComponent } from './user-area/remove-house/remove-house.component';
+import { HousesComponent } from './user-area/houses/houses.component';
+import { ClientsComponent } from './user-area/clients/clients.component';
 
 
 
@@ -27,10 +27,10 @@ import { RemoveHouseComponent } from './user-area/remove-house/remove-house.comp
     HousesListComponent,
     UserAreaComponent,
     ConfigurationAreaComponent,
-    RegisterHouseComponent,
-    RegisterEmployeeComponent,
+    EmployeesComponent,
     FavoritesComponent,
-    RemoveHouseComponent,
+    HousesComponent,
+    ClientsComponent,
   ],
   imports: [
     BrowserModule,
