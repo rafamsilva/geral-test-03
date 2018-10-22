@@ -3,12 +3,12 @@
   <div class="container user-nav" *ngIf="userType == 1 ; else employeeNav">
       <div class="panel__nav-menu">
       <a routerLink="/area-do-usuario/favoritos">
-        <div class="panel__btn">
+        <div class="panel__btn panel__btn--selected">
           Meuns Favoritos
         </div>
       </a>
       <a routerLink="/area-do-usuario/configurações">
-        <div class="panel__btn">
+        <div class="panel__btn panel__btn--selected">
           Configurações
         </div>
       </a>
@@ -18,24 +18,24 @@
   <ng-template #employeeNav>
     <div class="panel__nav-menu">
       <a routerLink="/area-do-usuario/cadastrar-funcionario">
-        <div class="panel__btn">
+        <div class="panel__btn panel__btn--selected">
           Cadastrar novo funcionário
         </div>
       </a>
       <a routerLink="/area-do-usuario/cadastrar-imovel">
-        <div class="panel__btn">
+        <div class="panel__btn panel__btn--selected">
           Cadastrar novo imóvel
         </div>
       </a>
 
       <a routerLink="/area-do-usuario/remover-imovel">
-        <div class="panel__btn">
+        <div class="panel__btn panel__btn--selected">
           Remover um imóvel
         </div>
       </a>
 
       <a routerLink="/area-do-usuario/configurações">
-        <div class="panel__btn">
+        <div class="panel__btn panel__btn--selected">
           Configurações
         </div>
       </a>

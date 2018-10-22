@@ -1,24 +1,31 @@
 @import '../../../styles.less';
 
-.favorites-panel{
+.panel{
   box-shadow: @shadow;
-  .favorites-panel__slide{
+  margin-top: 6%;
+  .panel__slide{
     margin: 0;
     padding: 0;
   }
-  .favorites-panel__text{
+  .panel__text{
 
   }
-  .favorites-panel__info{
-
-    .favorites-panel__icons-list{
+  .panel__info{
+    .panel__icons-list{
       list-style: none;
-      padding: 0
+      padding: 0;
+      margin-top: 2em;
+      .panel__icons-item{
+        padding: 8px 0;
+        .panel_info-text{
+          margin-left: 20px;
+        }
+      }
     }
   }
 }
 
-.favorites-panel:hover{
+.panel--selected:hover{
   box-shadow: @shadow-strong
 }
 
