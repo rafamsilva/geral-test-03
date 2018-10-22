@@ -1,0 +1,32 @@
+@import '../../../styles.less';
+
+.panel{
+  box-shadow: @shadow;
+  margin-top: 6%;
+  .panel__slide{
+    margin: 0;
+    padding: 0;
+  }
+  .panel__text{
+
+  }
+  .panel__info{
+    .panel__icons-list{
+      list-style: none;
+      padding: 0;
+      margin-top: 2em;
+      .panel__icons-item{
+        padding: 8px 0;
+        .panel_info-text{
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+}
+
+.panel--selected:hover{
+  box-shadow: @shadow-strong
+}
+
+

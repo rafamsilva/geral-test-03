@@ -1,0 +1,22 @@
+@import '../../../styles.less';
+
+.config-panel{
+  background-color: @secondary-color;
+  margin: @margin-content;
+  padding: @padding-content;
+  box-shadow: @shadow;
+  .config-panel__form{
+    display: flex;
+    flex-direction: column;
+    .config-panel__btn{
+      align-self: flex-end;
+    }
+  }
+}
+
+@media (max-width: 650px){
+  .config-panel{
+      margin: 10px;
+      padding: 20px;
+  }
+}

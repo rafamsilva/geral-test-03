@@ -1,0 +1,46 @@
+@import '../../../styles.less';
+
+.panel{
+  box-shadow: @shadow;
+  margin-top: 6%;
+  &__slide{
+    align-self: center;
+    margin: 0;
+    padding: 0;
+  }
+  &__text{
+
+  }
+  &__info{
+    padding-bottom: 8px;
+    .panel__icons-list{
+      list-style: none;
+      padding: 0;
+      .panel__icons-item{
+        padding: 8px 0;
+        .panel__info-text{
+          margin-left: 20px;
+        }
+      }
+    }
+    .panel__delete-btn{
+      cursor: pointer;
+      background-color: red;
+      color: white
+    }
+  }
+}
+
+.panel--selected:hover{
+  box-shadow: @shadow-strong
+}
+
+@media (min-width: 992px){
+  .col-lg-4 {
+    align-self: center;
+  }
+}
+
+
+
+
