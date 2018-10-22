@@ -12,4 +12,8 @@ export class FavoritesComponent implements OnInit {
   ngOnInit() {
   }
 
+  public alertScheduleVisit(): void{
+    alert('Visita agendada com sucesso!')
+  }
+
 }

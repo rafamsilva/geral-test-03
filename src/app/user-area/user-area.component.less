@@ -1,31 +1,35 @@
 @import '../../styles.less';
 
 .panel{
-    background-color: @secondary-color;
-    margin: @margin-user-area;
-    padding: 20px 20px 0 20px;
-    box-shadow: @shadow;
-    .user-nav{
-      margin-bottom: 4%;
-      .panel__nav-menu{
-        display: flex;
-        flex-wrap: wrap;
+  background-color: @secondary-color;
+  margin: @margin-user-area;
+  padding: 20px 20px 0 20px;
+  box-shadow: @shadow;
+  .user-nav{
+    margin-bottom: 4%;
+    .panel__nav-menu{
+      display: flex;
+      flex-wrap: wrap;
+      .panel__link--selected{
+        text-decoration: none;
         .panel__btn{
           padding: 2px 8px;
           margin: 15px;
-          border: 2px solid red;
+          color: red
         }
         .panel__btn--selected:hover{
           border-bottom: 3px solid grey;
+
         }
       }
     }
+  }
 }
 
 
 @media (max-width: 650px){
   .panel{
-      margin: 10px
+    margin: 10px
   }
 }
 
