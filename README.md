@@ -1,73 +1,27 @@
-# TESTE GERAL 03
+# ImobiliariaProject
 
-## Objetivo
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.5.
 
-Criar um sistema de uma imobiliária. Com a seguinte estrutura:
+## Development server
 
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-#### Área não logada
+## Code scaffolding
 
-* Home -> contendo missão, valores da empresa.
-* Pesquisar imóvel -> Pesquisar imóveis, e trazer a lista de imóveis na mesma tela onde eu possa demonstrar interesse sobre algum imóvel.
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-#### Área logada
+## Build
 
-* Cadastros de funcionários
-* Cadastro de cliente
-* Cadastro de imóvel
-* Lista de funcionários
-* Lista de imóveis
-* Lista de clientes
-* Lista de interesses
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
+## Running unit tests
 
-## Requistos
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-* Será necessário criar a divisão entre backend e frontend
-* O backend deve ser atrelado a um banco com cadastro e exibição de dados reais
-* As telas e os campos que vão existir estão a livre escolha de vocês (Seremos cliente no momento da avaliação).
-* O trabalho em equipe será fator importante no momento da avaliação.
-* Perguntas sobre as tecnologias usadas serão feitas no momento da avaliação. Ex: Sobre Angular, Rxjs etc…
-* **Dúvidas Perguntar Sempre**
-* **Iremos somente utilizar os seguintes comandos: npm install && npm start**
+## Running end-to-end tests
 
-## Especificação
-* Angular 2+ -> AOT e maximo de reatividade
-* Webpack
-* NodeJs
-* Lodash
-* RxJs
-* MongoDB
-* RestFull
-* LESS
-* BEM CSS
-* Express
-* Typescript
-* GitFlow
-* Kanban (Trello)
-* HTML 5
-* CSS 3
-* Responsividade
-* FlexBox
-* GridCSS
-* Caso optem por outras tecnologias, favor nos avisar
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Bonus
-* NgRX
-* Chocolate pro time
-* Aplicação totalmente reativa
-* Lazy loading
-* Babel
+## Further help
 
-## Avaliação
-* Domínio do conteúdo
-* Trabalho em equipe
-* Gitflow
-* Determinação
-* Esforço de cada integrante
-* Organização
-* Codigo proprio
-* Separação de responsabilidades
-
-
-
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

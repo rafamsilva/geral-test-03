@@ -1,0 +1,35 @@
+@import '../../styles.less';
+
+.houses-panel{
+    background-color: @secondary-color;
+    margin: @margin-content;
+    padding: @padding-content;
+    box-shadow: @shadow;
+    .houses-panel__cards-list{
+          padding: 8px;
+          display: flex;
+          .card{
+              margin: 8px 0;
+              .houses-panel__fav{
+                  color: white;
+                  position: absolute;
+                  align-self: flex-end;
+                  margin: 2% -3%;
+                  cursor: pointer
+              }
+          }
+    }
+}
+
+
+@media (max-width: 650px){
+  .houses-panel{
+      margin: 10px;
+      padding: 20px;
+  }
+}
+
+
+
+
+

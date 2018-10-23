@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-light header">
+  <a class="navbar-brand" routerLink="">
+    <img class="header__logo" src="../../assets/logo.png" alt="">
+    <span class="header__title">Futura Imóveis</span>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto header__list">
+      <li class="nav-item">
+        <a class="header__item" routerLink="/imoveis">Imóveis</a>
+      </li>
+      <li class="nav-item">
+        <a class="header__item" href="#">Fale Conosco</a>
+      </li>
+    </ul>
+    <div *ngIf="!isLogged; else nameUser" class="header__login-icon" routerLink="/login">
+      <i class="fas fa-2x fa-user-lock header__icon"></i>
+    </div>
+    <ng-template #nameUser>
+      <span>Olá, {{userName}}</span>
+      <br>
+      <a (click)="logout()" routerLink="/">sair</a>
+      <a routerLink="./area-do-usuario">Acessar meu painel</a>
+  </ng-template>
+  </div>
+</nav>
+
+

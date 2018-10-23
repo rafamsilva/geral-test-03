@@ -1,0 +1,43 @@
+@import '../../../styles.less';
+
+.panel{
+  background-color: @secondary-color;
+  margin: @margin-content;
+  padding: @padding-content;
+  box-shadow: @shadow;
+  align-content: center;
+  &__img{
+  }
+  &__name{
+  }
+  &__email{
+  }
+  &__phone{
+  }
+  &__password{
+
+  }
+  &__delete-btn{
+    cursor: pointer;
+    color: red
+  }
+}
+
+.panel * {
+  margin: 0 10px
+}
+
+.row{
+  align-items: center;
+  justify-content: space-around
+}
+
+@media (max-width: 650px){
+  .panel{
+    margin: 10px;
+    padding: 20px;
+    .row{
+      flex-direction: column;
+    }
+  }
+}
