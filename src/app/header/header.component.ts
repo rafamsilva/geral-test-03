@@ -1,10 +1,7 @@
-import {
-  Component,
-  OnInit,
-  ViewChild,
-  Renderer2,
-  ElementRef } from '@angular/core';
-  import { Router } from '@angular/router'
+import { Component, OnInit} from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { User } from '../../shared/user.model';
+import { LogStateService } from '../log-state.service';
 
   @Component({
     selector: 'app-header',
@@ -13,32 +10,27 @@ import {
   })
   export class HeaderComponent implements OnInit {
 
-    @ViewChild('btnClear') btnClear: ElementRef;
     public userName: string = "Danillo";
-    public isLogged: boolean = false;
-    public userType: number = 2
+    public isLogged: boolean;
+    public userType: number = 2;
+    public users: User[];
+    public form: FormGroup = new FormGroup({
+      'user': new FormControl(null, [ Validators.required ]),
+      'password': new FormControl(null)
+    });
 
 
     constructor(
-      private route: Router,
-      private render: Renderer2
+      private log: LogStateService
       ) { }
 
       ngOnInit() {
+        this.log.atualState.subscribe(state => this.isLogged = state)
 
-      }
-
-      public enterUserArea(): void{
-
-        this.route.navigate(['/area-do-usuario'])
-
-        this.render.setAttribute(this.btnClear.nativeElement,'data-dismiss','modal')
-        this.isLogged = true
       }
 
       public logout(): void{
         this.isLogged = false
-        this.route.navigate(['/'])
       }
 
     }

@@ -1,0 +1,96 @@
+{
+  "user": [
+    {
+      "name": "danillo",
+      "email": "abc",
+      "pass": "123",
+      "id": "015"
+    },
+    {
+      "name": "joao",
+      "email": "bcd",
+      "pass": "123",
+      "id": "020"
+    },
+    {
+      "name": "rafael",
+      "email": "abcp",
+      "pass": "156",
+      "id": "007"
+    },
+    {
+      "name": "tania",
+      "email": "ert",
+      "pass": "896",
+      "id": "050"
+    }
+    ,{
+      "name": "pedro",
+      "email": "abrc",
+      "pass": "963",
+      "id": "036"
+    },
+    {
+      "name": "joaquim",
+      "email": "erfd",
+      "pass": "963",
+      "id": "012"
+    }
+  ],
+  "houses": [
+    {
+      "id": "10",
+      "tipo": "casa",
+      "valor": "1200",
+      "disp": "aluguel",
+      "area": "110",
+      "quartos": "3",
+      "vagas": "2",
+      "suite": "1",
+      "desc": "Sobrado em condomínio bem localizado, no Nova Uberlândia, 3 km da praça Tubal Vilela.",
+      "bairro": "Nova Uberlândia",
+      "imgs": [
+        {
+          "url": "../assets/imoveis/casa-tubalina-01.jpg"
+        },
+        {
+          "url": "../assets/imoveis/casa-tubalina-02.jpg"
+        },
+        {
+          "url": "../assets/imoveis/casa-tubalina-03.jpg"
+        },
+        {
+          "url": "../assets/imoveis/casa-tubalina-04.jpg"
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "tipo": "apartamento",
+      "valor": "1200",
+      "disp": "venda",
+      "area": "110",
+      "quartos": "3",
+      "vagas": "2",
+      "suite": "1",
+      "desc": "Sobrado em condomínio bem localizado, no Nova Uberlândia, 3 km da praça Tubal Vilela.",
+      "bairro": "Nova Uberlândia",
+      "imgs": [
+        {
+          "url": "../assets/imoveis/casa-tubalina-01.jpg"
+        },
+        {
+          "url": "../assets/imoveis/casa-tubalina-02.jpg"
+        },
+        {
+          "url": "../assets/imoveis/casa-tubalina-03.jpg"
+        },
+        {
+          "url": "../assets/imoveis/casa-tubalina-04.jpg"
+        }
+      ]
+    }
+
+  ]
+
+}
