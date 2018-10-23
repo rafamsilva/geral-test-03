@@ -4,5 +4,61 @@
       "email": "abc@hotmail.com",
       "pass": "123"
     }
+  ],
+  "houses": [
+    {
+      "id": "10",
+      "tipo": "casa",
+      "valor": "1200",
+      "disp": "aluguel",
+      "area": "110",
+      "quartos": "3",
+      "vagas": "2",
+      "suite": "1",
+      "desc": "Sobrado em condomínio bem localizado, no Nova Uberlândia, 3 km da praça Tubal Vilela.",
+      "bairro": "Nova Uberlândia",
+      "imgs": [
+        {
+          "url": "../assets/imoveis/casa-tubalina-01.jpg"
+        },
+        {
+          "url": "../assets/imoveis/casa-tubalina-02.jpg"
+        },
+        {
+          "url": "../assets/imoveis/casa-tubalina-03.jpg"
+        },
+        {
+          "url": "../assets/imoveis/casa-tubalina-04.jpg"
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "tipo": "apartamento",
+      "valor": "1200",
+      "disp": "venda",
+      "area": "110",
+      "quartos": "3",
+      "vagas": "2",
+      "suite": "1",
+      "desc": "Sobrado em condomínio bem localizado, no Nova Uberlândia, 3 km da praça Tubal Vilela.",
+      "bairro": "Nova Uberlândia",
+      "imgs": [
+        {
+          "url": "../assets/imoveis/casa-tubalina-01.jpg"
+        },
+        {
+          "url": "../assets/imoveis/casa-tubalina-02.jpg"
+        },
+        {
+          "url": "../assets/imoveis/casa-tubalina-03.jpg"
+        },
+        {
+          "url": "../assets/imoveis/casa-tubalina-04.jpg"
+        }
+      ]
+    }
+
   ]
+
 }
