@@ -1,13 +1,7 @@
-import {
-  Component,
-  OnInit,
-  ViewChild,
-  Renderer2,
-  ElementRef } from '@angular/core';
-import { Router } from '@angular/router'
+import { Component, OnInit} from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { LoginCheckService } from '../login-check.service';
 import { User } from '../../shared/user.model';
+import { LogStateService } from '../log-state.service';
 
   @Component({
     selector: 'app-header',
@@ -16,9 +10,8 @@ import { User } from '../../shared/user.model';
   })
   export class HeaderComponent implements OnInit {
 
-
     public userName: string = "Danillo";
-    public isLogged: boolean = false;
+    public isLogged: boolean;
     public userType: number = 2;
     public users: User[];
     public form: FormGroup = new FormGroup({
@@ -28,25 +21,16 @@ import { User } from '../../shared/user.model';
 
 
     constructor(
-      private route: Router,
-      private render: Renderer2,
-      private loginservice: LoginCheckService
+      private log: LogStateService
       ) { }
 
       ngOnInit() {
+        this.log.atualState.subscribe(state => this.isLogged = state)
 
       }
-
-
 
       public logout(): void{
         this.isLogged = false
-      }
-
-      public validateUserLogin(name, password): boolean{
-        if( name === this.form.value.user &&  password === this.form.value.password){
-            return true
-        }
       }
 
     }

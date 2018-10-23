@@ -23,6 +23,7 @@ import { LoginCheckService } from './login-check.service';
 import { LoginComponent } from './login/login.component';
 import { LoginRegisterComponent } from './login-register/login-register.component';
 import { HousesService } from './houses.service';
+import { LogStateService } from './log-state.service';
 
 
 
@@ -51,7 +52,7 @@ import { HousesService } from './houses.service';
     ReactiveFormsModule,
     HttpModule
   ],
-  providers: [ LoginCheckService, HousesService ],
+  providers: [ LoginCheckService, HousesService, LogStateService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
