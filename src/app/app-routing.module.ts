@@ -12,12 +12,16 @@ import { ClientsComponent } from './user-area/clients/clients.component';
 import { RegisterClientComponent } from './user-area/register-client/register-client.component';
 import { RegisterEmployeeComponent } from './user-area/register-employee/register-employee.component';
 import { RegisterHouseComponent } from './user-area/register-house/register-house.component';
+import { LoginComponent } from './login/login.component';
+import { LoginRegisterComponent } from './login-register/login-register.component';
 
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'imoveis', component: HousesListComponent },
+  { path: 'login', component: LoginComponent},
+  { path: 'novo-cadastro', component: LoginRegisterComponent},
   { path: 'area-do-usuario',
     component: UserAreaComponent,
       children: [

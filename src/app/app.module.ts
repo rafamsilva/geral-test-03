@@ -20,6 +20,8 @@ import { RegisterEmployeeComponent } from './user-area/register-employee/registe
 import { RegisterHouseComponent } from './user-area/register-house/register-house.component';
 
 import { LoginCheckService } from './login-check.service';
+import { LoginComponent } from './login/login.component';
+import { LoginRegisterComponent } from './login-register/login-register.component';
 
 
 
@@ -39,6 +41,8 @@ import { LoginCheckService } from './login-check.service';
     RegisterClientComponent,
     RegisterEmployeeComponent,
     RegisterHouseComponent,
+    LoginComponent,
+    LoginRegisterComponent,
   ],
   imports: [
     BrowserModule,
