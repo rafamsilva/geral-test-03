@@ -1,16 +1,49 @@
 <div class="panel">
-    <form [formGroup]="form">
+    <form [formGroup]="form" (ngSubmit)="enterUserArea()">
         <div class="form-group">
           <label class="col-form-label">Usuário:</label>
           <input type="text" class="form-control" formControlName="user">
         </div>
-        <div class="form-group">
+        <div class="form-group panel__pass-block">
           <label class="col-form-label">Senha:</label>
           <input type="password" class="form-control" formControlName="password">
+          <small #msgInvalid class="panel__invalid-msg--hide panel__invalid-msg--show">Email e senha necessários para login!</small>
         </div>
-        <button  type="button" class="btn btn-danger" routerLink="/novo-cadastro">Cadastre-se</button>
-        <button #btnClear type="button" class="btn btn-primary" (click)="enterUserArea()">Login</button>
+        <!--
+        <div *ngIf="forgotPassword" class="alert alert-danger" role="alert">
+          Parece que voce esqueceu sua senha, <a class="panel__btn-recovery" data-toggle="modal" data-target="#recoveryPassModal">recupere aqui</a>
+        </div>
+      -->
+        <div *ngIf="notRegistred" class="alert alert-danger" role="alert">
+          Email ou senha inválidos!
+        </div>
+        <button #btnLogin type="submit" class="btn btn-primary">Login</button>
     </form>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="recoveryPassModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Informe o email para recuperar sua senha</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="form" (ngSubmit)="enterUserArea()">
+        <div class="form-group">
+          <input type="text" class="form-control" formControlName="user" placeholder="Email">
+        </div>
+    </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" disabled>Recuperar</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 

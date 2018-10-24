@@ -5,6 +5,19 @@
   margin: @margin-content;
   padding: @padding-content;
   box-shadow: @shadow;
+  &__pass-block{
+    display: flex;
+    flex-direction: column;
+  }
+  &__btn-recovery{
+    cursor: pointer;
+  }
+  &__invalid-msg--hide{
+    display: none;
+  }
+  &__invalid-msg--show{
+    color: red;
+  }
 }
 
 @media (max-width: 650px){
