@@ -3,15 +3,6 @@ import { RouterModule, Routes } from '@angular/router'
 
 import { HousesListComponent } from './houses-list/houses-list.component';
 import { HomeComponent } from './home/home.component';
-import { UserAreaComponent } from './user-area/user-area.component';
-import { ConfigurationAreaComponent } from './user-area/configuration-area/configuration-area.component';
-import { EmployeesComponent } from './user-area/employees/employees.component';
-import { FavoritesComponent } from './user-area/favorites/favorites.component';
-import { HousesComponent } from './user-area/houses/houses.component';
-import { ClientsComponent } from './user-area/clients/clients.component';
-import { RegisterClientComponent } from './user-area/register-client/register-client.component';
-import { RegisterEmployeeComponent } from './user-area/register-employee/register-employee.component';
-import { RegisterHouseComponent } from './user-area/register-house/register-house.component';
 import { LoginComponent } from './login/login.component';
 import { LoginRegisterComponent } from './login-register/login-register.component';
 
@@ -22,21 +13,7 @@ const routes: Routes = [
   { path: 'imoveis', component: HousesListComponent },
   { path: 'login', component: LoginComponent},
   { path: 'novo-cadastro', component: LoginRegisterComponent},
-  { path: 'area-do-usuario',
-    component: UserAreaComponent,
-      children: [
-        { path: 'favoritos', component: FavoritesComponent },
-        { path: 'configurações', component: ConfigurationAreaComponent },
-        { path: 'funcionarios', component: EmployeesComponent },
-        { path: 'imoveis', component: HousesComponent },
-        { path: 'clientes', component: ClientsComponent },
-        { path: 'cadastrar-cliente', component: RegisterClientComponent},
-        { path: 'cadastrar-funcionario', component: RegisterEmployeeComponent},
-        { path: 'cadastrar-imovel', component: RegisterHouseComponent}
-      ]
-  }
-
-
+  { path: 'area-do-usuario', loadChildren: './user-area/user-area.module#UserAreaModule' }
 ];
 
 @NgModule({
