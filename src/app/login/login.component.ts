@@ -6,6 +6,7 @@ import { LoginCheckService } from '../login-check.service';
 import { LogStateService } from '../log-state.service';
 import { isEmpty } from 'lodash';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,7 +16,9 @@ export class LoginComponent implements OnInit {
 
   public userType: number = 2;
   public user: User[];
-  @ViewChild('msgInvalid') msgInvalid: ElementRef
+  public forgotPassword: boolean = true
+  public notRegistred: boolean;
+  @ViewChild('msgInvalid') msgInvalid: ElementRef;
   public form: FormGroup = new FormGroup({
     'user': new FormControl(null, [ Validators.required ]),
     'password': new FormControl(null, [Validators.required])
@@ -26,7 +29,7 @@ export class LoginComponent implements OnInit {
     private route: Router,
     private renderer: Renderer2,
     private loginservice: LoginCheckService,
-    private data: LogStateService
+    private data: LogStateService,
     ) { }
 
     ngOnInit() {
@@ -46,6 +49,7 @@ export class LoginComponent implements OnInit {
           this.user = data;
           this.checkEmptyResponse(this.user);
           if(this.validateUserLogin(this.user[0].email, this.user[0].pass)){
+            this.loginservice.userIsAuth()
             this.route.navigate(['/area-do-usuario'])
             this.data.changeStateLogin(true)
           }
@@ -79,7 +83,9 @@ export class LoginComponent implements OnInit {
     }
 
     showRegisterMsg(): void{
-      alert('msg de registro!')
+      this.notRegistred = true
     }
+
+
 
   }

@@ -11,9 +11,11 @@ import { RegisterClientComponent } from './register-client/register-client.compo
 import { RegisterEmployeeComponent } from './register-employee/register-employee.component';
 import { RegisterHouseComponent } from './register-house/register-house.component';
 import { UserAreaComponent } from './user-area.component';
+import { AutenticationService } from './autentication.service';
+
 
 const routes: Routes = [
-    { path: '', component: UserAreaComponent,
+    { path: '', component: UserAreaComponent, canActivate: [ AutenticationService ],
       children: [
         { path: 'favoritos', component: FavoritesComponent },
         { path: 'configurações', component: ConfigurationAreaComponent },

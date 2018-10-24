@@ -1,3 +1,4 @@
+import { RecoveryPasswordService } from './recovery-password.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -16,6 +17,9 @@ import { LoginComponent } from './login/login.component';
 import { LoginRegisterComponent } from './login-register/login-register.component';
 import { HousesService } from './houses.service';
 import { LogStateService } from './log-state.service';
+import { AutenticationService } from './user-area/autentication.service';
+
+
 
 
 
@@ -35,7 +39,13 @@ import { LogStateService } from './log-state.service';
     ReactiveFormsModule,
     HttpModule
   ],
-  providers: [ LoginCheckService, HousesService, LogStateService ],
+  providers: [
+    LoginCheckService,
+    HousesService,
+    LogStateService,
+    RecoveryPasswordService,
+    AutenticationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
