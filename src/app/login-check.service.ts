@@ -19,5 +19,4 @@ export class LoginCheckService{
     .then((response: Response) => response.json());
   }
 
-
 }

@@ -1,5 +1,5 @@
 <div class="panel">
-    <form [formGroup]="form">
+    <form [formGroup]="form" (ngSubmit)="enterUserArea()">
         <div class="form-group">
           <label class="col-form-label">Usuário:</label>
           <input type="text" class="form-control" formControlName="user">
@@ -7,9 +7,10 @@
         <div class="form-group">
           <label class="col-form-label">Senha:</label>
           <input type="password" class="form-control" formControlName="password">
+          <small #msgInvalid class="panel__invalid-msg--hide panel__invalid-msg--show">Email e senha necessários para login!</small>
         </div>
         <button  type="button" class="btn btn-danger" routerLink="/novo-cadastro">Cadastre-se</button>
-        <button #btnClear type="button" class="btn btn-primary" (click)="enterUserArea()">Login</button>
+        <button #btnClear type="submit" class="btn btn-primary">Login</button>
     </form>
 </div>
 
