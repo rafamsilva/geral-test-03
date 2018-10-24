@@ -1,5 +1,5 @@
 
-<div class="row panel panel--selected">
+<div *ngFor="let house of houses" class="row panel panel--selected">
   <div class="col-lg-4 favorites-panel__slide">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
@@ -33,16 +33,16 @@
     </div>
   </div>
   <div class="col-lg-5 panel__text">
-    <strong>Tubalina</strong>
+    <strong>{{house.bairro}}</strong>
     <br>
     <span>Av Ipê * Uberlândia MG</span>
-    <p>Excelente localização. Amplos aptos 2 quartos, varanda gourmet, uma ou duas suítes e lavabo. Ótimas coberturas lineares 2 e 3 quartos. Lazer: lounge gourmet, sauna, piscina, fitness e home office. Obras iniciadas. Padrão Proart Engenharia</p>
+    <p>{{house.desc}}</p>
   </div>
   <div class="col-lg-3 panel__info">
     <ul class="panel__icons-list">
       <li class="panel__icons-item">
         <i class="fas fa-door-open fa-2x"></i>
-        <span class="panel__info-text" style="margin-left: 10px">3 quartos</span>
+        <span class="panel__info-text" style="margin-left: 10px">{{house.quartos}} quartos</span>
       </li>
       <li class="panel__icons-item">
         <i class="fas fa-shower fa-2x"></i>
