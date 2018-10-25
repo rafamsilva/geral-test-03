@@ -23,8 +23,8 @@
       "email": "ert",
       "pass": "896",
       "id": "050"
-    }
-    ,{
+    },
+    {
       "name": "pedro",
       "email": "abrc",
       "pass": "963",
@@ -91,8 +91,34 @@
           "url": "../assets/imoveis/casa-tubalina-04.jpg"
         }
       ]
+    },
+    {
+      "id": "90",
+      "endereco": "Rua das acássias, Uberlandia MG",
+      "tipo": "casa",
+      "valor": "1200",
+      "disp": "venda",
+      "area": "110",
+      "quartos": "3",
+      "vagas": "2",
+      "suite": "1",
+      "desc": "casa pequena",
+      "bairro": "Tocantins"
+    },
+    {
+      "endereco": "Rua Horacio Pereira Mendes",
+      "bairro": "tancredo",
+      "cidade": "UBERLANDIA",
+      "estado": "MG",
+      "cep": "38413-273",
+      "tipo": "casa",
+      "disp": "aluguel",
+      "suites": 23,
+      "quartos": 23,
+      "vagas": 23,
+      "area": 23,
+      "valor": "223333",
+      "id": "dkpp6KJ"
     }
-
   ]
-
 }

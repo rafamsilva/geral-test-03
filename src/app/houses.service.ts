@@ -1,7 +1,8 @@
 import { Injectable } from "@angular/core";
-import { Http, Response } from "../../node_modules/@angular/http";
+import { Http, Response, Headers, RequestOptions } from "../../node_modules/@angular/http";
 import { House } from "src/shared/house.model";
 import { Observable } from "rxjs";
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class HousesService{
@@ -20,8 +21,16 @@ export class HousesService{
     return this.http.delete(`http://localhost:3000/houses/${id}`)
   }
 
-  public registerHouse(data: House): void{
+  public registerHouse(data: House): Observable<any>{
     console.log('na função de registro', data)
+
+    let headers: Headers = new Headers()
+    headers.append('Content-type', 'application/json')
+    return this.http.post('http://localhost:3000/houses',
+    JSON.stringify(data),
+    new RequestOptions({ headers: headers}))
+    .pipe(map((response: Response)=>response.json()) )
   }
+
 
 }

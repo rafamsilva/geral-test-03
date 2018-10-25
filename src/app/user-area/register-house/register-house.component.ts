@@ -34,6 +34,7 @@ export class RegisterHouseComponent implements OnInit {
   sendData(){
     this.house = this.form.value
     this.houseService.registerHouse(this.house)
+    .subscribe((response)=> console.log(response))
   }
 
 }
