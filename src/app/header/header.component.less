@@ -4,25 +4,58 @@
   background-color: @primary-color;
   box-shadow: @shadow;
   display: flex;
-  .header__logo{
+  &__logo{
     height: 50%;
   }
-  .header__title{
+  &__title{
     margin-left: 5px;
     color: @text-navbar
   }
-  .header__item{
+  &__item{
     color: @text-navbar;
     margin-left: 5px
   }
-  .header__login-icon{
+  .user-menu{
+    border: 2px solid white;
+    display: flex;
+    flex-direction: column;
+    &__greetings{
+      color: red;
+    }
+    &__logout{
+      color: green
+    }
+    &__panel-link{
+      color: purple
+    }
+  }
+  &__login-icon{
     cursor: pointer;
   }
 }
 
-@media (max-width: 990px){
+@media (max-width: 992px){
+  .header{
+    display: flex;
+    &__item{
+      font-size: 180%
+    }
+    &__icon{
+      color: white;
+      font-size: 200%
+    }
+  }
   .header__list{
     margin-top: 5%
   }
+
+  .header--collapse{
+
+  }
+
+  .user-menu{
+    width: 100%
+  }
+
 }
 

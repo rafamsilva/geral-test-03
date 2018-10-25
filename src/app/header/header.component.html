@@ -7,23 +7,22 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto header__list">
-      <li class="nav-item">
+  <div class="collapse navbar-collapse header--collapse" id="navbarSupportedContent">
+
         <a class="header__item" routerLink="/imoveis">Imóveis</a>
-      </li>
-      <li class="nav-item">
+
         <a class="header__item" href="#">Fale Conosco</a>
-      </li>
-    </ul>
+
     <div *ngIf="!isLogged; else nameUser" class="header__login-icon" routerLink="/login">
       <i class="fas fa-2x fa-user-lock header__icon"></i>
     </div>
     <ng-template #nameUser>
-      <span>Olá, {{userName}}</span>
-      <br>
-      <a (click)="logout()" routerLink="/">sair</a>
-      <a routerLink="./area-do-usuario">Acessar meu painel</a>
+      <div class="user-menu col-md-4">
+          <span class="user-menu__greetings">Olá, {{userName}}</span>
+          <br>
+          <a class="user-menu__logout" (click)="logout()" routerLink="/">sair</a>
+          <a class="user-menu__panel-link" routerLink="./area-do-usuario">Acessar meu painel</a>
+      </div>
   </ng-template>
   </div>
 </nav>
