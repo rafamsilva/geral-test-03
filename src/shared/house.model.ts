@@ -7,9 +7,10 @@ export class House{
       public area: string,
       public quartos: string,
       public vagas: string,
-      public suite: string,
+      public suites: string,
       public desc: string,
       public bairro: string,
       public imgs: Array<object>
       ){}
 }
+

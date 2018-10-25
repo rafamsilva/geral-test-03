@@ -1,5 +1,7 @@
+import { House } from 'src/shared/house.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { HousesService } from '../../houses.service';
 
 @Component({
   selector: 'app-register-house',
@@ -15,20 +17,23 @@ export class RegisterHouseComponent implements OnInit {
     'cep': new FormControl(null, [Validators.required]),
     'tipo': new FormControl(null, [Validators.required]),
     'disp': new FormControl(null, [Validators.required]),
+    'suites': new FormControl(null, [Validators.required]),
     'quartos': new FormControl(null, [Validators.required]),
-    'vaga': new FormControl(null, [Validators.required]),
+    'vagas': new FormControl(null, [Validators.required]),
     'area': new FormControl(null, [Validators.required]),
     'valor': new FormControl(null, [Validators.required]),
   })
+  public house: House;
 
-  constructor() { }
+  constructor(private houseService: HousesService) { }
 
   ngOnInit() {
     console.log(this.form.value)
   }
 
   sendData(){
-    console.log('enviado: ',this.form.value)
+    this.house = this.form.value
+    this.houseService.registerHouse(this.house)
   }
 
 }

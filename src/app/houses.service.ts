@@ -21,7 +21,7 @@ export class HousesService{
   }
 
   public registerHouse(data: House): void{
-    alert('na função de registro')
+    console.log('na função de registro', data)
   }
 
 }
