@@ -39,62 +39,7 @@
   ],
   "houses": [
     {
-      "id": "15",
-      "endereco": "Av Dom Pedro II, Uberlandia MG",
-      "tipo": "casa",
-      "valor": "22000",
-      "disp": "venda",
-      "area": "110",
-      "quartos": "3",
-      "vagas": "2",
-      "suite": "1",
-      "desc": "Sobrado em condomínio bem localizado, no Nova Uberlândia, 3 km da praça Tubal Vilela.",
-      "bairro": "Granada",
-      "img": [
-        {
-          "url": "../assets/imoveis/casa-tubalina-01.jpg"
-        },
-        {
-          "url": "../assets/imoveis/casa-tubalina-02.jpg"
-        },
-        {
-          "url": "../assets/imoveis/casa-tubalina-03.jpg"
-        },
-        {
-          "url": "../assets/imoveis/casa-tubalina-04.jpg"
-        }
-      ]
-    },
-    {
-      "id": "10",
-      "endereco": "Rua das flores, Uberlandia MG",
-      "tipo": "apartamento",
-      "valor": "1200",
-      "disp": "venda",
-      "area": "110",
-      "quartos": "3",
-      "vagas": "2",
-      "suite": "1",
-      "desc": "Sobrado em condomínio bem localizado, no Nova Uberlândia, 3 km da praça Tubal Vilela.",
-      "bairro": "Nova Uberlândia",
-      "img": [
-        {
-          "url": "../assets/imoveis/casa-tubalina-01.jpg"
-        },
-        {
-          "url": "../assets/imoveis/casa-tubalina-02.jpg"
-        },
-        {
-          "url": "../assets/imoveis/casa-tubalina-03.jpg"
-        },
-        {
-          "url": "../assets/imoveis/casa-tubalina-04.jpg"
-        }
-      ]
-    },
-    {
-      "id": "90",
-      "endereco": "Rua das acássias, Uberlandia MG",
+      "endereco": "Rua das cachoeiras, Uberlandia MG",
       "tipo": "casa",
       "valor": "1200",
       "disp": "venda",
@@ -103,22 +48,22 @@
       "vagas": "2",
       "suite": "1",
       "desc": "casa pequena",
-      "bairro": "Tocantins"
-    },
-    {
-      "endereco": "Rua Horacio Pereira Mendes",
-      "bairro": "tancredo",
-      "cidade": "UBERLANDIA",
-      "estado": "MG",
-      "cep": "38413-273",
-      "tipo": "casa",
-      "disp": "aluguel",
-      "suites": 23,
-      "quartos": 23,
-      "vagas": 23,
-      "area": 23,
-      "valor": "223333",
-      "id": "dkpp6KJ"
+      "bairro": "Tocantins",
+      "img": [
+        {
+          "url": "../assets/imoveis/casa-tubalina-01.jpg"
+        },
+        {
+          "url": "../assets/imoveis/casa-tubalina-02.jpg"
+        },
+        {
+          "url": "../assets/imoveis/casa-tubalina-03.jpg"
+        },
+        {
+          "url": "../assets/imoveis/casa-tubalina-04.jpg"
+        }
+      ],
+      "id": 1
     }
   ]
 }

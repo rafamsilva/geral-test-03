@@ -1,6 +1,5 @@
 export class House{
   constructor(
-      public id: string,
       public tipo: string,
       public valor: string,
       public disp: string,
