@@ -9,20 +9,21 @@ import { House } from 'src/shared/house.model';
 })
 export class HousesListComponent implements OnInit {
   public houses: House[];
+  public favoriteHouses: number[];
 
   constructor(private housesService: HousesService) { }
 
   ngOnInit() {
-
     this.housesService.getHouses()
     .then((data: House[]) => {
       this.houses = data;
       console.log(this.houses)
     })
     .catch((data: any) => {});
+  }
 
-
-
+  toggleFavorite(): void{
+    alert('adicionado')
   }
 
 }

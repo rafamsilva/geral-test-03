@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     }
 
     enterUserArea(): void{
-      if(this.validateInputFields()){
+      if(this.form.invalid){
         this.addInvalidFormMsg()
       }else{
         this.removeInvaliFormMsg()
@@ -62,10 +62,6 @@ export class LoginComponent implements OnInit {
     validateUserLogin(name, password): boolean{
       console.log("verficando correspondentes")
       return name === this.form.value.user &&  password === this.form.value.password
-    }
-
-    validateInputFields(): boolean{
-      return this.form.status === 'INVALID'
     }
 
     addInvalidFormMsg(): void{
