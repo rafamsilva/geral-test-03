@@ -9,6 +9,7 @@ import { HousesService } from '../../houses.service';
 })
 export class HousesComponent implements OnInit {
   public houses: House[];
+  public id = 15
 
   constructor(private housesService: HousesService) { }
 

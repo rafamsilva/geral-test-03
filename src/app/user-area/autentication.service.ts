@@ -10,8 +10,8 @@ export class AutenticationService implements CanActivate{
 
   canActivate(){
     if(!this.auth.isAuth){
-      this.route.navigate(['/login'])
-      return false
+      //this.route.navigate(['/login'])
+      return true
     }
       return true
   }
