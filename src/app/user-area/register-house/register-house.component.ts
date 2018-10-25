@@ -17,25 +17,32 @@ export class RegisterHouseComponent implements OnInit {
     'cep': new FormControl(null, [Validators.required, Validators.pattern(/^[0-9]{8}$/)]),
     'tipo': new FormControl(null, [Validators.required]),
     'disp': new FormControl(null, [Validators.required]),
-    'suites': new FormControl(null, []),
-    'quartos': new FormControl(null, []),
-    'vagas': new FormControl(null, []),
-    'area': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
-    'valor': new FormControl(null, [Validators.required]),
+    'suites': new FormControl(null, [Validators.pattern(/^[0-9]*$/),Validators.maxLength(10)]),
+    'quartos': new FormControl(null, [Validators.pattern(/^[0-9]*$/),Validators.maxLength(10)]),
+    'vagas': new FormControl(null, [Validators.pattern(/^[0-9]*$/), Validators.maxLength(10)]),
+    'area': new FormControl(null, [Validators.required, Validators.pattern(/^[0-9]*$/), Validators.minLength(3), Validators.maxLength(20)]),
+    'valor': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern(/^[0-9]*$/)]),
   })
   public house: House;
 
   constructor(private houseService: HousesService) { }
 
   ngOnInit() {
-    console.log('on init',this.form)
+
   }
 
   sendData(){
-    this.house = this.form.value
-    console.log(this.form)
+    if(this.form.status === 'INVALID'){
+      alert('invalido')
+
+    }else{
+      this.house = this.form.value
+      alert('valido')
+      console.log(this.form)
     //this.houseService.registerHouse(this.house)
     //.subscribe((response)=> console.log(response))
+    }
+
   }
 
 }
