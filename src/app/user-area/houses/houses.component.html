@@ -1,7 +1,7 @@
 
-<div class="row panel panel--selected">
+<div *ngFor="let house of houses" class="row panel panel--selected">
   <div class="col-lg-4 favorites-panel__slide">
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div id="key{{house.id}}" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -10,54 +10,54 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="d-block w-100" src="../../../assets/imoveis/casa-tubalina-01.jpg" alt="First slide">
+          <img class="d-block w-100" [src]="house.img[0].url" alt="First slide">
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" src="../../../assets/imoveis/casa-tubalina-02.jpg" alt="Second slide">
+          <img class="d-block w-100" [src]="house.img[1].url" alt="Second slide">
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" src="../../../assets/imoveis/casa-tubalina-03.jpg" alt="Third slide">
+          <img class="d-block w-100" [src]="house.img[2].url" alt="Third slide">
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" src="../../../assets/imoveis/casa-tubalina-04.jpg" alt="Fourth slide">
+          <img class="d-block w-100" [src]="house.img[3].url" alt="Fourth slide">
         </div>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <a class="carousel-control-prev" href="#key{{house.id}}" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <a class="carousel-control-next" href="#key{{house.id}}" role="button" data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
     </div>
   </div>
   <div class="col-lg-5 panel__text">
-    <strong>Tubalina</strong>
+    <strong>{{house.bairro}}</strong>
     <br>
-    <span>Av Ipê * Uberlândia MG</span>
-    <p>Excelente localização. Amplos aptos 2 quartos, varanda gourmet, uma ou duas suítes e lavabo. Ótimas coberturas lineares 2 e 3 quartos. Lazer: lounge gourmet, sauna, piscina, fitness e home office. Obras iniciadas. Padrão Proart Engenharia</p>
+    <span>{{house.endereco}}</span>
+    <p>{{house.desc}}</p>
   </div>
   <div class="col-lg-3 panel__info">
     <ul class="panel__icons-list">
       <li class="panel__icons-item">
         <i class="fas fa-door-open fa-2x"></i>
-        <span class="panel__info-text" style="margin-left: 10px">3 quartos</span>
+        <span class="panel__info-text" style="margin-left: 10px">{{house.quartos}} quartos</span>
       </li>
       <li class="panel__icons-item">
         <i class="fas fa-shower fa-2x"></i>
-        <span class="panel__info-text">1 suítes</span>
+        <span class="panel__info-text">{{house.suite}} suítes</span>
       </li>
       <li class="panel__icons-item">
         <i class="fas fa-car fa-2x"></i>
-        <span class="panel__info-text">3 quartos</span>
+        <span class="panel__info-text">{{house.vagas}} vaga(s)</span>
       </li>
       <li class="panel__icons-item">
         <i class="fas fa-expand-arrows-alt fa-2x"></i>
-        <span class="panel__info-text">3 quartos</span>
+        <span class="panel__info-text">{{house.area}} m2</span>
       </li>
     </ul>
-    <button class="panel__delete-btn">REMOVER IMÓVEL</button>
+    <button class="panel__delete-btn" (click)="removeHouse()">REMOVER IMÓVEL</button>
   </div>
 </div>
 

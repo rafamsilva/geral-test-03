@@ -39,17 +39,18 @@
   ],
   "houses": [
     {
-      "id": "10",
+      "id": "15",
+      "endereco": "Av Dom Pedro II, Uberlandia MG",
       "tipo": "casa",
-      "valor": "1200",
-      "disp": "aluguel",
+      "valor": "22000",
+      "disp": "venda",
       "area": "110",
       "quartos": "3",
       "vagas": "2",
       "suite": "1",
       "desc": "Sobrado em condomínio bem localizado, no Nova Uberlândia, 3 km da praça Tubal Vilela.",
-      "bairro": "Nova Uberlândia",
-      "imgs": [
+      "bairro": "Granada",
+      "img": [
         {
           "url": "../assets/imoveis/casa-tubalina-01.jpg"
         },
@@ -66,6 +67,7 @@
     },
     {
       "id": "10",
+      "endereco": "Rua das flores, Uberlandia MG",
       "tipo": "apartamento",
       "valor": "1200",
       "disp": "venda",
@@ -75,7 +77,7 @@
       "suite": "1",
       "desc": "Sobrado em condomínio bem localizado, no Nova Uberlândia, 3 km da praça Tubal Vilela.",
       "bairro": "Nova Uberlândia",
-      "imgs": [
+      "img": [
         {
           "url": "../assets/imoveis/casa-tubalina-01.jpg"
         },
