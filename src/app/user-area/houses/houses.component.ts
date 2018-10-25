@@ -27,4 +27,8 @@ export class HousesComponent implements OnInit {
     .catch((data: any) => {});
   }
 
+  removeHouse(){
+    this.housesService.deleteHouse(15).subscribe()
+  }
+
 }
