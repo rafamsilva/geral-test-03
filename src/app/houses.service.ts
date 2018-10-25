@@ -16,9 +16,12 @@ export class HousesService{
   }
 
   public deleteHouse(id: number): Observable<any>{
-    alert('no serviço')
+    alert('na função de delete')
     return this.http.delete(`http://localhost:3000/houses/${id}`)
   }
 
+  public registerHouse(data: House): void{
+    alert('na função de registro')
+  }
 
 }
