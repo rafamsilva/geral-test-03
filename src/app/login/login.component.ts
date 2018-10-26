@@ -13,7 +13,7 @@ import { isEmpty } from 'lodash';
   styleUrls: ['./login.component.less']
 })
 export class LoginComponent implements OnInit {
-
+  // Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]
   public userType: number = 2;
   public user: User[];
   public forgotPassword: boolean = true
@@ -60,7 +60,6 @@ export class LoginComponent implements OnInit {
     }
 
     validateUserLogin(name, password): boolean{
-      console.log("verficando correspondentes")
       return name === this.form.value.user &&  password === this.form.value.password
     }
 
