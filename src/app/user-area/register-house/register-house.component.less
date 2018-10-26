@@ -5,6 +5,14 @@
   margin: @margin-content;
   padding: @padding-content;
   box-shadow: @shadow;
+  .form{
+    &__field--error.ng-invalid.ng-touched{
+      border: 1px solid red;
+    }
+    &__field--error.ng-valid.ng-touched{
+      border: 1px solid green;
+    }
+  }
 }
 
 @media (max-width: 650px){

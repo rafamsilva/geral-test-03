@@ -60,7 +60,6 @@ export class LoginComponent implements OnInit {
     }
 
     validateUserLogin(name, password): boolean{
-      console.log("verficando correspondentes")
       return name === this.form.value.user &&  password === this.form.value.password
     }
 

@@ -32,15 +32,13 @@ export class RegisterHouseComponent implements OnInit {
   }
 
   sendData(){
-    if(this.form.status === 'INVALID'){
-      alert('invalido')
-
-    }else{
+    if(this.form.status !== 'INVALID'){
       this.house = this.form.value
-      alert('valido')
-      console.log(this.form)
+      alert('imóvel cadastrado!')
+      this.form.reset()
     //this.houseService.registerHouse(this.house)
     //.subscribe((response)=> console.log(response))
+
     }
 
   }
