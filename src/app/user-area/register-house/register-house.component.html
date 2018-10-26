@@ -3,28 +3,28 @@
     <div class="form-row">
       <div class="form-group col-md-6">
         <label>Endereço</label>
-        <input type="text" class="form-control form__field--error form__field--error" placeholder="Rua Vinte, 235" formControlName="endereco">
+        <input type="text" class="form-control form__field--validation" placeholder="Rua Vinte, 235" formControlName="endereco">
       </div>
       <div class="form-group col-md-6">
         <label>Bairro</label>
-        <input type="text" class="form-control form__field--error " placeholder="Dom Almir"  formControlName="bairro">
+        <input type="text" class="form-control form__field--validation" placeholder="Dom Almir"  formControlName="bairro">
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
         <label>Cidade</label>
-        <input type="text" class="form-control form__field--error" placeholder="Uberlandia" formControlName="cidade">
+        <input type="text" class="form-control form__field--validation" placeholder="Uberlandia" formControlName="cidade">
       </div>
       <div class="form-group col-md-4">
         <label>Estado</label>
-        <select id="inputState" class="form-control form__field--error" formControlName="estado">
+        <select id="inputState" class="form-control form__field--validation" formControlName="estado">
           <option selected [ngValue]="null">...</option>
           <option>MG</option>
         </select>
       </div>
       <div class="form-group col-md-2">
         <label>CEP</label>
-        <input type="text" class="form-control form__field--error" placeholder="38400200" formControlName="cep">
+        <input type="text" class="form-control form__field--validation" placeholder="38400200" formControlName="cep">
       </div>
     </div>
 
@@ -38,7 +38,7 @@
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input form__field--error" type="radio" name="tipo" id="gridRadios2" value="apartamento" formControlName="tipo">
+          <input class="form-check-input form__field--validation" type="radio" name="tipo" id="gridRadios2" value="apartamento" formControlName="tipo">
           <label class="form-check-label" for="tipo">
             Apartamento
           </label>
@@ -67,22 +67,22 @@
     <div class="form-row">
       <div class="form-group col-md-2">
         <label for="inputCity">Suítes</label>
-        <input type="text" class="form-control form__field--error" formControlName="suites">
+        <input type="text" class="form-control form__field--validation" formControlName="suites">
       </div>
 
       <div class="form-group col-md-2">
         <label for="inputCity">Quartos</label>
-        <input type="text" class="form-control form__field--error" formControlName="quartos">
+        <input type="text" class="form-control form__field--validation" formControlName="quartos">
       </div>
 
       <div class="form-group col-md-2">
         <label for="inputCity">Vagas na garagem</label>
-        <input type="text" class="form-control form__field--error" formControlName="vagas">
+        <input type="text" class="form-control form__field--validation" formControlName="vagas">
       </div>
 
       <div class="form-group col-md-4">
         <label for="inputCity">Área útil</label>
-        <input type="text" class="form-control form__field--error" formControlName="area" placeholder="valor em metros quadrados">
+        <input type="text" class="form-control form__field--validation" formControlName="area" placeholder="valor em metros quadrados">
       </div>
     </div>
 
@@ -91,7 +91,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text" id="inputGroupPrepend">R$</span>
         </div>
-        <input type="text" class="form-control form__field--error" formControlName="valor">
+        <input type="text" class="form-control form__field--validation" formControlName="valor">
       </div>
     </div>
     <button type="submit" class="btn btn-primary">Cadastrar</button>
