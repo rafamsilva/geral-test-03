@@ -23,7 +23,7 @@ export class RegisterClientComponent implements OnInit {
   ngOnInit() {
   }
 
-  endData(){
+  sendData(){
     if(this.form.status !== 'INVALID' && this.confirmPassword()){
       this.user = this.form.value
       alert('funcionario cadastrado!')

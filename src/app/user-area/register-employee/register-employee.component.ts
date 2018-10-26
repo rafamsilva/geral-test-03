@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Employee } from 'src/shared/employee.model';
-import { remove } from 'lodash';
+import { mapValues } from 'lodash';
+
 
 @Component({
   selector: 'app-register-employee',
@@ -30,10 +31,9 @@ export class RegisterEmployeeComponent implements OnInit {
     if(this.form.status !== 'INVALID' && this.confirmPassword()){
       this.employee = this.form.value
       alert('funcionario cadastrado!')
-      console.log(this.employee)
       this.form.reset()
-    //this.houseService.registerHouse(this.house)
-    //.subscribe((response)=> console.log(response))
+      //this.houseService.registerHouse(this.house)
+      //.subscribe((response)=> console.log(response))
     }
   }
 
@@ -43,6 +43,10 @@ export class RegisterEmployeeComponent implements OnInit {
       return false
     }
     return true
+  }
+
+  validateAsEmployee(data){
+
   }
 
 
