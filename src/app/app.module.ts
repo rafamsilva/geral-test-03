@@ -1,3 +1,4 @@
+import { UserService } from './user.service';
 import { RecoveryPasswordService } from './recovery-password.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -44,7 +45,8 @@ import { AutenticationService } from './user-area/autentication.service';
     HousesService,
     LogStateService,
     RecoveryPasswordService,
-    AutenticationService
+    AutenticationService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

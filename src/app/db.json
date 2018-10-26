@@ -1,55 +1,44 @@
 {
   "user": [
     {
-      "name": "danillo",
+      "nome": "danillo",
       "email": "abc",
-      "pass": "123",
+      "password": "123",
+      "telefone": "32223475",
+      "admin": false,
       "id": "015"
     },
     {
-      "name": "joao",
-      "email": "bcd",
-      "pass": "123",
-      "id": "020"
-    },
-    {
-      "name": "rafael",
-      "email": "abcp",
-      "pass": "156",
-      "id": "007"
-    },
-    {
-      "name": "tania",
-      "email": "ert",
-      "pass": "896",
-      "id": "050"
-    },
-    {
-      "name": "pedro",
-      "email": "abrc",
-      "pass": "963",
-      "id": "036"
-    },
-    {
-      "name": "joaquim",
-      "email": "erfd",
-      "pass": "963",
-      "id": "012"
-    },
-    {
+      "nome": "pedro",
       "email": "abc",
-      "pass": "123",
-      "id": "Wkjgu5k"
+      "password": "123",
+      "telefone": "32223475",
+      "admin": false,
+      "id": "10"
     },
     {
+      "nome": "pablo",
       "email": "abc",
-      "pass": "123",
-      "id": "WhXM_lY"
+      "password": "123",
+      "telefone": "32223475",
+      "admin": true,
+      "id": "9"
     },
     {
+      "nome": "joao paulo",
       "email": "abc",
-      "pass": "123",
-      "id": "9l6crUE"
+      "password": "123",
+      "telefone": "32223475",
+      "admin": true,
+      "id": "8"
+    },
+    {
+      "nome": "maria",
+      "email": "abc",
+      "password": "123",
+      "telefone": "32223475",
+      "admin": false,
+      "id": "7"
     }
   ],
   "houses": [

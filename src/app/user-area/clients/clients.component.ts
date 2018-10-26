@@ -1,4 +1,6 @@
+import { UserService } from './../../user.service';
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/shared/user.model';
 
 @Component({
   selector: 'app-clients',
@@ -6,10 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./clients.component.less']
 })
 export class ClientsComponent implements OnInit {
-
-  constructor() { }
+  public users: User[]
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.getUsersList()
+  }
+
+  getUsersList(){
+    this.userService.getAllUsers()
+    .then((data: User[]) => {
+      this.users = data;
+      console.log(this.users)
+    })
+    .catch((data: any) => {});
   }
 
 }

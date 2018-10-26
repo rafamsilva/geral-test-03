@@ -1,33 +1,36 @@
 <div class="register-panel">
-  <form [formGroup]="form">
+  <form [formGroup]="form" (ngSubmit)="sendData()" class="form">
     <div class="form-row">
-      <div class="col">
-        <label for="exampleInputPassword1">Nome</label>
-        <input type="text" class="form-control" placeholder="José" formControlName="name">
+      <div class="col-md-6">
+        <label>Nome</label>
+        <input type="text" class="form-control form__field--validation" placeholder="José" formControlName="nome">
       </div>
-      <div class="col">
-        <label for="exampleInputPassword1">Sobrenome</label>
-        <input type="text" class="form-control" placeholder="Andrade da Silva" formControlName="lastName">
+      <div class="col-md-6">
+        <label>Sobrenome</label>
+        <input type="text" class="form-control form__field--validation" placeholder="Andrade da Silva" formControlName="sobrenome">
+      </div>
+      <br>
+      <div class="form-group col-md-4">
+        <label>Telefone</label>
+        <input type="tel" class="form-control form__field--validation" placeholder="34997999999" formControlName="telefone">
+        <small *ngIf="!form.get('telefone').valid && form.get('telefone').touched" >Digite apenas numeros, incluindo o DDD</small>
+      </div>
+      <div class="form-group col-md-8">
+        <label for="exampleInputEmail1">Email</label>
+        <input type="email" class="form-control form__field--validation" placeholder="jose_alberto@dominio.com" formControlName="email">
+        <small *ngIf="!form.get('email').valid && form.get('email').touched" >Digite um email válido</small>
+      </div>
+      <div class="form-group col-md-6">
+        <label>Senha</label>
+        <input type="password" class="form-control form__field--validation" formControlName="senha">
+        <small *ngIf="!form.get('senha').valid && form.get('senha').touched" >A senha deve ter pelo menos 6 caractéres entre letras e numeros </small>
+      </div>
+      <div class="form-group col-md-6">
+        <label>Confirme a senha</label>
+        <input type="password" class="form-control form__field--validation" formControlName="confirmarSenha">
+        <small *ngIf="form.get('senha').value != form.get('confirmarSenha').value && form.get('confirmarSenha').touched">as senhas precisam ser iguais!</small>
       </div>
     </div>
-    <br>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Telefone</label>
-      <input type="tel" class="form-control" placeholder="99799-9999" formControlName="phone">
-    </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">CEP</label>
-      <input type="text" class="form-control" placeholder="38400-000" formControlName="postalCode">
-    </div>
-    <div class="form-group">
-      <label for="exampleInputEmail1">Email</label>
-      <input type="email" class="form-control" placeholder="jose_alberto@dominio.com" formControlName="email">
-    </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Senha</label>
-      <input type="text" class="form-control" formControlName="password">
-      <small>Escolha uma senha com no mínimo 5 caractéres</small>
-    </div>
-    <button type="submit" class="btn btn-primary">Cadastrar</button>
+    <button type="submit" class="btn btn-primary" [disabled]="form.status === 'INVALID'">Cadastrar</button>
   </form>
 </div>
