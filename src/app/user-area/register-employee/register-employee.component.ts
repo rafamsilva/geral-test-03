@@ -11,6 +11,7 @@ import { remove } from 'lodash';
 export class RegisterEmployeeComponent implements OnInit {
   public employee: Employee;
   public isDifferent: boolean;
+  t: boolean = true
   public form: FormGroup = new FormGroup({
     'nome': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
     'sobrenome': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]),
@@ -42,7 +43,6 @@ export class RegisterEmployeeComponent implements OnInit {
   confirmPassword(){
     if(this.form.value.senha != this.form.value.confirmarSenha){
       alert('senhas não conferem')
-      this.isDifferent = true;
       return false
     }
     return true
