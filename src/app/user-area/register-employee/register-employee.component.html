@@ -28,7 +28,7 @@
       <div class="form-group col-md-6">
         <label for="exampleInputPassword1">Confirme a senha</label>
         <input type="password" class="form-control form__field--validation" formControlName="confirmarSenha">
-        <small *ngIf="isDifferent" >as senhas precisam ser iguais!</small>
+        <small *ngIf="form.get('senha').value != form.get('confirmarSenha').value && form.get('confirmarSenha').touched">as senhas precisam ser iguais!</small>
       </div>
     </div>
     <button type="submit" class="btn btn-primary">Cadastrar</button>

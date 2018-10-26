@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Employee } from 'src/shared/employee.model';
+import { remove } from 'lodash';
 
 @Component({
   selector: 'app-register-employee',
@@ -24,6 +25,7 @@ export class RegisterEmployeeComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.form.value)
+
   }
 
   sendData(){
@@ -45,5 +47,11 @@ export class RegisterEmployeeComponent implements OnInit {
     }
     return true
   }
+
+  checkField(){
+    alert('ok')
+  }
+
+
 
 }
