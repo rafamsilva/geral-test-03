@@ -4,66 +4,47 @@
   background-color: @primary-color;
   box-shadow: @shadow;
   display: flex;
+  height: 80px;
   &__logo{
-    height: 50%;
+    border: 2px solid red;
+    width: 30%;
   }
-  &__title{
-    margin-left: 5px;
-    color: @text-navbar
-  }
-  &__item{
-    color: @text-navbar;
-    margin-left: 5px
-  }
-  &__item2{
-    margin-right: 60%;
-    color: @text-navbar;
-    margin-left: 5px
-  }
-  .user-menu{
-    border: 2px solid white;
+  &__links{
+    border: 2px solid khaki;
+    width: 45%;
     display: flex;
-    flex-direction: column;
-    &__greetings{
-      color: red;
-    }
-    &__logout{
-      color: green
-    }
-    &__panel-link{
-      color: purple
+    align-items: center;
+    font-size: 120%;
+    &-item{
+      border: 2px solid brown;
+      margin: 0 5%
     }
   }
-  &__login-icon{
-    cursor: pointer;
+  &__login--off{
+    width: 25%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 1.5em;
+    font-size: 150%
   }
-  .header--collapse{
-    justify-content: space-between;
+  &__login--on{
+    border: 2px solid white
   }
 }
 
-@media (max-width: 991px){
+@media (max-width: 575.98px) {
   .header{
-    display: flex;
-    &__item{
-      font-size: 180%
-    }
-    &__icon{
-      color: white;
-      font-size: 200%
-    }
+    background-color: lightblue
   }
-  .header__list{
-    margin-top: 5%
+ }
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .header{
+    background-color: lightcyan
   }
+ }
 
-  .header--collapse{
 
-  }
-
-  .user-menu{
-    width: 100%
-  }
-
-}
 

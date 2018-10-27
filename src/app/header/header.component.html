@@ -1,26 +1,32 @@
-<nav class="navbar navbar-expand-lg navbar-light header">
-  <a class="navbar-brand" routerLink="">
-    <img class="header__logo" src="../../assets/logo.png" alt="">
-    <span class="header__title">Futura Imóveis</span>
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse header--collapse" id="navbarSupportedContent">
-    <a class="header__item" routerLink="/imoveis">Imóveis</a>
-    <a class="header__item2" href="#">Fale Conosco</a>
-    <div *ngIf="!isLogged; else nameUser" class="header__login-icon" routerLink="/login">
+<nav class="header">
+  <div class="header__logo">
+    <a routerLink="">
+      <img src="../../assets/logo.png" alt="">
+    </a>
+  </div>
+  <div class="header__links">
+    <div class="header__links-item">
+      <a class="header__item" routerLink="/imoveis">Imóveis</a>
+    </div>
+    <div class="header__links-item">
+      <a class="header__item" href="#">Fale Conosco</a>
+    </div>
+  </div>
+
+  <div [ngClass]="!isLogged ? 'header__login--off' : 'header__login--on'">
+    <div *ngIf="!isLogged; else nameUser" routerLink="/login">
       <i class="fas fa-2x fa-user-lock header__icon"></i>
     </div>
-    <ng-template #nameUser>
-      <div class="user-menu col-md-4">
-        <span class="user-menu__greetings">Olá, {{userName}}</span>
-        <br>
-        <a class="user-menu__logout" (click)="logout()" routerLink="/">sair</a>
-        <a class="user-menu__panel-link" routerLink="./area-do-usuario">Acessar meu painel</a>
-      </div>
-    </ng-template>
   </div>
+
+  <ng-template #nameUser>
+    <div class="header__login--on">
+      <span class="header__login-name">Olá, {{userName}}</span>
+      <br>
+      <a class="header__login-name" (click)="logout()" routerLink="/">sair</a>
+      <a class="header__login-panel" routerLink="./area-do-usuario">Acessar meu painel</a>
+    </div>
+  </ng-template>
 </nav>
 
 
