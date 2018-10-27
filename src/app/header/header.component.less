@@ -15,6 +15,11 @@
     color: @text-navbar;
     margin-left: 5px
   }
+  &__item2{
+    margin-right: 60%;
+    color: @text-navbar;
+    margin-left: 5px
+  }
   .user-menu{
     border: 2px solid white;
     display: flex;
@@ -32,9 +37,12 @@
   &__login-icon{
     cursor: pointer;
   }
+  .header--collapse{
+    justify-content: space-between;
+  }
 }
 
-@media (max-width: 992px){
+@media (max-width: 991px){
   .header{
     display: flex;
     &__item{

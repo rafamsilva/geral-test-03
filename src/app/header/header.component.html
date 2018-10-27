@@ -6,24 +6,20 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
   <div class="collapse navbar-collapse header--collapse" id="navbarSupportedContent">
-
-        <a class="header__item" routerLink="/imoveis">Imóveis</a>
-
-        <a class="header__item" href="#">Fale Conosco</a>
-
+    <a class="header__item" routerLink="/imoveis">Imóveis</a>
+    <a class="header__item2" href="#">Fale Conosco</a>
     <div *ngIf="!isLogged; else nameUser" class="header__login-icon" routerLink="/login">
       <i class="fas fa-2x fa-user-lock header__icon"></i>
     </div>
     <ng-template #nameUser>
       <div class="user-menu col-md-4">
-          <span class="user-menu__greetings">Olá, {{userName}}</span>
-          <br>
-          <a class="user-menu__logout" (click)="logout()" routerLink="/">sair</a>
-          <a class="user-menu__panel-link" routerLink="./area-do-usuario">Acessar meu painel</a>
+        <span class="user-menu__greetings">Olá, {{userName}}</span>
+        <br>
+        <a class="user-menu__logout" (click)="logout()" routerLink="/">sair</a>
+        <a class="user-menu__panel-link" routerLink="./area-do-usuario">Acessar meu painel</a>
       </div>
-  </ng-template>
+    </ng-template>
   </div>
 </nav>
 
