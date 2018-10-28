@@ -1,7 +1,7 @@
 <nav class="header">
   <div class="header__logo">
     <a routerLink="">
-      <img src="../../assets/logo.png" alt="">
+      <img class="header__logo-img"src="../../assets/logo.png" alt="">
     </a>
   </div>
   <div class="header__links">
@@ -23,10 +23,15 @@
     <div class="header__login--on">
       <span class="header__login-name">Olá, {{userName}}</span>
       <br>
-      <a class="header__login-name" (click)="logout()" routerLink="/">sair</a>
       <a class="header__login-panel" routerLink="./area-do-usuario">Acessar meu painel</a>
     </div>
   </ng-template>
 </nav>
+
+<div class="slim-menu" style="display: none">
+    <a class="header__item" routerLink="/imoveis">Imóveis</a>
+    <a class="header__item" href="#">Fale Conosco</a>
+    <a class="header__item" href="#">Painel do cliente</a>
+</div>
 
 

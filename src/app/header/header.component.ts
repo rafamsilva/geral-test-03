@@ -1,5 +1,4 @@
 import { Component, OnInit} from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { User } from '../../shared/user.model';
 import { LogStateService } from '../log-state.service';
 
@@ -14,14 +13,9 @@ import { LogStateService } from '../log-state.service';
     public isLogged: boolean;
     public userType: number = 2;
     public users: User[];
-    public form: FormGroup = new FormGroup({
-      'user': new FormControl(null, [ Validators.required ]),
-      'password': new FormControl(null)
-    });
-
 
     constructor(
-      private log: LogStateService
+      private log: LogStateService,
       ) { }
 
       ngOnInit() {

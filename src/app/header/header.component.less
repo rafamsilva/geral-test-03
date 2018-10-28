@@ -5,19 +5,34 @@
   box-shadow: @shadow;
   display: flex;
   height: 80px;
+  @media @max576{
+    display: flex;
+    justify-content: center;
+    box-shadow: none;
+    height: 60px;
+  }
   &__logo{
-    border: 2px solid red;
     width: 30%;
+    display: flex;
+    align-items: center;
+    &-img{
+      margin-left: 10%;
+      @media @max576{
+        width: 80%;
+        height: 90%
+      }
+    }
   }
   &__links{
-    border: 2px solid khaki;
     width: 45%;
     display: flex;
     align-items: center;
     font-size: 120%;
+    @media @max576{
+      display: none;
+    }
     &-item{
-      border: 2px solid brown;
-      margin: 0 5%
+      margin: 0 5%;
     }
   }
   &__login--off{
@@ -26,25 +41,33 @@
     justify-content: flex-end;
     align-items: center;
     padding-right: 1.5em;
-    font-size: 150%
+    font-size: 110%
   }
   &__login--on{
-    border: 2px solid white
+    border: 2px solid white;
+    @media @max576{
+      display: none;
+    }
   }
 }
 
-@media (max-width: 575.98px) {
-  .header{
-    background-color: lightblue
+@media @max576{
+  .slim-menu{
+    height: 40px;
+    background-color: lightgreen;
+    box-shadow: @shadow;
+    display: flex !important;
+    justify-content: space-around;
+    align-items: center
   }
- }
+}
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) and (max-width: 767.98px) {
   .header{
     background-color: lightcyan
   }
- }
+}
 
 
 
