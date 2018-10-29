@@ -1,15 +1,24 @@
 @import '../../styles.less';
 
-.panel{
+.register-panel{
   background-color: @secondary-color;
   margin: @margin-content;
   padding: @padding-content;
   box-shadow: @shadow;
+  .form{
+    &__field--validation.ng-invalid.ng-touched{
+      border: 1px solid red;
+    }
+    &__field--validation.ng-valid.ng-touched{
+      border: 1px solid green;
+    }
+  }
 }
 
 @media (max-width: 650px){
-  .panel{
+  .register-panel{
       margin: 10px;
       padding: 20px;
   }
 }
+
