@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Http, Response, Headers, RequestOptions } from "../../node_modules/@angular/http";
-import { House } from "src/app/_models/house.model";
+import { House } from "src/app/shared/house.model";
 import { Observable } from "rxjs";
 import { map } from 'rxjs/operators';
 

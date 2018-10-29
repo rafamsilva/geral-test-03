@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ageRangeValidator } from 'src/app/_validators/old-password.validator';
-import { matchPasswordValidator } from 'src/app/_validators/password-match.validator';
+import { ageRangeValidator } from 'src/app/shared/old-password.validator';
+import { matchPasswordValidator } from 'src/app/shared/password-match.validator';
 
 @Component({
   selector: 'app-configuration-area',
@@ -24,9 +24,9 @@ export class ConfigurationAreaComponent implements OnInit {
 
   getFormData(): void{
     this.form = new FormGroup({
-      'senheAnterior': new FormControl(null, [Validators.required, ageRangeValidator(10,20)]),
+      'senhaAnterior': new FormControl(null, [Validators.required]),
       'novaSenha': new FormControl(null, [Validators.required]),
-      'confirmarNovaSenha': new FormControl(null, [Validators.required, matchPasswordValidator('senha')])
+      'confirmarNovaSenha': new FormControl(null, [Validators.required, matchPasswordValidator('novaSenha')])
     });
   }
 }

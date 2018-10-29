@@ -2,7 +2,7 @@ import { Injectable } from "../../node_modules/@angular/core";
 import { Http, Response } from "../../node_modules/@angular/http";
 
 
-import { User } from "./_models/user.model";
+import { User } from "./shared/user.model";
 import { EventEmitter } from "events";
 
 

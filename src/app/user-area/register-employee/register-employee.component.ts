@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Employee } from 'src/app/_models/employee.model';
+import { Employee } from 'src/app/shared/employee.model';
 import { mapValues } from 'lodash';
 
 

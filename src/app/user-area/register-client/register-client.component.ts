@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { User } from 'src/app/_models/user.model';
+import { User } from 'src/app/shared/user.model';
 
 @Component({
   selector: 'app-register-client',

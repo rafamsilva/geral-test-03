@@ -1,4 +1,4 @@
-import { House } from 'src/app/_models/house.model';
+import { House } from 'src/app/shared/house.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { HousesService } from '../../houses.service';
