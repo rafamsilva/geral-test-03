@@ -1,3 +1,4 @@
+import { matchPasswordValidator } from '../../shared/password-match.validator';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/shared/user.model';
@@ -18,7 +19,7 @@ export class RegisterClientComponent implements OnInit {
   }
 
   sendData(){
-    if(this.form.status !== 'INVALID' && this.confirmPassword()){
+    if(this.form.status !== 'INVALID'){
       this.user = this.form.value
       alert('funcionario cadastrado!')
       this.form.reset()
@@ -27,13 +28,6 @@ export class RegisterClientComponent implements OnInit {
     }
   }
 
-  confirmPassword(){
-    if(this.form.value.senha != this.form.value.confirmarSenha){
-      alert('senhas não conferem')
-      return false
-    }
-    return true
-  }
 
   getFormData(): void{
     this.form  = new FormGroup({
@@ -42,7 +36,7 @@ export class RegisterClientComponent implements OnInit {
       'telefone': new FormControl(null, [ Validators.required, Validators.pattern(/^[0-9]{11}$/)]),
       'email': new FormControl(null, [ Validators.required, Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]),
       'senha': new FormControl(null,  [ Validators.required, Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/)]),
-      'confirmarSenha': new FormControl(null,  [ Validators.required])
+      'confirmarSenha': new FormControl(null,  [ Validators.required, matchPasswordValidator('senha')])
     });
   }
 

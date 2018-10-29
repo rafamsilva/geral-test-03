@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Employee } from 'src/app/shared/employee.model';
 import { mapValues } from 'lodash';
+import { matchPasswordValidator } from '../../shared/password-match.validator';
 
 
 @Component({
@@ -50,7 +51,7 @@ export class RegisterEmployeeComponent implements OnInit {
       'telefone': new FormControl(null, [ Validators.required, Validators.pattern(/^[0-9]{11}$/)]),
       'email': new FormControl(null, [ Validators.required, Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]),
       'senha': new FormControl(null,  [ Validators.required, Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/)]),
-      'confirmarSenha': new FormControl(null,  [ Validators.required])
+      'confirmarSenha': new FormControl(null,  [ Validators.required, matchPasswordValidator('senha')])
     });
   }
 

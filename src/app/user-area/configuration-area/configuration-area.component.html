@@ -9,7 +9,7 @@
         <div class="form-group row">
           <label for="inputPassword" class="col-sm-2 col-form-label">Senha atual</label>
           <div class="col-sm-10">
-            <input type="password" class="form-control" formControlName="senhaAnterior" placeholder="Password">
+            <input type="password" class="form-control" formControlName="senhaAtual" placeholder="Password">
           </div>
         </div>
         <div class="form-group row">
@@ -22,8 +22,9 @@
               <label for="inputPassword" class="col-sm-2 col-form-label">Confirme a nova senha</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" formControlName="confirmarNovaSenha" placeholder="Password">
+                <small *ngIf="!form.get('confirmarNovaSenha').valid && form.get('confirmarNovaSenha').touched">As senhas devem ser iguais!</small>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary config-panel__btn" [disabled]="form.status === 'INVALID'">Submit</button>
+            <button type="submit" class="btn btn-primary config-panel__btn" [disabled]="form.invalid">Submit</button>
       </form>
 </div>

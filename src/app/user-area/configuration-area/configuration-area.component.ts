@@ -24,7 +24,7 @@ export class ConfigurationAreaComponent implements OnInit {
 
   getFormData(): void{
     this.form = new FormGroup({
-      'senhaAnterior': new FormControl(null, [Validators.required]),
+      'senhaAtual': new FormControl(null, [Validators.required]),
       'novaSenha': new FormControl(null, [Validators.required]),
       'confirmarNovaSenha': new FormControl(null, [Validators.required, matchPasswordValidator('novaSenha')])
     });
