@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { User } from '../../shared/user.model';
+import { User } from '../shared/user.model';
 import { LogStateService } from '../log-state.service';
 
   @Component({

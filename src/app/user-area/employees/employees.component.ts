@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/shared/user.model';
+import { User } from 'src/app/shared/user.model';
 import { UserService } from 'src/app/user.service';
 import { remove } from 'lodash';
 

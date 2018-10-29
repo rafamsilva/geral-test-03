@@ -24,6 +24,7 @@ import { AutenticationService } from './user-area/autentication.service';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

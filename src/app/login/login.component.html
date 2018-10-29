@@ -1,13 +1,15 @@
 <div class="panel">
     <form [formGroup]="form" (ngSubmit)="enterUserArea()">
-        <div class="form-group">
+        <div class="form-group panel__user-block">
           <label class="col-form-label">Usuário:</label>
-          <input type="text" class="form-control" formControlName="user">
+          <input type="text" class="form-control form__field--validation" formControlName="user">
+          <small  *ngIf="!form.get('user').valid && form.get('user').touched">Digite um nome de usuário!</small>
+
         </div>
         <div class="form-group panel__pass-block">
           <label class="col-form-label">Senha:</label>
-          <input type="password" class="form-control" formControlName="password">
-          <small #msgInvalid class="panel__invalid-msg--hide panel__invalid-msg--show">Email e senha necessários para login!</small>
+          <input type="password" class="form-control form__field--validation" formControlName="password">
+          <small  *ngIf="!form.get('password').valid && form.get('password').touched">Digite uma senha!</small>
         </div>
         <!--
         <div *ngIf="forgotPassword" class="alert alert-danger" role="alert">
@@ -17,8 +19,10 @@
         <div *ngIf="notRegistred" class="alert alert-danger" role="alert">
           Email ou senha inválidos!
         </div>
-        <button #btnLogin type="submit" class="btn btn-primary">Login</button>
+        <button #btnLogin type="submit" class="btn btn-primary" [disabled]="form.invalid">Login</button>
+        <button class="btn btn-warning" routerLink="/novo-cadastro">Cadastre-se</button>
     </form>
+    <span class="panel__recovery-pwd">Esqueceu sua senha?</span>
 </div>
 
 <!-- Modal -->
