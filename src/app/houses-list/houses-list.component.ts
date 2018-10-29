@@ -13,16 +13,18 @@ export class HousesListComponent implements OnInit {
   constructor(private housesService: HousesService) { }
 
   ngOnInit() {
+    this.getHousesList()
+  }
 
+  getHousesList(){
     this.housesService.getHouses()
     .then((data: House[]) => {
       this.houses = data;
       console.log(this.houses)
     })
     .catch((data: any) => {});
-
-
-
   }
 
 }
+
+

@@ -1,4 +1,7 @@
+import { UserService } from './../../user.service';
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/shared/user.model';
+import { remove } from 'lodash';
 
 @Component({
   selector: 'app-clients',
@@ -6,10 +9,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./clients.component.less']
 })
 export class ClientsComponent implements OnInit {
-
-  constructor() { }
+  public clients: User[]
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.getUsersList()
+  }
+
+  getUsersList(){
+    this.userService.getAllUsers()
+    .then((data: User[]) => {
+      this.filterClients(data)
+    })
+    .catch((data: any) => {});
+  }
+
+ filterClients(users: User[]){
+    this.clients = remove(users, item => item.admin === false);
   }
 
 }

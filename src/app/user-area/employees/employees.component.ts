@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/shared/user.model';
+import { UserService } from 'src/app/user.service';
+import { remove } from 'lodash';
 
 @Component({
   selector: 'app-employees',
@@ -6,10 +9,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employees.component.less']
 })
 export class EmployeesComponent implements OnInit {
-
-  constructor() { }
+  public employees: User[]
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.getUsersList()
+  }
+
+  getUsersList(){
+    this.userService.getAllUsers()
+    .then((data: User[]) => {
+      this.filterAdmin(data);
+    })
+    .catch((data: any) => {});
+  }
+
+  filterAdmin(users: User[]){
+    this.employees = remove(users, item => item.admin === true);
   }
 
 }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Employee } from 'src/shared/employee.model';
-import { remove } from 'lodash';
+import { mapValues } from 'lodash';
+
 
 @Component({
   selector: 'app-register-employee',
@@ -11,7 +12,6 @@ import { remove } from 'lodash';
 export class RegisterEmployeeComponent implements OnInit {
   public employee: Employee;
   public isDifferent: boolean;
-  t: boolean = true
   public form: FormGroup = new FormGroup({
     'nome': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
     'sobrenome': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]),
@@ -25,18 +25,15 @@ export class RegisterEmployeeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.form.value)
-
   }
 
   sendData(){
     if(this.form.status !== 'INVALID' && this.confirmPassword()){
       this.employee = this.form.value
       alert('funcionario cadastrado!')
-      console.log(this.employee)
       this.form.reset()
-    //this.houseService.registerHouse(this.house)
-    //.subscribe((response)=> console.log(response))
+      //this.houseService.registerHouse(this.house)
+      //.subscribe((response)=> console.log(response))
     }
   }
 
@@ -48,10 +45,9 @@ export class RegisterEmployeeComponent implements OnInit {
     return true
   }
 
-  checkField(){
-    alert('ok')
-  }
+  validateAsEmployee(data){
 
+  }
 
 
 }

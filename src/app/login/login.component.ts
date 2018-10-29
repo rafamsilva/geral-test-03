@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
         .then((data: any) => {
           this.user = data;
           this.checkEmptyResponse(this.user);
-          if(this.validateUserLogin(this.user[0].email, this.user[0].pass)){
+          if(this.validateUserLogin(this.user[0].email, this.user[0].password)){
             this.loginservice.userIsAuth()
             this.route.navigate(['/area-do-usuario'])
             this.data.changeStateLogin(true)
