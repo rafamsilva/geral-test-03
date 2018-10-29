@@ -20,8 +20,9 @@
           Email ou senha inválidos!
         </div>
         <button #btnLogin type="submit" class="btn btn-primary" [disabled]="form.invalid">Login</button>
-        <span class="panel__recovery-pwd">Esqueceu sua senha?</span>
+        <button class="btn btn-warning" routerLink="/novo-cadastro">Cadastre-se</button>
     </form>
+    <span class="panel__recovery-pwd">Esqueceu sua senha?</span>
 </div>
 
 <!-- Modal -->
