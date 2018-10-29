@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
-import { User } from 'src/shared/user.model';
+import { User } from 'src/app/_models/user.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginCheckService } from '../login-check.service';

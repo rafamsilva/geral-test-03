@@ -1,6 +1,6 @@
 import { UserService } from './../../user.service';
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/shared/user.model';
+import { User } from 'src/app/_models/user.model';
 import { remove } from 'lodash';
 
 @Component({

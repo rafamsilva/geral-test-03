@@ -1,27 +1,27 @@
 <div class="config-panel">
-    <form class="config-panel__form" [formGroup]="form">
+    <form class="config-panel__form" [formGroup]="form" (ngSubmit)="sendData()">
         <div class="form-group row">
           <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
           <div class="col-sm-10">
-            <input type="text" readonly class="form-control-plaintext" formControlName="email" value="{{email}}">
+            <input type="text" readonly class="form-control-plaintext" value="{{email}}">
           </div>
         </div>
         <div class="form-group row">
           <label for="inputPassword" class="col-sm-2 col-form-label">Senha atual</label>
           <div class="col-sm-10">
-            <input type="password" class="form-control" formControlName="oldPassword" placeholder="Password">
+            <input type="password" class="form-control" formControlName="senheAnterior" placeholder="Password">
           </div>
         </div>
         <div class="form-group row">
             <label for="inputPassword" class="col-sm-2 col-form-label">Nova senha</label>
             <div class="col-sm-10">
-              <input type="password" class="form-control" formControlName="newPassword" placeholder="Password">
+              <input type="password" class="form-control" formControlName="novaSenha" placeholder="Password">
             </div>
           </div>
           <div class="form-group row">
               <label for="inputPassword" class="col-sm-2 col-form-label">Confirme a nova senha</label>
               <div class="col-sm-10">
-                <input type="password" class="form-control" formControlName="confirmNewPassword" placeholder="Password">
+                <input type="text" class="form-control" formControlName="confirmarNovaSenha" placeholder="Password">
               </div>
             </div>
             <button type="submit" class="btn btn-primary config-panel__btn">Submit</button>

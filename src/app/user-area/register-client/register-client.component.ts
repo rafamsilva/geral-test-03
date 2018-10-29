@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { User } from 'src/shared/user.model';
+import { User } from 'src/app/_models/user.model';
 
 @Component({
   selector: 'app-register-client',
@@ -9,18 +9,12 @@ import { User } from 'src/shared/user.model';
 })
 export class RegisterClientComponent implements OnInit {
   public user: User;
-  public form: FormGroup = new FormGroup({
-    'nome': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
-    'sobrenome': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]),
-    'telefone': new FormControl(null, [ Validators.required, Validators.pattern(/^[0-9]{11}$/)]),
-    'email': new FormControl(null, [ Validators.required, Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]),
-    'senha': new FormControl(null,  [ Validators.required, Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/)]),
-    'confirmarSenha': new FormControl(null,  [ Validators.required])
-  });
+  public form: FormGroup;
 
   constructor() { }
 
   ngOnInit() {
+    this.getFormData()
   }
 
   sendData(){
@@ -39,6 +33,17 @@ export class RegisterClientComponent implements OnInit {
       return false
     }
     return true
+  }
+
+  getFormData(): void{
+    this.form  = new FormGroup({
+      'nome': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
+      'sobrenome': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]),
+      'telefone': new FormControl(null, [ Validators.required, Validators.pattern(/^[0-9]{11}$/)]),
+      'email': new FormControl(null, [ Validators.required, Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]),
+      'senha': new FormControl(null,  [ Validators.required, Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/)]),
+      'confirmarSenha': new FormControl(null,  [ Validators.required])
+    });
   }
 
 }
