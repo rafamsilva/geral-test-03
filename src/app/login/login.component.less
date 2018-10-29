@@ -2,21 +2,23 @@
 
 .panel{
   background-color: @secondary-color;
-  margin: @margin-content;
+  margin: @margin-login;
   padding: @padding-content;
   box-shadow: @shadow;
+  .form{
+    &__field--validation.ng-invalid.ng-touched{
+      border: 1px solid red;
+    }
+    &__field--validation.ng-valid.ng-touched{
+      border: 1px solid green;
+    }
+  }
   &__pass-block{
     display: flex;
     flex-direction: column;
   }
-  &__btn-recovery{
-    cursor: pointer;
-  }
-  &__invalid-msg--hide{
-    display: none;
-  }
-  &__invalid-msg--show{
-    color: red;
+  &__recovery-pwd{
+    margin-left: 5%
   }
 }
 

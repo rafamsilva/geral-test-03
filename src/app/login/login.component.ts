@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   public notRegistred: boolean;
   @ViewChild('msgInvalid') msgInvalid: ElementRef;
   public form: FormGroup = new FormGroup({
-    'user': new FormControl(null, [ Validators.required ]),
+    'user': new FormControl(null, [Validators.required]),
     'password': new FormControl(null, [Validators.required])
   });
 
@@ -36,10 +36,7 @@ export class LoginComponent implements OnInit {
     }
 
     enterUserArea(): void{
-      if(this.form.invalid){
-        this.addInvalidFormMsg()
-      }else{
-        this.removeInvaliFormMsg()
+      if(!this.form.invalid){
         let userForm = this.form.value.user;
         let passForm = this.form.value.password;
 
@@ -60,14 +57,6 @@ export class LoginComponent implements OnInit {
 
     validateUserLogin(name, password): boolean{
       return name === this.form.value.user &&  password === this.form.value.password
-    }
-
-    addInvalidFormMsg(): void{
-      this.renderer.removeClass(this.msgInvalid.nativeElement, "panel__invalid-msg--hide");
-    }
-
-    removeInvaliFormMsg(): void{
-      this.renderer.addClass(this.msgInvalid.nativeElement, "panel__invalid-msg--hide");
     }
 
     checkEmptyResponse(response): void{
