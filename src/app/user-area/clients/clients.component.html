@@ -1,9 +1,9 @@
-<div class="panel" *ngFor="let user of users">
+<div class="panel" *ngFor="let client of clients">
   <div class="row">
       <i class="fas fa-user-circle fa-3x panel__img"></i>
-      <strong class="panel__name">{{user.nome}}</strong>
-      <span class="panel__email">{{user.email}}</span>
-      <span class="panel__phone">{{user.telefone}}</span>
+      <strong class="panel__name">{{client.nome}}</strong>
+      <span class="panel__email">{{client.email}}</span>
+      <span class="panel__phone">{{client.telefone}}</span>
       <i class="fas fa-minus-circle fa-2x panel__delete-btn"></i>
   </div>
 </div>

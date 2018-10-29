@@ -19,13 +19,12 @@ export class EmployeesComponent implements OnInit {
   getUsersList(){
     this.userService.getAllUsers()
     .then((data: User[]) => {
-      this.getOnlyAdmin(data);
-      console.log(this.employees)
+      this.filterAdmin(data);
     })
     .catch((data: any) => {});
   }
 
-  getOnlyAdmin(users: User[]){
+  filterAdmin(users: User[]){
     this.employees = remove(users, item => item.admin === true);
   }
 
