@@ -15,7 +15,7 @@
 
   <div [ngClass]="!isLogged ? 'header__login--off' : 'header__login--on'">
     <div *ngIf="!isLogged; else nameUser" routerLink="/login">
-      <i class="fas fa-2x fa-user-lock header__icon"></i>
+      <i class="fas fa-2x fa-user-lock header__icon header__login--on"></i>
     </div>
   </div>
 
@@ -30,8 +30,8 @@
 
 <div class="slim-menu" style="display: none">
     <a class="header__item" routerLink="/imoveis">Imóveis</a>
+    <a class="header__item" routerLink="/login">Área do cliente</a>
     <a class="header__item" href="#">Fale Conosco</a>
-    <a class="header__item" href="#">Painel do cliente</a>
 </div>
 
 
