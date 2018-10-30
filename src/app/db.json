@@ -44,6 +44,15 @@
       "telefone": "32223475",
       "admin": false,
       "id": "7"
+    },
+    {
+      "nome": "Danillo",
+      "sobrenome": "Gomes Fidel",
+      "telefone": "34997958717",
+      "email": "danillopkt@hotmail.com",
+      "senha": "1754712d",
+      "admin": false,
+      "id": "921fnN5"
     }
   ],
   "houses": [

@@ -23,25 +23,14 @@ export class RegisterEmployeeComponent implements OnInit {
   }
 
   sendData(){
-    if(this.form.status !== 'INVALID' && this.confirmPassword()){
+
+    if(this.form.status !== 'INVALID'){
       this.employee = this.form.value
       alert('funcionario cadastrado!')
       this.form.reset()
       //this.houseService.registerHouse(this.house)
       //.subscribe((response)=> console.log(response))
     }
-  }
-
-  confirmPassword(){
-    if(this.form.value.senha != this.form.value.confirmarSenha){
-      alert('senhas não conferem')
-      return false
-    }
-    return true
-  }
-
-  validateAsEmployee(data){
-
   }
 
   getFormData(): void{
