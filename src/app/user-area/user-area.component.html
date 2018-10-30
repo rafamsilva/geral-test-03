@@ -1,61 +1,64 @@
 <div class="panel">
   <h2>Seja bem vindo ao painel exclusivo para clientes</h2>
   <div class="container user-nav" *ngIf="userType == 1 ; else employeeNav">
-    <div class="panel__nav-menu">
-      <a class="panel__link--selected" routerLink="/area-do-usuario/favoritos">
-        <div class="panel__btn panel__btn--selected">
-          Meuns Favoritos
-        </div>
-      </a>
-      <a class="panel__link--selected" routerLink="/area-do-usuario/configurações">
-        <div class="panel__btn panel__btn--selected">
-          Configurações
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <ng-template #employeeNav>
-    <div class="container user-nav">
-      <div class="panel__nav-menu">
-          <div class="dropdown">
-              <button class="panel__btn panel__btn--selected dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Imóveis
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item panel__link--selected" routerLink="/area-do-usuario/imoveis">Imóveis cadastrados</a>
-                <a class="dropdown-item panel__link--selected" routerLink="/area-do-usuario/cadastrar-imovel">Cadastrar imóvel</a>
-              </div>
-            </div>
-        <div class="dropdown">
-          <button class="panel__btn panel__btn--selected dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Clientes
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item panel__link--selected" routerLink="/area-do-usuario/clientes">Clientes cadastrados</a>
-            <a class="dropdown-item panel__link--selected" routerLink="/area-do-usuario/cadastrar-cliente">Cadastrar cliente</a>
-          </div>
-        </div>
-        <div class="dropdown">
-            <button class="panel__btn panel__btn--selected dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Funcionários
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item panel__link--selected" routerLink="/area-do-usuario/funcionarios">Funcionários cadastrados</a>
-              <a class="dropdown-item panel__link--selected" routerLink="/area-do-usuario/cadastrar-funcionario">Cadastrar funcionário</a>
-            </div>
-          </div>
-        <a class="panel__link--selected" routerLink="/area-do-usuario/configurações">
-          <div class="panel__btn panel__btn--selected">
+    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-secondary" routerLink="/area-do-usuario/favoritos">Favoritos</button>
+        <div class="btn-group" role="group">
+          <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Configurações
+          </button>
+          <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+            <a class="dropdown-item" routerLink="/area-do-usuario/configurações">Alterar senha</a>
           </div>
-        </a>
+        </div>
       </div>
     </div>
-  </ng-template>
 
-  <router-outlet></router-outlet>
+    <ng-template #employeeNav>
+      <div class="container user-nav">
+        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+          <div class="btn-group" role="group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Funcionários
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+              <a class="dropdown-item" routerLink="/area-do-usuario/funcionarios">Funcionários cadastrados</a>
+              <a class="dropdown-item" routerLink="/area-do-usuario/cadastrar-funcionario">Cadastrar funcionário</a>
+            </div>
+          </div>
+          <div class="btn-group" role="group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Clientes
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+              <a class="dropdown-item" routerLink="/area-do-usuario/clientes">Clientes cadastrados</a>
+              <a class="dropdown-item" routerLink="/area-do-usuario/cadastrar-cliente">Cadastrar cliente</a>
+            </div>
+          </div>
+          <div class="btn-group" role="group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Imóveis
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+              <a class="dropdown-item" routerLink="/area-do-usuario/imoveis">Imóveis cadastrados</a>
+              <a class="dropdown-item" routerLink="/area-do-usuario/cadastrar-imovel">Cadastrar imóvel</a>
+            </div>
+          </div>
+          <div class="btn-group" role="group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Configurações
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+              <a class="dropdown-item" routerLink="/area-do-usuario/configurações">Alterar senha</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
 
-  <img src="../../assets/city-silhouete.png" class="img-fluid">
+    <router-outlet></router-outlet>
 
-</div>
+    <img src="../../assets/city-silhouete.png" class="img-fluid">
+
+  </div>
