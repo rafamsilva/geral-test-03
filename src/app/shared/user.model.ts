@@ -4,7 +4,8 @@ export class User{
       public email: string,
       public telefone: number,
       public sobrenome: string,
-      public password: string,
-      public admin: boolean
+      public senha: string,
+      public admin: boolean,
+      public funcionario: boolean
       ){}
 }

@@ -1,7 +1,7 @@
 <div class="panel">
     <form [formGroup]="form" (ngSubmit)="enterUserArea()">
         <div class="form-group panel__user-block">
-          <label class="col-form-label">Usuário:</label>
+          <label class="col-form-label">Email:</label>
           <input type="text" class="form-control form__field--validation" formControlName="user">
           <small  *ngIf="!form.get('user').valid && form.get('user').touched">Digite um nome de usuário!</small>
 

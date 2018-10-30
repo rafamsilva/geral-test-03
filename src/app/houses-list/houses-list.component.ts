@@ -18,11 +18,7 @@ export class HousesListComponent implements OnInit {
 
   getHousesList(){
     this.housesService.getHouses()
-    .then((data: House[]) => {
-      this.houses = data;
-      console.log(this.houses)
-    })
-    .catch((data: any) => {});
+    .subscribe((data)=>this.houses = data)
   }
 
 }

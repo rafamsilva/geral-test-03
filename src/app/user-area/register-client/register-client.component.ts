@@ -1,3 +1,4 @@
+import { UserService } from 'src/app/user.service';
 import { matchPasswordValidator } from '../../shared/password-match.validator';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -9,23 +10,20 @@ import { User } from 'src/app/shared/user.model';
   styleUrls: ['./register-client.component.less']
 })
 export class RegisterClientComponent implements OnInit {
-  public user: User;
+  public newUser: User;
   public form: FormGroup;
 
-  constructor() { }
+  constructor(public userService: UserService) { }
 
   ngOnInit() {
     this.getFormData()
   }
 
-  sendData(){
-    if(this.form.status !== 'INVALID'){
-      this.user = this.form.value
-      alert('funcionario cadastrado!')
-      this.form.reset()
-    //this.houseService.registerHouse(this.house)
-    //.subscribe((response)=> console.log(response))
-    }
+  sendData(): void{
+    this.newUser = this.form.value
+    this.userService.registerUser(this.newUser, false).subscribe((data)=>{
+      console.log(data)
+    })
   }
 
 

@@ -4,46 +4,150 @@
       "nome": "danillo",
       "sobrenome": "fidel",
       "email": "abc",
-      "password": "123",
+      "senha": "123",
       "telefone": "32223475",
-      "admin": false,
+      "admin": true,
+      "funcionario": true,
       "id": "015"
     },
     {
       "nome": "pedro",
       "sobrenome": "fidel",
-      "email": "abc",
-      "password": "123",
+      "email": "abe",
+      "senha": "125",
       "telefone": "32223475",
+      "funcionario": false,
       "admin": false,
       "id": "10"
     },
     {
       "nome": "pablo",
       "sobrenome": "fidel",
-      "email": "abc",
-      "password": "123",
+      "email": "abcf",
+      "senha": "1234",
       "telefone": "32223475",
-      "admin": true,
+      "funcionario": false,
+      "admin": false,
       "id": "9"
     },
     {
       "nome": "joao paulo",
       "sobrenome": "fidel",
-      "email": "abc",
-      "password": "123",
+      "email": "abck",
+      "senha": "1237",
       "telefone": "32223475",
-      "admin": true,
+      "funcionario": false,
+      "admin": false,
       "id": "8"
     },
     {
       "nome": "maria",
       "sobrenome": "fidel",
-      "email": "abc",
-      "password": "123",
+      "email": "abcsw",
+      "senha": "1239",
       "telefone": "32223475",
+      "funcionario": true,
       "admin": false,
       "id": "7"
+    },
+    {
+      "nome": "Danillo",
+      "sobrenome": "Gomes Fidel",
+      "telefone": "34997958717",
+      "email": "danillopkt@hotmail.com",
+      "funcionario": false,
+      "senha": "1754712d",
+      "admin": false,
+      "id": "921fnN5"
+    },
+    {
+      "nome": "Paulo",
+      "sobrenome": "Peçanha",
+      "telefone": "34997958718",
+      "email": "paulo@hotmail.com",
+      "senha": "1754712d",
+      "admin": false,
+      "id": "IlmkEvO"
+    },
+    {
+      "nome": "Ricardo",
+      "sobrenome": "Souza",
+      "telefone": "34997958755",
+      "email": "ricardo@hotmail.com",
+      "funcionario": false,
+      "senha": "1754712d",
+      "admin": false,
+      "id": "t5w9ZY2"
+    },
+    {
+      "nome": "Rodrigo",
+      "sobrenome": "Mrtins",
+      "telefone": "34999896563",
+      "email": "rodrigo@hotmail.com",
+      "funcionario": false,
+      "senha": "1754712d",
+      "admin": false,
+      "id": "VjrQkZ4"
+    },
+    {
+      "nome": "Danillo",
+      "sobrenome": "Gomes",
+      "telefone": "34997958717",
+      "email": "danillopkt@hotmail.com",
+      "funcionario": false,
+      "senha": "1754712d",
+      "admin": false,
+      "id": "UTPikHV"
+    },
+    {
+      "nome": "Paulinho",
+      "sobrenome": "Gomes",
+      "telefone": "34997958717",
+      "email": "paulinho@hotmail.com",
+      "funcionario": false,
+      "senha": "1754712d",
+      "admin": false,
+      "id": "gcvOHIO"
+    },
+    {
+      "nome": "renato",
+      "sobrenome": "Gomes",
+      "telefone": "34997958717",
+      "email": "renato@hotmail.com",
+      "funcionario": false,
+      "senha": "1754712d",
+      "admin": false,
+      "id": "6mO~zm4"
+    },
+    {
+      "nome": "Danillo",
+      "sobrenome": "Gomes",
+      "telefone": "34997958717",
+      "email": "danillopkt@hotmail.com",
+      "funcionario": false,
+      "senha": "1754712d",
+      "admin": false,
+      "id": "TtLcxB0"
+    },
+    {
+      "nome": "joao",
+      "sobrenome": "Gomes",
+      "telefone": "34997958717",
+      "email": "joao@gmail.com",
+      "funcionario": false,
+      "senha": "1754712d",
+      "admin": false,
+      "id": "cxu3PMI"
+    },
+    {
+      "nome": "Joaozinho",
+      "sobrenome": "Gomes",
+      "telefone": "34997958717",
+      "email": "145@hotmail.com",
+      "funcionario": true,
+      "senha": "1754712d",
+      "admin": false,
+      "id": "JFvSuqW"
     }
   ],
   "houses": [
