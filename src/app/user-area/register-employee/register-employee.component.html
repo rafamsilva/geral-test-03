@@ -1,5 +1,5 @@
 <div class="register-panel">
-  <form [formGroup]="form" (ngSubmit)="sendData()" class="form">
+  <form [formGroup]="form"  class="form">
     <div class="form-row">
       <div class="col-md-6">
         <label>Nome</label>
@@ -31,6 +31,6 @@
         <small *ngIf="!form.get('confirmarSenha').valid && form.get('confirmarSenha').touched">as senhas precisam ser iguais!</small>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary" [disabled]="form.status === 'INVALID'">Cadastrar</button>
+    <button (click)="sendData()" class="btn btn-primary" [disabled]="form.status === 'INVALID'">Cadastrar</button>
   </form>
 </div>

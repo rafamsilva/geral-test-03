@@ -18,14 +18,13 @@ export class EmployeesComponent implements OnInit {
 
   getUsersList(){
     this.userService.getAllUsers()
-    .then((data: User[]) => {
+    .subscribe((data)=>{
       this.filterAdmin(data);
     })
-    .catch((data: any) => {});
   }
 
   filterAdmin(users: User[]){
-    this.employees = remove(users, item => item.admin === true);
+    this.employees = remove(users, item => item.funcionario === true);
   }
 
 }

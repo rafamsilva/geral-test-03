@@ -38,7 +38,7 @@ export class LoginRegisterComponent implements OnInit {
 
   sendData(): void{
     this.newUser = this.form.value
-    this.userService.registerUser(this.newUser).subscribe()
+    this.userService.registerUser(this.newUser, false).subscribe()
   }
 
 

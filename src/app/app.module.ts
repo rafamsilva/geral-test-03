@@ -3,7 +3,7 @@ import { RecoveryPasswordService } from './recovery-password.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -39,7 +39,7 @@ import { AutenticationService } from './user-area/autentication.service';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpClientModule
   ],
   providers: [
     LoginCheckService,

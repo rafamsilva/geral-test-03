@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Employee } from 'src/app/shared/employee.model';
-import { mapValues } from 'lodash';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { User } from 'src/app/shared/user.model';
+
 import { matchPasswordValidator } from '../../shared/password-match.validator';
+import { UserService } from 'src/app/user.service';
 
 
 @Component({
@@ -11,26 +12,20 @@ import { matchPasswordValidator } from '../../shared/password-match.validator';
   styleUrls: ['./register-employee.component.less']
 })
 export class RegisterEmployeeComponent implements OnInit {
-  public employee: Employee;
+  public newUser: User;
   public isDifferent: boolean;
   public form: FormGroup;
 
 
-  constructor() { }
+  constructor(public userService: UserService) { }
 
   ngOnInit() {
     this.getFormData()
   }
 
-  sendData(){
-
-    if(this.form.status !== 'INVALID'){
-      this.employee = this.form.value
-      alert('funcionario cadastrado!')
-      this.form.reset()
-      //this.houseService.registerHouse(this.house)
-      //.subscribe((response)=> console.log(response))
-    }
+  sendData(): void{
+    this.newUser = this.form.value
+    this.userService.registerUser(this.newUser, true).subscribe()
   }
 
   getFormData(): void{

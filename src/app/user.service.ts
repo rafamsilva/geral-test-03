@@ -1,22 +1,21 @@
 import { Injectable } from "@angular/core";
-import { Http, Response, Headers, RequestOptions } from "../../node_modules/@angular/http";
+import { Response, Headers, RequestOptions } from "../../node_modules/@angular/http";
 import { Observable } from "rxjs";
 import { map } from 'rxjs/operators';
 import { User } from "src/app/shared/user.model";
-import { remove } from "lodash";
-import { forEach } from "@angular/router/src/utils/collection";
+import { HttpClient } from "@angular/common/http";
+
+
 
 @Injectable()
 export class UserService{
   public user: User;
-  constructor(public http: Http){
+  constructor(private http: HttpClient){
 
   }
 
-  getAllUsers(): Promise<User[]>{
+  getAllUsers(): Observable<any>{
     return this.http.get('http://localhost:3000/user')
-    .toPromise()
-    .then((response: Response) => response.json());
   }
 
   deleteUser(id: number): Observable<any>{
@@ -24,21 +23,15 @@ export class UserService{
     return this.http.delete(`http://localhost:3000/user/${id}`)
   }
 
-  registerUser(data: User): Observable<User>{
-    this.filterUserReceived(data)
-
-    let headers: Headers = new Headers()
-    headers.append('Content-type', 'application/json')
-    return this.http.post('http://localhost:3000/user',
-    JSON.stringify(data),
-    new RequestOptions({ headers: headers}))
-    .pipe(map((response: Response)=>response.json()) )
+  registerUser(data: User, employee: boolean): Observable<User>{
+    this.filterUserReceived(data, employee)
+    return this.http.post<User>('http://localhost:3000/user',data)
   }
 
-  private filterUserReceived(user: User): void{
+  private filterUserReceived(user: User, admin: boolean): void{
     console.log('na função de filtrar', user)
     delete user['confirmarSenha']
-    user.admin = false
+    user.funcionario = admin
   }
 
 
