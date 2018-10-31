@@ -1,8 +1,10 @@
-import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
-import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
 import { matchPasswordValidator } from '../shared/password-match.validator';
-import { UserService } from '../user.service';
 import { User } from '../shared/user.model';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-login-register',
@@ -17,7 +19,8 @@ export class LoginRegisterComponent implements OnInit {
 
   constructor(
     public userService: UserService,
-    public renderer: Renderer2
+    public renderer: Renderer2,
+    public route: Router
     )
    { }
 
@@ -38,7 +41,20 @@ export class LoginRegisterComponent implements OnInit {
 
   sendData(): void{
     this.newUser = this.form.value
-    this.userService.registerUser(this.newUser, false).subscribe()
+    this.userService.registerUser(this.newUser, false).subscribe((data)=>{
+      this.checkRegister(data),
+      //tratar erro
+      (error)=>{ console.log('here', error)}
+    })
+  }
+
+  checkRegister(status): void{
+    if(status){
+      //colocar um aviso de usuario cadastrado com sucesso
+      this.route.navigate(["/area-do-usuario"]);
+    }else{
+      alert('nao cadastrado')
+    }
   }
 
 

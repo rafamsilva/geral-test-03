@@ -19,6 +19,7 @@ import { LoginRegisterComponent } from './login-register/login-register.componen
 import { HousesService } from './houses.service';
 import { LogStateService } from './log-state.service';
 import { AutenticationService } from './user-area/autentication.service';
+import { Interceptor } from './auth/interceptor.module';
 
 
 
@@ -39,7 +40,8 @@ import { AutenticationService } from './user-area/autentication.service';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    Interceptor
   ],
   providers: [
     LoginCheckService,

@@ -31,49 +31,37 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private route: Router,
-    private renderer: Renderer2,
     private loginservice: LoginCheckService,
     private data: LogStateService
-  ) {}
+    ) {}
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
-  enterUserArea(): void {
-    if (!this.form.invalid) {
-      let userForm = this.form.value.user;
-      let passForm = this.form.value.password;
+    enterUserArea(): void {
+      if (!this.form.invalid) {
+        let userForm = this.form.value.user;
+        let passForm = this.form.value.password;
 
-      this.loginservice.checkUser(userForm, passForm).subscribe(data => {
-        this.enterArea(data);
-      });
+        this.loginservice.checkUser(userForm, passForm).subscribe(data => {
+          this.enterArea(data)
+          console.log(data)
+        });
+      }
+    }
+
+    enterArea(data) {
+      if(data.token !== undefined){
+        this.loginservice.userIsAuth();
+        this.route.navigate(["/area-do-usuario"]);
+        this.data.changeStateLogin(true);
+      }else{
+        this.showRegisterMsg()
+      }
+
+    }
+
+    showRegisterMsg(): void {
+      this.notRegistred = true;
     }
   }
-
-  enterArea(data) {
-    this.user = data;
-    this.checkEmptyResponse(this.user);
-    if (this.validateUserLogin(this.user[0].email, this.user[0].senha)) {
-      this.loginservice.userIsAuth();
-      this.loginservice.storageUserSession(this.user)
-      this.route.navigate(["/area-do-usuario"]);
-      this.data.changeStateLogin(true);
-    }
-  }
-
-  validateUserLogin(name, password): boolean {
-    return (
-      name === this.form.value.user && password === this.form.value.password
-    );
-  }
-
-  checkEmptyResponse(response): void {
-    if (isEmpty(response)) {
-      this.showRegisterMsg();
-    }
-  }
-
-  showRegisterMsg(): void {
-    this.notRegistred = true;
-  }
-}

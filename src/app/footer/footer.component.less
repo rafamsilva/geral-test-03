@@ -1,6 +1,17 @@
 @import '../../styles.less';
 
 .footer{
-    background-image: url('../../@{brick-texture}');
-    height: @footer;
+    background-image: url('../../@{brick-texture}') ;
+    height: 100%;
+    padding: 2% 0;
+    &__box{
+      &-map{
+        margin-left: 5%;
+      }
+    }
+    &__box-medias{
+      flex-direction: column;
+      display: flex;
+    }
 }
+

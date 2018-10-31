@@ -1,21 +1,24 @@
 import { Injectable } from "@angular/core";
-import { Response, Headers, RequestOptions } from "../../node_modules/@angular/http";
 import { Observable } from "rxjs";
-import { map } from 'rxjs/operators';
 import { User } from "src/app/shared/user.model";
-import { HttpClient } from "@angular/common/http";
-
+import { HttpClient, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 
 @Injectable()
 export class UserService{
   public user: User;
-  constructor(private http: HttpClient){
+  constructor(
+    private http: HttpClient
+    ){
 
   }
 
+  getUser(email: string): Observable<any>{
+    return this.http.get("http://192.168.3.121:0034/api/users?email='danillopkt@hotmail.com'")
+  }
+
   getAllUsers(): Observable<any>{
-    return this.http.get('http://localhost:3000/user')
+    return this.http.get('http://192.168.3.121:0034/api/registro')
   }
 
   deleteUser(id: number): Observable<any>{
@@ -25,7 +28,7 @@ export class UserService{
 
   registerUser(data: User, employee: boolean): Observable<User>{
     this.filterUserReceived(data, employee)
-    return this.http.post<User>('http://localhost:3000/user',data)
+    return this.http.post<User>('http://192.168.3.121:0034/api/registro',data)
   }
 
   private filterUserReceived(user: User, admin: boolean): void{
