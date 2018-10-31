@@ -1,37 +1,17 @@
 @import '../../styles.less';
 
-/*.quem-somos{
-    background-color: @secondary-color;
-    margin: @margin-content;
-    padding: @padding-content;
-    box-shadow: @shadow;
-    display: flex;
-    flex-direction: column;
-    border-radius: @border;
-    .quem-somos__descricao{
-        text-align: justify;
-    }
-    .quem-somos__imagem{
-        align-self: center;
-        border-radius: @border;
-    }
-
-}
-
-
-
-@media (max-width: 650px){
-    .quem-somos{
-        margin: 10px
-    }
-}*/
-
 .content{
+  display: flex;
+  font-size: 110%;
   text-align: justify;
-  color: #777;
-  background-color: white;
+  color: rgb(27, 26, 26);
+  background-color: @primary-color;
   padding: 50px 80px;
   height: 350px;
+  align-items: center;
+  @media @max576{
+      padding: 10px 40px
+  }
 }
 
 .box1, .box2, .box3{
@@ -40,7 +20,20 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .box-span{
+    background-color: red;
+    padding: 2% 5%;
+    color: white;
+    border-radius: 6px;
+    box-shadow: @shadow;
+  }
 }
+
+
+
 
 .box1{
   background-image: url('../../assets/parallax1.jpg')
