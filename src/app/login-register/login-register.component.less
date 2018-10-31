@@ -2,10 +2,22 @@
 
 .register-panel{
   background-color: @secondary-color;
-  margin: @margin-content;
+  margin: @margin-login;
   padding: @padding-content;
   box-shadow: @shadow;
+  @media @max576{
+    margin: @margin-mobile!important;
+  }
+  @media @max767{
+    margin: 50px 10%
+  }
   .form{
+    padding: @padding-form-register;
+    display: flex;
+    flex-direction: column;
+    &__register-btn{
+      margin: 0 25%;
+    }
     &__field--validation.ng-invalid.ng-touched{
       border: 1px solid red;
     }

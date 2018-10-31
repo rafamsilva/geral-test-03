@@ -5,7 +5,25 @@
   margin: @margin-login;
   padding: @padding-content;
   box-shadow: @shadow;
+  @media @max576{
+    margin: @margin-mobile!important;
+  }
+  @media @max767{
+    margin: 50px 10%
+  }
   .form{
+    padding: @padding-form;
+    display: flex;
+    flex-direction: column;
+    @media @max576{
+      padding: 0;
+    }
+    &__btn-box{
+      display: flex;
+    }
+    &__btn{
+      margin: 5px;
+    }
     &__field--validation.ng-invalid.ng-touched{
       border: 1px solid red;
     }

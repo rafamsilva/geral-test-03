@@ -1,5 +1,5 @@
 <div class="panel">
-    <form [formGroup]="form" (ngSubmit)="enterUserArea()">
+    <form [formGroup]="form" (ngSubmit)="enterUserArea()" class="form">
         <div class="form-group panel__user-block">
           <label class="col-form-label">Email:</label>
           <input type="text" class="form-control form__field--validation" formControlName="user">
@@ -19,10 +19,12 @@
         <div *ngIf="notRegistred" class="alert alert-danger" role="alert">
           Email ou senha inválidos!
         </div>
-        <button #btnLogin type="submit" class="btn btn-primary" [disabled]="form.invalid">Login</button>
-        <button class="btn btn-warning" routerLink="/novo-cadastro">Cadastre-se</button>
+        <div class="form__btn-box">
+          <button #btnLogin type="submit" class="btn btn-primary form__btn" [disabled]="form.invalid">Login</button>
+          <button class="btn btn-warning form__btn" routerLink="/novo-cadastro">Cadastre-se</button>
+        </div>
+        <span class="panel__recovery-pwd form__btn">Esqueceu sua senha?</span>
     </form>
-    <span class="panel__recovery-pwd">Esqueceu sua senha?</span>
 </div>
 
 <!-- Modal -->
