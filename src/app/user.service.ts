@@ -14,7 +14,7 @@ export class UserService{
   }
 
   getUser(email: string): Observable<any>{
-    return this.http.get("http://192.168.3.121:0034/api/users?email='danillopkt@hotmail.com'")
+    return this.http.get(`http://192.168.3.121:0034/api/users/${email}`)
   }
 
   getAllUsers(): Observable<any>{

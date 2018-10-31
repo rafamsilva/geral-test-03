@@ -43,7 +43,6 @@ export class LoginRegisterComponent implements OnInit {
     this.newUser = this.form.value
     this.userService.registerUser(this.newUser, false).subscribe((data)=>{
       this.checkRegister(data),
-      //tratar erro
       (error)=>{ console.log('here', error)}
     })
   }
@@ -51,7 +50,7 @@ export class LoginRegisterComponent implements OnInit {
   checkRegister(status): void{
     if(status){
       //colocar um aviso de usuario cadastrado com sucesso
-      this.route.navigate(["/area-do-usuario"]);
+      this.route.navigate(["/login"]);
     }else{
       alert('nao cadastrado')
     }

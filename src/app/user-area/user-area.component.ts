@@ -7,7 +7,7 @@ import { UserService } from 'src/app/user.service';
   styleUrls: ['./user-area.component.less']
 })
 export class UserAreaComponent implements OnInit {
-  public userType: number = 1 //aqui menu varia
+  public userType: number = 2 //aqui menu varia
 
   constructor(public userService: UserService) { }
 
@@ -16,8 +16,8 @@ export class UserAreaComponent implements OnInit {
   }
 
   getUserData(): void{
-    this.userService.getUser('danillopkt@hotmail.com').subscribe((data)=>{
-      console.log(data)
+    this.userService.getUser('a').subscribe((data)=>{
+      console.log('email',data)
     })
   }
 
