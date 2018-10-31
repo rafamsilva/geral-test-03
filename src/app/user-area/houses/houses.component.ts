@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { House } from 'src/shared/house.model';
+import { House } from 'src/app/shared/house.model';
 import { HousesService } from '../../houses.service';
 
 @Component({
@@ -20,11 +20,7 @@ export class HousesComponent implements OnInit {
 
   getHousesList(){
     this.housesService.getHouses()
-    .then((data: House[]) => {
-      this.houses = data;
-      console.log(this.houses)
-    })
-    .catch((data: any) => {});
+    .subscribe((data)=>this.houses = data)
   }
 
   removeHouse(){

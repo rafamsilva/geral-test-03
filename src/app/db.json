@@ -1,82 +1,167 @@
 {
   "user": [
     {
-      "name": "danillo",
+      "nome": "danillo",
+      "sobrenome": "fidel",
       "email": "abc",
-      "pass": "123",
+      "senha": "123",
+      "telefone": "32223475",
+      "admin": true,
+      "funcionario": true,
       "id": "015"
     },
     {
-      "name": "joao",
-      "email": "bcd",
-      "pass": "123",
-      "id": "020"
+      "nome": "pedro",
+      "sobrenome": "fidel",
+      "email": "abe",
+      "senha": "125",
+      "telefone": "32223475",
+      "funcionario": false,
+      "admin": false,
+      "id": "10"
     },
     {
-      "name": "rafael",
-      "email": "abcp",
-      "pass": "156",
-      "id": "007"
+      "nome": "pablo",
+      "sobrenome": "fidel",
+      "email": "abcf",
+      "senha": "1234",
+      "telefone": "32223475",
+      "funcionario": false,
+      "admin": false,
+      "id": "9"
     },
     {
-      "name": "tania",
-      "email": "ert",
-      "pass": "896",
-      "id": "050"
-    }
-    ,{
-      "name": "pedro",
-      "email": "abrc",
-      "pass": "963",
-      "id": "036"
+      "nome": "joao paulo",
+      "sobrenome": "fidel",
+      "email": "abck",
+      "senha": "1237",
+      "telefone": "32223475",
+      "funcionario": false,
+      "admin": false,
+      "id": "8"
     },
     {
-      "name": "joaquim",
-      "email": "erfd",
-      "pass": "963",
-      "id": "012"
+      "nome": "maria",
+      "sobrenome": "fidel",
+      "email": "abcsw",
+      "senha": "1239",
+      "telefone": "32223475",
+      "funcionario": true,
+      "admin": false,
+      "id": "7"
+    },
+    {
+      "nome": "Danillo",
+      "sobrenome": "Gomes Fidel",
+      "telefone": "34997958717",
+      "email": "danillopkt@hotmail.com",
+      "funcionario": false,
+      "senha": "1754712d",
+      "admin": false,
+      "id": "921fnN5"
+    },
+    {
+      "nome": "Paulo",
+      "sobrenome": "Peçanha",
+      "telefone": "34997958718",
+      "email": "paulo@hotmail.com",
+      "senha": "1754712d",
+      "admin": false,
+      "id": "IlmkEvO"
+    },
+    {
+      "nome": "Ricardo",
+      "sobrenome": "Souza",
+      "telefone": "34997958755",
+      "email": "ricardo@hotmail.com",
+      "funcionario": false,
+      "senha": "1754712d",
+      "admin": false,
+      "id": "t5w9ZY2"
+    },
+    {
+      "nome": "Rodrigo",
+      "sobrenome": "Mrtins",
+      "telefone": "34999896563",
+      "email": "rodrigo@hotmail.com",
+      "funcionario": false,
+      "senha": "1754712d",
+      "admin": false,
+      "id": "VjrQkZ4"
+    },
+    {
+      "nome": "Danillo",
+      "sobrenome": "Gomes",
+      "telefone": "34997958717",
+      "email": "danillopkt@hotmail.com",
+      "funcionario": false,
+      "senha": "1754712d",
+      "admin": false,
+      "id": "UTPikHV"
+    },
+    {
+      "nome": "Paulinho",
+      "sobrenome": "Gomes",
+      "telefone": "34997958717",
+      "email": "paulinho@hotmail.com",
+      "funcionario": false,
+      "senha": "1754712d",
+      "admin": false,
+      "id": "gcvOHIO"
+    },
+    {
+      "nome": "renato",
+      "sobrenome": "Gomes",
+      "telefone": "34997958717",
+      "email": "renato@hotmail.com",
+      "funcionario": false,
+      "senha": "1754712d",
+      "admin": false,
+      "id": "6mO~zm4"
+    },
+    {
+      "nome": "Danillo",
+      "sobrenome": "Gomes",
+      "telefone": "34997958717",
+      "email": "danillopkt@hotmail.com",
+      "funcionario": false,
+      "senha": "1754712d",
+      "admin": false,
+      "id": "TtLcxB0"
+    },
+    {
+      "nome": "joao",
+      "sobrenome": "Gomes",
+      "telefone": "34997958717",
+      "email": "joao@gmail.com",
+      "funcionario": false,
+      "senha": "1754712d",
+      "admin": false,
+      "id": "cxu3PMI"
+    },
+    {
+      "nome": "Joaozinho",
+      "sobrenome": "Gomes",
+      "telefone": "34997958717",
+      "email": "145@hotmail.com",
+      "funcionario": true,
+      "senha": "1754712d",
+      "admin": false,
+      "id": "JFvSuqW"
     }
   ],
   "houses": [
     {
-      "id": "15",
-      "endereco": "Av Dom Pedro II, Uberlandia MG",
+      "endereco": "Rua das cachoeiras, Uberlandia MG",
       "tipo": "casa",
-      "valor": "22000",
-      "disp": "venda",
-      "area": "110",
-      "quartos": "3",
-      "vagas": "2",
-      "suite": "1",
-      "desc": "Sobrado em condomínio bem localizado, no Nova Uberlândia, 3 km da praça Tubal Vilela.",
-      "bairro": "Granada",
-      "img": [
-        {
-          "url": "../assets/imoveis/casa-tubalina-01.jpg"
-        },
-        {
-          "url": "../assets/imoveis/casa-tubalina-02.jpg"
-        },
-        {
-          "url": "../assets/imoveis/casa-tubalina-03.jpg"
-        },
-        {
-          "url": "../assets/imoveis/casa-tubalina-04.jpg"
-        }
-      ]
-    },
-    {
-      "id": "10",
-      "endereco": "Rua das flores, Uberlandia MG",
-      "tipo": "apartamento",
       "valor": "1200",
       "disp": "venda",
       "area": "110",
       "quartos": "3",
       "vagas": "2",
       "suite": "1",
-      "desc": "Sobrado em condomínio bem localizado, no Nova Uberlândia, 3 km da praça Tubal Vilela.",
-      "bairro": "Nova Uberlândia",
+      "desc": "casa pequena",
+      "bairro": "Tocantins",
       "img": [
         {
           "url": "../assets/imoveis/casa-tubalina-01.jpg"
@@ -90,9 +175,8 @@
         {
           "url": "../assets/imoveis/casa-tubalina-04.jpg"
         }
-      ]
+      ],
+      "id": 1
     }
-
   ]
-
 }

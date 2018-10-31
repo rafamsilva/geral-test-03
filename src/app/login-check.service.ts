@@ -1,9 +1,12 @@
 import { Injectable } from "../../node_modules/@angular/core";
-import { Http, Response } from "../../node_modules/@angular/http";
+import { Http, Response, Jsonp } from "../../node_modules/@angular/http";
 
 
-import { User } from "../shared/user.model";
+import { User } from "./shared/user.model";
 import { EventEmitter } from "events";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+
 
 
 
@@ -12,16 +15,25 @@ export class LoginCheckService{
   public changedStateLogin = new EventEmitter();
   public isAuth: boolean;
 
-  constructor(public http: Http){}
+  constructor(public http: HttpClient){}
 
-  public checkUser(user,pass): Promise<User>{
+  public checkUser(user,pass): Observable<any>{
     return this.http.get(`http://localhost:3000/user?email=${user}&pass=${pass}`)
-    .toPromise()
-    .then((response: Response) => response.json());
   }
 
   public userIsAuth(){
     this.isAuth = true;
   }
+
+  public storageUserSession(user: User){
+    sessionStorage.setItem('user', JSON.stringify(user))
+  }
+
+  public getUserSession(){
+    let session = sessionStorage.getItem('user')
+    console.log(JSON.parse(session))
+  }
+
+
 
 }

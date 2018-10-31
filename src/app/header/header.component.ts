@@ -1,6 +1,8 @@
 import { Component, OnInit} from '@angular/core';
-import { User } from '../../shared/user.model';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { User } from '../shared/user.model';
 import { LogStateService } from '../log-state.service';
+import { LoginCheckService } from '../login-check.service';
 
   @Component({
     selector: 'app-header',
@@ -16,15 +18,29 @@ import { LogStateService } from '../log-state.service';
 
     constructor(
       private log: LogStateService,
+      private loginService: LoginCheckService
+
       ) { }
 
       ngOnInit() {
-        this.log.atualState.subscribe(state => this.isLogged = state)
-
+        this.changeState()
+        console.log(this.loginService.getUserSession)
       }
 
       public logout(): void{
         this.isLogged = false
       }
+
+      changeState(){
+        this.log.atualState.subscribe(state => this.isLogged = state)
+      }
+
+      isloggedCheck(){
+        if(this.loginService.getUserSession !== undefined){
+          this.log.changeStateLogin(true)
+        }
+      }
+
+
 
     }

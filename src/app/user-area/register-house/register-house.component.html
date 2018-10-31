@@ -1,91 +1,99 @@
 <div class="register-panel">
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputAddress">Endereço</label>
-      <input type="text" class="form-control"placeholder="Rua Vinte, 235">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Bairro</label>
-      <input type="text" class="form-control" placeholder="Dom Almir">
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputCity">Cidade</label>
-      <input type="text" class="form-control" placeholder="Uberlandia">
-    </div>
-    <div class="form-group col-md-4">
-      <label for="inputState">Estado</label>
-      <select id="inputState" class="form-control">
-        <option selected>...</option>
-        <option>MG</option>
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputZip">CEP</label>
-      <input type="text" class="form-control" id="inputZip" placeholder="38400200">
-    </div>
-  </div>
-  <fieldset class="form-group">
-    <legend class="col-form-label col-sm-2 pt-0">Tipo</legend>
-    <div class="col-sm-10">
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-        <label class="form-check-label" for="gridRadios1">
-          Casa
-        </label>
+  <form [formGroup]="form" (ngSubmit)="sendData()" class="form">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>Endereço</label>
+        <input type="text" class="form-control form__field--validation" placeholder="Rua Vinte, 235" formControlName="endereco">
       </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-        <label class="form-check-label" for="gridRadios2">
-          Apartamento
-        </label>
+      <div class="form-group col-md-6">
+        <label>Bairro</label>
+        <input type="text" class="form-control form__field--validation" placeholder="Dom Almir"  formControlName="bairro">
       </div>
     </div>
-  </fieldset>
-
-  <fieldset class="form-group">
-    <legend class="col-form-label col-sm-2 pt-0">Disponibilidade</legend>
-    <div class="col-sm-10">
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-        <label class="form-check-label" for="gridRadios1">
-          Aluguel
-        </label>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>Cidade</label>
+        <input type="text" class="form-control form__field--validation" placeholder="Uberlandia" formControlName="cidade">
       </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-        <label class="form-check-label" for="gridRadios2">
-          Venda
-        </label>
+      <div class="form-group col-md-4">
+        <label>Estado</label>
+        <select id="inputState" class="form-control form__field--validation" formControlName="estado">
+          <option selected [ngValue]="null">...</option>
+          <option>MG</option>
+        </select>
+      </div>
+      <div class="form-group col-md-2">
+        <label>CEP</label>
+        <input type="text" class="form-control form__field--validation" placeholder="38400200" formControlName="cep">
       </div>
     </div>
-  </fieldset>
 
-  <div class="form-row">
-    <div class="form-group col-md-4">
-      <label for="inputCity">N° de quartos</label>
-      <input type="number" class="form-control">
-    </div>
-
-    <div class="form-group col-md-4">
-      <label for="inputCity">N° vagas garagem</label>
-      <input type="number" class="form-control">
-    </div>
-
-    <div class="form-group col-md-4">
-      <label for="inputCity">Área útil</label>
-      <input type="number" class="form-control">
-    </div>
-  </div>
-
-  <div class="form-row">
-    <div class="input-group col-md-4">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroupPrepend">R$</span>
+    <fieldset class="form-group">
+      <legend class="col-form-label col-sm-2 pt-0">Tipo</legend>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="tipo" id="gridRadios1" value="casa" formControlName="tipo">
+          <label class="form-check-label" for="tipo">
+            Casa
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input form__field--validation" type="radio" name="tipo" id="gridRadios2" value="apartamento" formControlName="tipo">
+          <label class="form-check-label" for="tipo">
+            Apartamento
+          </label>
+        </div>
       </div>
-      <input type="text" class="form-control">
+    </fieldset>
+
+    <fieldset class="form-group">
+      <legend class="col-form-label col-sm-2 pt-0">Disponibilidade</legend>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="disp" id="gridRadios1" value="aluguel" formControlName="disp">
+          <label class="form-check-label" for="disp">
+            Aluguel
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="disp" id="gridRadios2" value="venda" formControlName="disp">
+          <label class="form-check-label" for="disp">
+            Venda
+          </label>
+        </div>
+      </div>
+    </fieldset>
+
+    <div class="form-row">
+      <div class="form-group col-md-2">
+        <label for="inputCity">Suítes</label>
+        <input type="text" class="form-control form__field--validation" formControlName="suites">
+      </div>
+
+      <div class="form-group col-md-2">
+        <label for="inputCity">Quartos</label>
+        <input type="text" class="form-control form__field--validation" formControlName="quartos">
+      </div>
+
+      <div class="form-group col-md-2">
+        <label for="inputCity">Vagas na garagem</label>
+        <input type="text" class="form-control form__field--validation" formControlName="vagas">
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="inputCity">Área útil</label>
+        <input type="text" class="form-control form__field--validation" formControlName="area" placeholder="valor em metros quadrados">
+      </div>
     </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Cadastrar</button>
+
+    <div class="form-row">
+      <div class="input-group col-md-4">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroupPrepend">R$</span>
+        </div>
+        <input type="text" class="form-control form__field--validation" formControlName="valor">
+      </div>
+    </div>
+    <button type="submit" [disabled]="form.status === 'INVALID'" class="btn btn-primary">Cadastrar</button>
+  </form>
 </div>

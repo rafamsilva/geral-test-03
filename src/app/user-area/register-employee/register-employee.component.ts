@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { User } from 'src/app/shared/user.model';
+
+import { matchPasswordValidator } from '../../shared/password-match.validator';
+import { UserService } from 'src/app/user.service';
+
 
 @Component({
   selector: 'app-register-employee',
@@ -7,17 +12,32 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./register-employee.component.less']
 })
 export class RegisterEmployeeComponent implements OnInit {
-  public form: FormGroup = new FormGroup({
-    'name': new FormControl(null),
-    'lastName': new FormControl(null),
-    'phone': new FormControl(null),
-    'email': new FormControl(null),
-    'password': new FormControl(null)
-  });
+  public newUser: User;
+  public isDifferent: boolean;
+  public form: FormGroup;
 
-  constructor() { }
+
+  constructor(public userService: UserService) { }
 
   ngOnInit() {
+    this.getFormData()
   }
+
+  sendData(): void{
+    this.newUser = this.form.value
+    this.userService.registerUser(this.newUser, true).subscribe()
+  }
+
+  getFormData(): void{
+    this.form = new FormGroup({
+      'nome': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
+      'sobrenome': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]),
+      'telefone': new FormControl(null, [ Validators.required, Validators.pattern(/^[0-9]{11}$/)]),
+      'email': new FormControl(null, [ Validators.required, Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]),
+      'senha': new FormControl(null,  [ Validators.required, Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/)]),
+      'confirmarSenha': new FormControl(null,  [ Validators.required, matchPasswordValidator('senha')])
+    });
+  }
+
 
 }
