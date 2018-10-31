@@ -1,31 +1,37 @@
-<nav class="navbar navbar-expand-lg navbar-light header">
-  <a class="navbar-brand" routerLink="">
-    <img class="header__logo" src="../../assets/logo.png" alt="">
-    <span class="header__title">Futura Imóveis</span>
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto header__list">
-      <li class="nav-item">
-        <a class="header__item" routerLink="/imoveis">Imóveis</a>
-      </li>
-      <li class="nav-item">
-        <a class="header__item" href="#">Fale Conosco</a>
-      </li>
-    </ul>
-    <div *ngIf="!isLogged; else nameUser" class="header__login-icon" routerLink="/login">
-      <i class="fas fa-2x fa-user-lock header__icon"></i>
-    </div>
-    <ng-template #nameUser>
-      <span>Olá, {{userName}}</span>
-      <br>
-      <a (click)="logout()" routerLink="/">sair</a>
-      <a routerLink="./area-do-usuario">Acessar meu painel</a>
-  </ng-template>
+<nav class="header">
+  <div class="header__logo">
+    <a routerLink="">
+      <img class="header__logo-img"src="../../assets/logo.png" alt="">
+    </a>
   </div>
+  <div class="header__links">
+    <div class="header__links-item">
+      <a class="header__item" routerLink="/imoveis">Imóveis</a>
+    </div>
+    <div class="header__links-item">
+      <a class="header__item" href="#">Fale Conosco</a>
+    </div>
+  </div>
+
+  <div [ngClass]="!isLogged ? 'header__login--off' : 'header__login--on'">
+    <div *ngIf="!isLogged; else nameUser" routerLink="/login">
+      <i class="fas fa-2x fa-user-lock header__icon header__login--on"></i>
+    </div>
+  </div>
+
+  <ng-template #nameUser>
+    <div class="header__login--on">
+      <span class="header__login-name">Olá, {{userName}}</span>
+      <br>
+      <a class="header__login-panel" routerLink="./area-do-usuario">Acessar meu painel</a>
+    </div>
+  </ng-template>
 </nav>
+
+<div class="slim-menu" style="display: none">
+    <a class="header__item" routerLink="/imoveis">Imóveis</a>
+    <a class="header__item" routerLink="/login">Área do cliente</a>
+    <a class="header__item" href="#">Fale Conosco</a>
+</div>
 
 

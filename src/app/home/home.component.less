@@ -1,28 +1,48 @@
 @import '../../styles.less';
 
-.quem-somos{
-    background-color: @secondary-color;
-    margin: @margin-content;
-    padding: @padding-content;
+.content{
+  display: flex;
+  font-size: 110%;
+  text-align: justify;
+  color: rgb(27, 26, 26);
+  background-color: @primary-color;
+  padding: 50px 80px;
+  height: 350px;
+  align-items: center;
+  @media @max576{
+      padding: 10px 40px
+  }
+}
+
+.box1, .box2, .box3{
+  height: 300px;
+  opacity: 0.7;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .box-span{
+    background-color: red;
+    padding: 2% 5%;
+    color: white;
+    border-radius: 6px;
     box-shadow: @shadow;
-    display: flex;
-    flex-direction: column;
-    border-radius: @border;
-    .quem-somos__descricao{
-        text-align: justify;
-    }
-    .quem-somos__imagem{
-        align-self: center;
-        border-radius: @border;
-    }
-
+  }
 }
 
 
 
-@media (max-width: 650px){
-    .quem-somos{
-        margin: 10px
-    }
+
+.box1{
+  background-image: url('../../assets/parallax1.jpg')
 }
 
+.box2{
+  background-image: url('../../assets/parallax2.jpg')
+}
+
+.box3{
+  background-image: url('../../assets/parallax4.jpg')
+}

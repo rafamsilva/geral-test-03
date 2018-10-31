@@ -4,25 +4,74 @@
   background-color: @primary-color;
   box-shadow: @shadow;
   display: flex;
-  .header__logo{
-    height: 50%;
+  height: 80px;
+  @media @max576{
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    box-shadow: none;
+    height: 60px;
   }
-  .header__title{
-    margin-left: 5px;
-    color: @text-navbar
+  &__logo{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    &-img{
+      margin-left: 10%;
+      @media @max576{
+        width: 80%;
+        height: 90%
+      }
+    }
   }
-  .header__item{
-    color: @text-navbar;
-    margin-left: 5px
+  &__links{
+    width: 45%;
+    display: flex;
+    align-items: center;
+    font-size: 120%;
+    @media @max576{
+      display: none;
+    }
+    &-item{
+      margin: 0 5%;
+    }
   }
-  .header__login-icon{
-    cursor: pointer;
+  &__login--off{
+    width: 25%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 1.5em;
+    font-size: 110%;
+    @media @max576{
+      width: 0;
+      padding: 0
+    }
+  }
+  &__login--on{
+    @media @max576{
+      display: none;
+    }
   }
 }
 
-@media (max-width: 990px){
-  .header__list{
-    margin-top: 5%
+@media @max576{
+  .slim-menu{
+    height: 40px;
+    background-color: @primary-color;
+    display: flex !important;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: @shadow-mobile
   }
 }
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .header{
+    background-color: lightcyan
+  }
+}
+
+
 
