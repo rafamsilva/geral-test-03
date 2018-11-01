@@ -1,8 +1,9 @@
 import { Injectable } from "../../node_modules/@angular/core";
 import { User } from "./shared/user.model";
 import { EventEmitter } from "events";
-import { HttpClient, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { urlLocal } from "src/environments/urls.dev";
 
 
 
@@ -15,7 +16,7 @@ export class LoginCheckService{
   constructor(public http: HttpClient){}
 
   public checkUser(user,pass): Observable<any>{
-    return this.http.post<User>('http://192.168.3.121:0034/api/authenticate',{email: user, senha: pass})
+    return this.http.post<User>(`${urlLocal}/api/authenticate`,{email: user, senha: pass})
   }
 
   public userIsAuth(){
