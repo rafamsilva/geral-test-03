@@ -2,24 +2,29 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { User } from "src/app/shared/user.model";
 import { HttpClient, HTTP_INTERCEPTORS } from "@angular/common/http";
-import { urlLocal } from "src/environments/urls.dev";
+import { urlLocal, urlMockup, mockupsEndPoints, urlExternal } from "src/environments/urls.dev";
 
 
 @Injectable()
 export class UserService{
   public user: User;
+  public userEmail: string = '';
   constructor(
     private http: HttpClient
     ){
 
   }
 
-  getUser(email: string): Observable<any>{
-    return this.http.get(`http://192.168.3.121:0034/api/users/${email}`)
+  setUser(email: string){
+    this.userEmail = email
+  }
+
+  getUser(): Observable<any>{
+    return this.http.get(`${urlExternal}/api/users/${this.userEmail}`)
   }
 
   getAllUsers(): Observable<any>{
-    return this.http.get('http://192.168.3.121:0034/api/registro')
+    return this.http.get(`${urlExternal}${mockupsEndPoints.users}`)
   }
 
   deleteUser(id: number): Observable<any>{
@@ -29,11 +34,10 @@ export class UserService{
 
   registerUser(data: User, employee: boolean): Observable<User>{
     this.filterUserReceived(data, employee)
-    return this.http.post<User>(`${urlLocal}/api/registro`,data)
+    return this.http.post<User>(`${urlExternal}/api/registro`,data)
   }
 
   private filterUserReceived(user: User, admin: boolean): void{
-    console.log('na função de filtrar', user)
     delete user['confirmarSenha']
     user.funcionario = admin
   }

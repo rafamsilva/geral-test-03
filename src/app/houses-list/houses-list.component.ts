@@ -9,8 +9,11 @@ import { House } from 'src/app/shared/house.model';
 })
 export class HousesListComponent implements OnInit {
   public houses: House[];
+  public favoriteUrl: string = '../../assets/coracao_vazio.png';
 
   constructor(private housesService: HousesService) { }
+
+
 
   ngOnInit() {
     this.getHousesList()
@@ -19,6 +22,10 @@ export class HousesListComponent implements OnInit {
   getHousesList(){
     this.housesService.getHouses()
     .subscribe((data)=>this.houses = data)
+  }
+
+  favoriteToggle(){
+    console.log('adicionado')
   }
 
 }

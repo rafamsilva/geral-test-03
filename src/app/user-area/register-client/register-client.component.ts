@@ -22,10 +22,9 @@ export class RegisterClientComponent implements OnInit {
   sendData(): void{
     this.newUser = this.form.value
     this.userService.registerUser(this.newUser, false).subscribe((data)=>{
-      console.log(data)
+      this.finishRegister()
     })
   }
-
 
   getFormData(): void{
     this.form  = new FormGroup({
@@ -36,6 +35,11 @@ export class RegisterClientComponent implements OnInit {
       'senha': new FormControl(null,  [ Validators.required, Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/)]),
       'confirmarSenha': new FormControl(null,  [ Validators.required, matchPasswordValidator('senha')])
     });
+  }
+
+  public finishRegister(): void{
+    this.form.reset();
+    alert('cliente cadastrado')
   }
 
 }

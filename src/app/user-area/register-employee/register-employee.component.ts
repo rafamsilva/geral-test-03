@@ -23,12 +23,14 @@ export class RegisterEmployeeComponent implements OnInit {
     this.getFormData()
   }
 
-  sendData(): void{
+  public sendData(): void{
     this.newUser = this.form.value
-    this.userService.registerUser(this.newUser, true).subscribe()
+    this.userService.registerUser(this.newUser, true).subscribe(data =>
+      this.finishRegister()
+    )
   }
 
-  getFormData(): void{
+  public getFormData(): void{
     this.form = new FormGroup({
       'nome': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
       'sobrenome': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]),
@@ -37,6 +39,11 @@ export class RegisterEmployeeComponent implements OnInit {
       'senha': new FormControl(null,  [ Validators.required, Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/)]),
       'confirmarSenha': new FormControl(null,  [ Validators.required, matchPasswordValidator('senha')])
     });
+  }
+
+  public finishRegister(): void{
+    this.form.reset();
+    alert('funcionario cadastrado')
   }
 
 

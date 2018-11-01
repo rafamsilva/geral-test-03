@@ -45,13 +45,13 @@ export class LoginComponent implements OnInit {
 
         this.loginservice.checkUser(userForm, passForm).subscribe(data => {
           this.enterArea(data)
-          console.log(data)
         });
       }
     }
 
     enterArea(data) {
       if(data.token !== undefined){
+        this.loginservice.saveUserData(this.form.get('user').value)
         this.loginservice.userIsAuth();
         this.route.navigate(["/area-do-usuario"]);
         this.data.changeStateLogin(true);
