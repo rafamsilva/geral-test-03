@@ -33,7 +33,7 @@ export class HttpsRequestInterceptor implements HttpInterceptor {
             }
           }
         }, error => {
-          // http response status code
+          // http response status
         })
         )
       }
