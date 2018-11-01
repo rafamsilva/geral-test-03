@@ -24,7 +24,6 @@ import { LoginCheckService } from '../login-check.service';
 
       ngOnInit() {
         this.changeState()
-        console.log(this.loginService.getUserSession)
       }
 
       public logout(): void{

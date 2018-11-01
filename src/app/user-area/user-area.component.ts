@@ -18,15 +18,11 @@ export class UserAreaComponent implements OnInit {
 
   getUserData(): void{
     this.userService.getUser().subscribe((data)=>{
-      console.log('email', data)
-      console.log('tipo',data.funcionario)
       this.checkUserTyper(data)
     })
   }
 
   checkUserTyper(user: User): void{
-    console.log('admin',user[0].admin)
-    console.log('funcionario',user[0].funcionario)
     if(user[0].admin){
       this.userType =  3;
     }else if(user[0].funcionario){
@@ -34,7 +30,6 @@ export class UserAreaComponent implements OnInit {
     }else{
       this.userType = 1;
     }
-    console.log('after',this.userType)
   }
 
 }

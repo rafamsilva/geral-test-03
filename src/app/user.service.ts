@@ -24,12 +24,12 @@ export class UserService{
   }
 
   getAllUsers(): Observable<any>{
-    return this.http.get(`${urlExternal}${mockupsEndPoints.users}`)
+    return this.http.get(`${urlExternal}/api/users`)
   }
 
   deleteUser(id: number): Observable<any>{
     alert('na função de delete')
-    return this.http.delete(`http://localhost:3000/user/${id}`)
+    return this.http.delete(`${urlExternal}/api/users${id}`)
   }
 
   registerUser(data: User, employee: boolean): Observable<User>{

@@ -38,7 +38,6 @@ export class LoginCheckService{
 
   public getUserSession(){
     let session = sessionStorage.getItem('user')
-    console.log(JSON.parse(session))
   }
 
 

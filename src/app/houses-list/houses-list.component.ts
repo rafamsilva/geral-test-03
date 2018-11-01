@@ -25,7 +25,7 @@ export class HousesListComponent implements OnInit {
   }
 
   favoriteToggle(){
-    console.log('adicionado')
+
   }
 
 }

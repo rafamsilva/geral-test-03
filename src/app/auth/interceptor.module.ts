@@ -34,12 +34,6 @@ export class HttpsRequestInterceptor implements HttpInterceptor {
           }
         }, error => {
           // http response status code
-          console.log("----response----");
-          console.error("status code:");
-          console.error(error.status);
-          console.error(error.message);
-          console.log("--- end of response---");
-
         })
         )
       }

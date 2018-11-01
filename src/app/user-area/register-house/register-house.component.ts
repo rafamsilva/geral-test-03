@@ -23,9 +23,6 @@ export class RegisterHouseComponent implements OnInit {
       this.house = this.form.value
       alert('imóvel cadastrado!')
       this.form.reset()
-    //this.houseService.registerHouse(this.house)
-    //.subscribe((response)=> console.log(response))
-
     }
   }
 

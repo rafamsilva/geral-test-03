@@ -22,8 +22,6 @@ export class HousesService{
   }
 
   public registerHouse(data: House): Observable<any>{
-    console.log('na função de registro', data)
-
     let headers: Headers = new Headers()
     headers.append('Content-type', 'application/json')
     return this.http.post('http://localhost:3000/houses',

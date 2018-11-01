@@ -15,7 +15,6 @@ export class HousesComponent implements OnInit {
 
   ngOnInit() {
     this.getHousesList()
-    console.log(this.houses)
   }
 
   getHousesList(){
