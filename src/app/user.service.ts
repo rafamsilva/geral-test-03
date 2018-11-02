@@ -28,7 +28,6 @@ export class UserService{
   }
 
   deleteUser(id: number): Observable<any>{
-    alert('na função de delete')
     return this.http.delete(`${urlExternal}/api/users${id}`)
   }
 
