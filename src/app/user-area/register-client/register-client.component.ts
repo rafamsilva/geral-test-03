@@ -39,7 +39,6 @@ export class RegisterClientComponent implements OnInit {
 
   public finishRegister(): void{
     this.form.reset();
-    alert('cliente cadastrado')
   }
 
 }

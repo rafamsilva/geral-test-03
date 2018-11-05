@@ -29,7 +29,6 @@ export class LoginCheckService{
 
   public saveUserData(email: string){
     this.userService.setUser(email);
-
   }
 
   public storageUserSession(user: User){
@@ -37,7 +36,12 @@ export class LoginCheckService{
   }
 
   public getUserSession(){
-    let session = sessionStorage.getItem('user')
+    let token = sessionStorage.getItem('token');
+    if(token == undefined || token == null){
+      return false
+    }else{
+      return true
+    }
   }
 
 

@@ -23,12 +23,20 @@ export class UserService{
     return this.http.get(`${urlLocal}/api/usuarios/${this.userEmail}`)
   }
 
+  setUserProfile(user: User): void{
+    this.user = user
+  }
+
+  getUserName(): string{
+    return this.user.nome
+  }
+
   getAllUsers(): Observable<any>{
     return this.http.get(`${urlLocal}/api/usuarios`)
   }
 
-  deleteUser(id: number): Observable<any>{
-    return this.http.delete(`${urlLocal}/api/usuarios${id}`)
+  deleteUser(id: string): Observable<any>{
+    return this.http.delete(`${urlLocal}/api/usuarios/${id}`)
   }
 
   registerUser(data: User, employee: boolean): Observable<User>{

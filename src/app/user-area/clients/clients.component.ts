@@ -28,8 +28,8 @@ export class ClientsComponent implements OnInit {
     this.clients = remove(user, item => item.funcionario === false || item.funcionario === undefined );
   }
 
-  deletUser(): void{
-
+  deleteUser(id: string): void{
+    this.userService.deleteUser(id)
   }
 
 }

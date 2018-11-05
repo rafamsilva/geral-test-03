@@ -9,6 +9,7 @@ import { User } from '../shared/user.model';
 })
 export class UserAreaComponent implements OnInit {
   public userType: number = 1;
+  public user: User;
 
   constructor(public userService: UserService) { }
 
@@ -17,12 +18,14 @@ export class UserAreaComponent implements OnInit {
   }
 
   getUserData(): void{
-    this.userService.getUser().subscribe((data)=>{
-      this.checkUserTyper(data)
+    this.userService.getUser()
+    .subscribe((user: any) => {
+      this.checkUserTyper(user);
     })
   }
 
   checkUserTyper(user: User): void{
+    this.userService.setUserProfile(user)
     if(user[0].admin){
       this.userType =  3;
     }else if(user[0].funcionario){
@@ -31,5 +34,7 @@ export class UserAreaComponent implements OnInit {
       this.userType = 1;
     }
   }
+
+
 
 }

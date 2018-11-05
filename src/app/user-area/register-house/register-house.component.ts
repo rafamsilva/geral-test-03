@@ -21,7 +21,7 @@ export class RegisterHouseComponent implements OnInit {
   sendData(){
     if(this.form.status !== 'INVALID'){
       this.house = this.form.value
-      alert('imóvel cadastrado!')
+      this.houseService.registerHouse(this.house);
       this.form.reset()
     }
   }
