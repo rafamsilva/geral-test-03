@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { User } from "src/app/shared/user.model";
 import { HttpClient, HTTP_INTERCEPTORS } from "@angular/common/http";
-import { urlLocal, urlMockup, mockupsEndPoints, urlExternal } from "src/environments/urls.dev";
+import { urlLocal, urlMockup, mockupsEndPoints } from "src/environments/urls.dev";
 
 
 @Injectable()
@@ -20,20 +20,20 @@ export class UserService{
   }
 
   getUser(): Observable<any>{
-    return this.http.get(`${urlExternal}/api/users/${this.userEmail}`)
+    return this.http.get(`${urlLocal}/api/usuarios/${this.userEmail}`)
   }
 
   getAllUsers(): Observable<any>{
-    return this.http.get(`${urlExternal}/api/users`)
+    return this.http.get(`${urlLocal}/api/usuarios`)
   }
 
   deleteUser(id: number): Observable<any>{
-    return this.http.delete(`${urlExternal}/api/users${id}`)
+    return this.http.delete(`${urlLocal}/api/usuarios${id}`)
   }
 
   registerUser(data: User, employee: boolean): Observable<User>{
     this.filterUserReceived(data, employee)
-    return this.http.post<User>(`${urlExternal}/api/registro`,data)
+    return this.http.post<User>(`${urlLocal}/api/registro`,data)
   }
 
   private filterUserReceived(user: User, admin: boolean): void{

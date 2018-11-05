@@ -19,12 +19,13 @@ export class ClientsComponent implements OnInit {
   getUsersList(){
     this.userService.getAllUsers()
     .subscribe((data)=>{
-      this.filterClients(data.users)
+      this.filterClients(data)
     })
   }
 
- filterClients(users: User[]){
-    this.clients = remove(users, item => (item.funcionario === false || item.funcionario === undefined) && item.admin === true );
+ filterClients(users: any){
+   let user = users.usuarios
+    this.clients = remove(user, item => item.funcionario === false || item.funcionario === undefined );
   }
 
   deletUser(): void{

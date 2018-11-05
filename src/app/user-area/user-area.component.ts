@@ -8,7 +8,7 @@ import { User } from '../shared/user.model';
   styleUrls: ['./user-area.component.less']
 })
 export class UserAreaComponent implements OnInit {
-  public userType: number;
+  public userType: number = 1;
 
   constructor(public userService: UserService) { }
 

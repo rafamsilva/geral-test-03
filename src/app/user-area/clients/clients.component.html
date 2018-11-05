@@ -1,11 +1,19 @@
 <div class="panel" *ngFor="let client of clients">
   <div class="row">
-      <i class="fas fa-user-circle fa-3x panel__img"></i>
-      <strong class="panel__name">{{client.nome}}</strong>
-      <span class="panel__email">{{client.email}}</span>
-      <span class="panel__phone">{{client.telefone}}</span>
-      <a (click)="deleteUser()">
-        <i class="fas fa-minus-circle fa-2x panel__delete-btn"></i>
-      </a>
+    <div class="panel__img">
+      <i class="fas fa-user-circle fa-3x"></i>
+    </div>
+    <div class="panel__name">
+      <strong>{{client.nome}}</strong>
+    </div>
+    <div class="panel__email">
+      <span>{{client.email}}</span>
+    </div>
+    <div class="panel__phone">
+      <span>{{client.telefone}}</span>
+    </div>
+    <a (click)="deleteUser()">
+      <i class="fas fa-minus-circle fa-2x panel__delete-btn"></i>
+    </a>
   </div>
 </div>

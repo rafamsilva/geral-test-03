@@ -3,7 +3,7 @@ import { User } from "./shared/user.model";
 import { EventEmitter } from "events";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { urlLocal, urlExternal } from "src/environments/urls.dev";
+import { urlLocal } from "src/environments/urls.dev";
 import { UserService } from './user.service';
 
 
@@ -20,7 +20,7 @@ export class LoginCheckService{
     ){}
 
   public checkUser(user,pass): Observable<any>{
-    return this.http.post<User>(`${urlExternal}/api/authenticate`,{email: user, senha: pass})
+    return this.http.post<User>(`${urlLocal}/api/autenticacao`,{email: user, senha: pass})
   }
 
   public userIsAuth(){

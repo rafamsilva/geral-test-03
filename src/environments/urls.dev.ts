@@ -1,5 +1,5 @@
-const urlLocal = 'http://localhost:0034';
-const urlExternal = 'http://192.168.3.121:0034';
+const urlLocal = 'http://localhost:1337';
+const urlExternal = 'http://192.168.3.121:1337';
 const urlMockup = 'http://localhost:3000';
 const mockupsEndPoints = {
   users: '/user',
@@ -9,7 +9,7 @@ const mockupsEndPoints = {
 
 const endPoints= {
   registro: '/api/registro',
-  login: '/api/users/authenticate',
+  login: '/api/autenticacao',
 }
 
 export { urlLocal, urlExternal, urlMockup, endPoints, mockupsEndPoints}
