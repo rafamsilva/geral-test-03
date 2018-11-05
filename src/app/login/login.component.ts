@@ -1,3 +1,4 @@
+import { ErrorHandlerService } from './../error-handler.service';
 import {
   Component,
   OnInit,
@@ -10,7 +11,8 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { LoginCheckService } from "../login-check.service";
 import { LogStateService } from "../log-state.service";
-import { isEmpty } from "lodash";
+
+
 
 @Component({
   selector: "app-login",
@@ -32,7 +34,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private route: Router,
     private loginservice: LoginCheckService,
-    private data: LogStateService
+    private data: LogStateService,
+    private errorService: ErrorHandlerService
     ) {}
 
     ngOnInit() {
@@ -43,15 +46,16 @@ export class LoginComponent implements OnInit {
         let userForm = this.form.value.user;
         let passForm = this.form.value.password;
 
-        this.loginservice.checkUser(userForm, passForm).subscribe(data => {
-          this.enterArea(data)
-        });
+        this.loginservice.checkUser(userForm, passForm).subscribe(
+          data => this.enterArea(data),
+          error => this.errorService.getErrorMsg()
+          );
       }
     }
 
     enterArea(data) {
       if(data.token !== undefined){
-        this.loginservice.saveUserData(this.form.get('user').value)
+        this.loginservice.saveUserData(data)
         this.loginservice.userIsAuth();
         this.route.navigate(["/area-do-usuario"]);
         this.data.changeStateLogin(true);

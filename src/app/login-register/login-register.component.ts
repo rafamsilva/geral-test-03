@@ -12,6 +12,8 @@ import { UserService } from '../user.service';
   styleUrls: ['./login-register.component.less']
 })
 export class LoginRegisterComponent implements OnInit {
+  isRegistered: boolean;
+  error: any;
   formChecked: FormGroup;
   form: FormGroup;
   newUser: User
@@ -41,9 +43,10 @@ export class LoginRegisterComponent implements OnInit {
 
   sendData(): void{
     this.newUser = this.form.value
-    this.userService.registerUser(this.newUser, false).subscribe((data)=>{
-      this.checkRegister(data)
-    })
+    this.userService.registerUser(this.newUser, false).subscribe(
+      (data)=> this.checkRegister(data),
+      (error) => this.checkErrorMsg(error)
+      )
   }
 
   checkRegister(status): void{
@@ -52,6 +55,13 @@ export class LoginRegisterComponent implements OnInit {
       this.route.navigate(["/login"]);
     }else{
       alert('nao cadastrado')
+    }
+  }
+
+  checkErrorMsg(error){
+    let x = error.status
+    if(error.status === 500){
+      this.isRegistered = true
     }
   }
 

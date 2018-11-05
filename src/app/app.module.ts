@@ -1,3 +1,4 @@
+import { ErrorHandlerService } from './error-handler.service';
 import { UserService } from './user.service';
 import { RecoveryPasswordService } from './recovery-password.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -49,7 +50,8 @@ import { Interceptor } from './auth/interceptor.module';
     LogStateService,
     RecoveryPasswordService,
     AutenticationService,
-    UserService
+    UserService,
+    ErrorHandlerService
   ],
   bootstrap: [AppComponent]
 })

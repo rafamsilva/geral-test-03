@@ -24,11 +24,11 @@ export class UserAreaComponent implements OnInit {
     })
   }
 
-  checkUserTyper(user: User): void{
-    this.userService.setUserProfile(user)
-    if(user[0].admin){
+  checkUserTyper(user: any): void{
+    let teste = user.usuarios[0]
+    if(teste.admin){
       this.userType =  3;
-    }else if(user[0].funcionario){
+    }else if(teste.funcionario){
       this.userType = 2;
     }else{
       this.userType = 1;

@@ -4,6 +4,7 @@ import { User } from '../shared/user.model';
 import { LogStateService } from '../log-state.service';
 import { LoginCheckService } from '../login-check.service';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
   @Component({
     selector: 'app-header',
@@ -19,25 +20,24 @@ import { UserService } from '../user.service';
     constructor(
       private log: LogStateService,
       private loginService: LoginCheckService,
-      private userService: UserService
+      private userService: UserService,
+      private route: Router
       ) { }
 
       ngOnInit() {
         this.changeState()
       }
 
-
       public logout(): void{
+        this.route.navigate(["./"]);
         this.isLogged = false
+        this.log.changeStateLogin(false)
+        this.loginService.removeUseSession()
       }
 
       changeState(){
         this.log.atualState.subscribe(state => this.isLogged = state)
       }
 
-      isloggedCheck(){
-        if(this.loginService.getUserSession !== undefined){
-          this.log.changeStateLogin(true)
-        }
-      }
+
     }

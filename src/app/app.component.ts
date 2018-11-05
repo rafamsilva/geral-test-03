@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
     this.userLog = this.logService.getUserSession()
     if(this.userLog){
       this.logStateService.changeStateLogin(true)
-      this.logCheckService.userIsAuth;
+      this.logCheckService.userIsAuth();
     }
   }
 

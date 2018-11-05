@@ -1,3 +1,4 @@
+import { ErrorHandlerService } from './../error-handler.service';
 import { Injectable, NgModule } from '@angular/core';
 import {
   HttpEvent,
@@ -14,6 +15,9 @@ import { tap } from 'rxjs/operators';
 @Injectable()
 
 export class HttpsRequestInterceptor implements HttpInterceptor {
+  constructor(private errorService: ErrorHandlerService){
+
+  }
   private token: string;
   intercept(
     req: HttpRequest<any>,
@@ -33,7 +37,7 @@ export class HttpsRequestInterceptor implements HttpInterceptor {
             }
           }
         }, error => {
-          // http response status
+          this.errorService.loginError(error)
         })
         )
       }

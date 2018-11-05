@@ -30,6 +30,9 @@
         <input type="password" class="form-control form__field--validation" #confirmPwd formControlName="confirmarSenha" >
         <small *ngIf="!form.get('confirmarSenha').valid && form.get('confirmarSenha').touched">as senhas precisam ser iguais!</small>
       </div>
+      <div *ngIf="isRegistered" class="alert alert-danger" role="alert">
+        Este email já está cadastrado!
+      </div>
     </div>
     <button type="submit" class="btn btn-primary form__register-btn" [disabled]="!form.valid">Cadastrar</button>
   </form>
