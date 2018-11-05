@@ -24,10 +24,6 @@ export class UserService{
     return this.http.get(`${urlExternal}/api/usuarios/${this.loginData.usuarioID}`)
   }
 
-  setUserProfile(user: User): void{
-    this.user = user
-  }
-
   getUserName(): string{
     return this.user.nome
   }

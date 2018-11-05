@@ -29,7 +29,9 @@ export class ClientsComponent implements OnInit {
   }
 
   deleteUser(id: string): void{
-    this.userService.deleteUser(id)
+    this.userService.deleteUser(id).subscribe(
+      data => {let x = data}
+    )
   }
 
 }
