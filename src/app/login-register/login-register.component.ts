@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { matchPasswordValidator } from '../shared/password-match.validator';
 import { User } from '../shared/user.model';
 import { UserService } from '../user.service';
+import { ErrorHandlerService } from '../error-handler.service';
 
 @Component({
   selector: 'app-login-register',
@@ -12,6 +13,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./login-register.component.less']
 })
 export class LoginRegisterComponent implements OnInit {
+  public conectionError: boolean;
   isRegistered: boolean;
   error: any;
   formChecked: FormGroup;
@@ -22,7 +24,8 @@ export class LoginRegisterComponent implements OnInit {
   constructor(
     public userService: UserService,
     public renderer: Renderer2,
-    public route: Router
+    public route: Router,
+    public errorService: ErrorHandlerService
     )
    { }
 
@@ -45,7 +48,7 @@ export class LoginRegisterComponent implements OnInit {
     this.newUser = this.form.value
     this.userService.registerUser(this.newUser, false).subscribe(
       (data)=> this.checkRegister(data),
-      (error) => this.checkErrorMsg(error)
+      error => this.errorService.error.subscribe(state => this.conectionError = state)
       )
   }
 

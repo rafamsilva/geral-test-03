@@ -20,9 +20,7 @@ import { LogStateService } from "../log-state.service";
   styleUrls: ["./login.component.less"]
 })
 export class LoginComponent implements OnInit {
-  public userType: number = 2;
-  public user: User;
-  public forgotPassword: boolean = true;
+  public conectionError: boolean;
   public notRegistred: boolean;
   @ViewChild("msgInvalid")
   msgInvalid: ElementRef;
@@ -48,7 +46,7 @@ export class LoginComponent implements OnInit {
 
         this.loginservice.checkUser(userForm, passForm).subscribe(
           data => this.enterArea(data),
-          error => this.errorService.getErrorMsg()
+          error => this.errorService.error.subscribe(state => this.conectionError = state)
           );
       }
     }

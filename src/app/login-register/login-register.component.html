@@ -33,6 +33,9 @@
       <div *ngIf="isRegistered" class="alert alert-danger" role="alert">
         Este email já está cadastrado!
       </div>
+      <div *ngIf="conectionError" class="alert alert-warning" role="alert">
+          Não foi possível efetuar login, tente novamente mais tarde!
+      </div>
     </div>
     <button type="submit" class="btn btn-primary form__register-btn" [disabled]="!form.valid">Cadastrar</button>
   </form>

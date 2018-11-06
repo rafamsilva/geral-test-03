@@ -1,19 +1,24 @@
 import { Injectable } from "@angular/core";
+import { BehaviorSubject } from "rxjs";
 
 
 @Injectable()
 export class ErrorHandlerService{
-  private error: any;
+  public errorMsg = new BehaviorSubject(false);
+  public error = this.errorMsg.asObservable()
+
   constructor(){
 
   }
 
-  setErrorMsg(msg){
-    this.error = msg
+  showMsgError(state){
+    this.errorMsg.next(state)
   }
 
-  getErrorMsg(): string{
-    return this.error
+  setErrorMsg(msg){
+    if(msg === 0){
+      this.showMsgError(true)
+    }
   }
 
   loginError(error){
