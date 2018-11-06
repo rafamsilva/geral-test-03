@@ -1,5 +1,6 @@
+import { HOUSES } from './../../shared/houses-mock';
 import { Component, OnInit } from '@angular/core';
-import { House } from 'src/app/shared/house.model';
+import { House } from '../../shared/house.model';
 import { HousesService } from '../../houses.service';
 
 @Component({
@@ -8,6 +9,7 @@ import { HousesService } from '../../houses.service';
   styleUrls: ['./houses.component.less']
 })
 export class HousesComponent implements OnInit {
+  public housesMock: House[] = HOUSES
   public houses: House[];
   public id = 15
 
@@ -15,7 +17,6 @@ export class HousesComponent implements OnInit {
 
   ngOnInit() {
     this.getHousesList()
-    console.log(this.houses)
   }
 
   getHousesList(){

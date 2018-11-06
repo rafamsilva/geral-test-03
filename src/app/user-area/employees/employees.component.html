@@ -1,9 +1,25 @@
 <div class="panel" *ngFor="let employee of employees">
   <div class="row">
-      <i class="fas fa-user-circle fa-3x panel__img"></i>
-      <strong class="panel__name">{{employee.nome}}</strong>
-      <span class="panel__email">{{employee.email}}</span>
-      <span class="panel__phone">{{employee.telefone}}</span>
-      <i class="fas fa-minus-circle fa-2x panel__delete-btn"></i>
+      <div class="panel__img">
+        <i class="fas fa-user-circle fa-3x"></i>
+      </div>
+      <div class="panel__name">
+        <strong>{{employee.nome}}</strong>
+      </div>
+      <div class="panel__email">
+        <span>{{employee.email}}</span>
+      </div>
+      <div class="panel__phone">
+        <span>{{employee.telefone}}</span>
+      </div>
+      <a (click)="deleteUser(employee._id)">
+        <i class="fas fa-minus-circle fa-2x panel__delete-btn"></i>
+      </a>
+    </div>
+</div>
+
+<div class="panel" *ngIf="conectionError">
+  <div class="row">
+      <h3>Falha ao carregar lista de funcionários...</h3>
   </div>
 </div>

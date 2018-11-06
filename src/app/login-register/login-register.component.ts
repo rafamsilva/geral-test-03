@@ -1,8 +1,11 @@
-import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
-import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
 import { matchPasswordValidator } from '../shared/password-match.validator';
-import { UserService } from '../user.service';
 import { User } from '../shared/user.model';
+import { UserService } from '../user.service';
+import { ErrorHandlerService } from '../error-handler.service';
 
 @Component({
   selector: 'app-login-register',
@@ -10,6 +13,9 @@ import { User } from '../shared/user.model';
   styleUrls: ['./login-register.component.less']
 })
 export class LoginRegisterComponent implements OnInit {
+  public conectionError: boolean;
+  isRegistered: boolean;
+  error: any;
   formChecked: FormGroup;
   form: FormGroup;
   newUser: User
@@ -17,7 +23,9 @@ export class LoginRegisterComponent implements OnInit {
 
   constructor(
     public userService: UserService,
-    public renderer: Renderer2
+    public renderer: Renderer2,
+    public route: Router,
+    public errorService: ErrorHandlerService
     )
    { }
 
@@ -38,7 +46,26 @@ export class LoginRegisterComponent implements OnInit {
 
   sendData(): void{
     this.newUser = this.form.value
-    this.userService.registerUser(this.newUser, false).subscribe()
+    this.userService.registerUser(this.newUser, false).subscribe(
+      (data)=> this.checkRegister(data),
+      error => this.errorService.error.subscribe(state => this.conectionError = state)
+      )
+  }
+
+  checkRegister(status): void{
+    if(status){
+      //colocar um aviso de usuario cadastrado com sucesso
+      this.route.navigate(["/login"]);
+    }else{
+      alert('nao cadastrado')
+    }
+  }
+
+  checkErrorMsg(error){
+    let x = error.status
+    if(error.status === 500){
+      this.isRegistered = true
+    }
   }
 
 

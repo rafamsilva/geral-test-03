@@ -3,6 +3,8 @@ import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class LogStateService{
+  private userName = new BehaviorSubject('')
+  public actualName = this.userName.asObservable();
   private isLogged = new BehaviorSubject(false);
   public atualState = this.isLogged.asObservable();
 
@@ -10,5 +12,9 @@ export class LogStateService{
 
   changeStateLogin(state: boolean) {
     this.isLogged.next(state)
+  }
+
+  getUserName(name: string){
+    this.userName.next(name)
   }
 }

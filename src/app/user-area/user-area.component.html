@@ -14,11 +14,12 @@
         </div>
       </div>
     </div>
+  </div>
 
     <ng-template #employeeNav>
       <div class="container user-nav">
         <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-          <div class="btn-group" role="group">
+          <div class="btn-group" role="group" *ngIf="userType == 3">
             <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Funcionários
             </button>

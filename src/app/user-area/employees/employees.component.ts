@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/shared/user.model';
 import { UserService } from 'src/app/user.service';
 import { remove } from 'lodash';
+import { ErrorHandlerService } from '../../error-handler.service';
 
 @Component({
   selector: 'app-employees',
@@ -9,8 +10,12 @@ import { remove } from 'lodash';
   styleUrls: ['./employees.component.less']
 })
 export class EmployeesComponent implements OnInit {
-  public employees: User[]
-  constructor(private userService: UserService) { }
+  public employees: User[];
+  public conectionError: boolean
+  constructor(
+    private userService: UserService,
+    private errorService: ErrorHandlerService
+    ) { }
 
   ngOnInit() {
     this.getUsersList()
@@ -18,13 +23,15 @@ export class EmployeesComponent implements OnInit {
 
   getUsersList(){
     this.userService.getAllUsers()
-    .subscribe((data)=>{
-      this.filterAdmin(data);
-    })
+    .subscribe(
+      data => this.filterEmployee(data),
+      error => this.errorService.error.subscribe(state => this.conectionError = state)
+      )
   }
 
-  filterAdmin(users: User[]){
-    this.employees = remove(users, item => item.funcionario === true);
+ filterEmployee(users: any){
+   let employees = users.usuarios
+    this.employees = remove(employees, item => (item.funcionario || item.funcionario !== undefined) && !item.admin );
   }
 
 }

@@ -1,8 +1,10 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, OnChanges} from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { User } from '../shared/user.model';
 import { LogStateService } from '../log-state.service';
 import { LoginCheckService } from '../login-check.service';
+import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
   @Component({
     selector: 'app-header',
@@ -11,36 +13,35 @@ import { LoginCheckService } from '../login-check.service';
   })
   export class HeaderComponent implements OnInit {
 
-    public userName: string = "Danillo";
+    public userName: string;
     public isLogged: boolean;
-    public userType: number = 2;
     public users: User[];
 
     constructor(
       private log: LogStateService,
-      private loginService: LoginCheckService
-
+      private loginService: LoginCheckService,
+      private userService: UserService,
+      private route: Router
       ) { }
 
       ngOnInit() {
         this.changeState()
-        console.log(this.loginService.getUserSession)
       }
 
       public logout(): void{
+        this.route.navigate(["./"]);
         this.isLogged = false
+        this.log.changeStateLogin(false)
+        this.loginService.removeUseSession()
       }
 
       changeState(){
         this.log.atualState.subscribe(state => this.isLogged = state)
       }
 
-      isloggedCheck(){
-        if(this.loginService.getUserSession !== undefined){
-          this.log.changeStateLogin(true)
-        }
+      getUserName(){
+        this.log.actualName.subscribe(name => this.userName = name)
       }
-
 
 
     }

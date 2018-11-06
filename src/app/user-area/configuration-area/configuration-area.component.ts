@@ -19,7 +19,7 @@ export class ConfigurationAreaComponent implements OnInit {
   }
 
   sendData(): void{
-    console.log(this.form)
+
   }
 
   getFormData(): void{

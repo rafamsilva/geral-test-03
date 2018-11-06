@@ -9,6 +9,7 @@ export class House{
       public suites: string,
       public desc: string,
       public bairro: string,
+      public nro: string,
       public imgs: Array<object>
       ){}
 }

@@ -19,6 +19,9 @@
         <div *ngIf="notRegistred" class="alert alert-danger" role="alert">
           Email ou senha inválidos!
         </div>
+        <div *ngIf="conectionError" class="alert alert-warning" role="alert">
+            Não foi possível efetuar login, tente novamente mais tarde!
+          </div>
         <div class="form__btn-box">
           <button #btnLogin type="submit" class="btn btn-primary form__btn" [disabled]="form.invalid">Login</button>
           <button class="btn btn-warning form__btn" routerLink="/novo-cadastro">Cadastre-se</button>

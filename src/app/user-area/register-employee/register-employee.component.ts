@@ -4,6 +4,7 @@ import { User } from 'src/app/shared/user.model';
 
 import { matchPasswordValidator } from '../../shared/password-match.validator';
 import { UserService } from 'src/app/user.service';
+import { ErrorHandlerService } from 'src/app/error-handler.service';
 
 
 @Component({
@@ -12,23 +13,30 @@ import { UserService } from 'src/app/user.service';
   styleUrls: ['./register-employee.component.less']
 })
 export class RegisterEmployeeComponent implements OnInit {
+  public conectionError: boolean;
   public newUser: User;
   public isDifferent: boolean;
   public form: FormGroup;
 
 
-  constructor(public userService: UserService) { }
+  constructor(
+    public userService: UserService,
+    public errorService: ErrorHandlerService
+    ) { }
 
   ngOnInit() {
     this.getFormData()
   }
 
-  sendData(): void{
+  public sendData(): void{
     this.newUser = this.form.value
-    this.userService.registerUser(this.newUser, true).subscribe()
+    this.userService.registerUser(this.newUser, true).subscribe(
+      data => this.finishRegister(),
+      error => this.errorService.error.subscribe(state => this.conectionError = state)
+    )
   }
 
-  getFormData(): void{
+  public getFormData(): void{
     this.form = new FormGroup({
       'nome': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
       'sobrenome': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(80)]),
@@ -37,6 +45,11 @@ export class RegisterEmployeeComponent implements OnInit {
       'senha': new FormControl(null,  [ Validators.required, Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/)]),
       'confirmarSenha': new FormControl(null,  [ Validators.required, matchPasswordValidator('senha')])
     });
+  }
+
+  public finishRegister(): void{
+    this.form.reset();
+    alert('funcionario cadastrado')
   }
 
 

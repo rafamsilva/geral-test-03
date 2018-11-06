@@ -1,3 +1,4 @@
+import { ErrorHandlerService } from './../error-handler.service';
 import {
   Component,
   OnInit,
@@ -10,7 +11,8 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { LoginCheckService } from "../login-check.service";
 import { LogStateService } from "../log-state.service";
-import { isEmpty } from "lodash";
+
+
 
 @Component({
   selector: "app-login",
@@ -18,9 +20,7 @@ import { isEmpty } from "lodash";
   styleUrls: ["./login.component.less"]
 })
 export class LoginComponent implements OnInit {
-  public userType: number = 2;
-  public user: User;
-  public forgotPassword: boolean = true;
+  public conectionError: boolean;
   public notRegistred: boolean;
   @ViewChild("msgInvalid")
   msgInvalid: ElementRef;
@@ -31,49 +31,39 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private route: Router,
-    private renderer: Renderer2,
     private loginservice: LoginCheckService,
-    private data: LogStateService
-  ) {}
+    private data: LogStateService,
+    private errorService: ErrorHandlerService
+    ) {}
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
-  enterUserArea(): void {
-    if (!this.form.invalid) {
-      let userForm = this.form.value.user;
-      let passForm = this.form.value.password;
+    enterUserArea(): void {
+      if (!this.form.invalid) {
+        let userForm = this.form.value.user;
+        let passForm = this.form.value.password;
 
-      this.loginservice.checkUser(userForm, passForm).subscribe(data => {
-        this.enterArea(data);
-      });
+        this.loginservice.checkUser(userForm, passForm).subscribe(
+          data => this.enterArea(data),
+          error => this.errorService.error.subscribe(state => this.conectionError = state)
+          );
+      }
+    }
+
+    enterArea(data) {
+      if(data.token !== undefined){
+        this.loginservice.saveUserData(data)
+        this.loginservice.userIsAuth();
+        this.route.navigate(["/area-do-usuario"]);
+        this.data.changeStateLogin(true);
+      }else{
+        this.showRegisterMsg()
+      }
+
+    }
+
+    showRegisterMsg(): void {
+      this.notRegistred = true;
     }
   }
-
-  enterArea(data) {
-    this.user = data;
-    this.checkEmptyResponse(this.user);
-    if (this.validateUserLogin(this.user[0].email, this.user[0].senha)) {
-      this.loginservice.userIsAuth();
-      this.loginservice.storageUserSession(this.user)
-      this.route.navigate(["/area-do-usuario"]);
-      this.data.changeStateLogin(true);
-    }
-  }
-
-  validateUserLogin(name, password): boolean {
-    return (
-      name === this.form.value.user && password === this.form.value.password
-    );
-  }
-
-  checkEmptyResponse(response): void {
-    if (isEmpty(response)) {
-      this.showRegisterMsg();
-    }
-  }
-
-  showRegisterMsg(): void {
-    this.notRegistred = true;
-  }
-}

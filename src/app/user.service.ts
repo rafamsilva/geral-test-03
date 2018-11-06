@@ -1,35 +1,47 @@
 import { Injectable } from "@angular/core";
-import { Response, Headers, RequestOptions } from "../../node_modules/@angular/http";
 import { Observable } from "rxjs";
-import { map } from 'rxjs/operators';
 import { User } from "src/app/shared/user.model";
-import { HttpClient } from "@angular/common/http";
-
+import { HttpClient, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { urlLocal, urlMockup, mockupsEndPoints, urlExternal } from "src/environments/urls.dev";
 
 
 @Injectable()
 export class UserService{
+  public loginData;
   public user: User;
-  constructor(private http: HttpClient){
+  public userEmail: string = '';
+  constructor(
+    private http: HttpClient
+    ){
 
+  }
+
+  setUser(data: any){
+    this.loginData = data
+  }
+
+  getUser(): Observable<any>{
+    return this.http.get(`${urlLocal}/api/usuarios/${this.loginData.usuarioID}`)
+  }
+
+  getUserName(): string{
+    return this.user.nome
   }
 
   getAllUsers(): Observable<any>{
-    return this.http.get('http://localhost:3000/user')
+    return this.http.get(`${urlLocal}/api/usuarios`)
   }
 
-  deleteUser(id: number): Observable<any>{
-    alert('na função de delete')
-    return this.http.delete(`http://localhost:3000/user/${id}`)
+  deleteUser(id: string): Observable<any>{
+    return this.http.delete(`${urlLocal}/api/usuarios/${id}`)
   }
 
   registerUser(data: User, employee: boolean): Observable<User>{
     this.filterUserReceived(data, employee)
-    return this.http.post<User>('http://localhost:3000/user',data)
+    return this.http.post<User>(`${urlLocal}/api/registro`,data)
   }
 
   private filterUserReceived(user: User, admin: boolean): void{
-    console.log('na função de filtrar', user)
     delete user['confirmarSenha']
     user.funcionario = admin
   }
