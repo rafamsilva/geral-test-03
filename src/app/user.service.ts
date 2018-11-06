@@ -21,7 +21,7 @@ export class UserService{
   }
 
   getUser(): Observable<any>{
-    return this.http.get(`${urlExternal}/api/usuarios/${this.loginData.usuarioID}`)
+    return this.http.get(`${urlLocal}/api/usuarios/${this.loginData.usuarioID}`)
   }
 
   getUserName(): string{
@@ -29,16 +29,16 @@ export class UserService{
   }
 
   getAllUsers(): Observable<any>{
-    return this.http.get(`${urlExternal}/api/usuarios`)
+    return this.http.get(`${urlLocal}/api/usuarios`)
   }
 
   deleteUser(id: string): Observable<any>{
-    return this.http.delete(`${urlExternal}/api/usuarios/${id}`)
+    return this.http.delete(`${urlLocal}/api/usuarios/${id}`)
   }
 
   registerUser(data: User, employee: boolean): Observable<User>{
     this.filterUserReceived(data, employee)
-    return this.http.post<User>(`${urlExternal}/api/registro`,data)
+    return this.http.post<User>(`${urlLocal}/api/registro`,data)
   }
 
   private filterUserReceived(user: User, admin: boolean): void{

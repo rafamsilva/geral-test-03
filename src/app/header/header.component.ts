@@ -39,5 +39,9 @@ import { Router } from '@angular/router';
         this.log.atualState.subscribe(state => this.isLogged = state)
       }
 
+      getUserName(){
+        this.log.actualName.subscribe(name => this.userName = name)
+      }
+
 
     }

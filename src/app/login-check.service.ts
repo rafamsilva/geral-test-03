@@ -22,7 +22,7 @@ export class LoginCheckService{
     ){}
 
   public checkUser(user,pass): Observable<any>{
-    return this.http.post<User>(`${urlExternal}/api/autenticacao`,{email: user, senha: pass})
+    return this.http.post<User>(`${urlLocal}/api/autenticacao`,{email: user, senha: pass})
     .pipe(retry(1));
   }
 
