@@ -40,4 +40,6 @@ export class UserAreaComponent implements OnInit {
     }
   }
 
+  //this.user ===== receber nome do usuario
+
 }
