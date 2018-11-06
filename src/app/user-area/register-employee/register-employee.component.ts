@@ -49,7 +49,6 @@ export class RegisterEmployeeComponent implements OnInit {
 
   public finishRegister(): void{
     this.form.reset();
-    alert('funcionario cadastrado')
   }
 
 

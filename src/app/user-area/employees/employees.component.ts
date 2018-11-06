@@ -27,11 +27,18 @@ export class EmployeesComponent implements OnInit {
       data => this.filterEmployee(data),
       error => this.errorService.error.subscribe(state => this.conectionError = state)
       )
+    }
+
+  filterEmployee(users: any){
+    let employees = users.usuarios
+    this.employees = remove(employees, item => item.admin);
+    this.employees = remove(employees, item => !item.funcionario);
+    this.employees = employees
   }
 
- filterEmployee(users: any){
-   let employees = users.usuarios
-    this.employees = remove(employees, item => (item.funcionario || item.funcionario !== undefined) && !item.admin );
+  deleteUser(id: string){
+    this.userService.deleteUser(id).subscribe()
   }
 
 }
+

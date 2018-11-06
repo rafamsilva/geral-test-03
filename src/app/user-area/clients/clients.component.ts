@@ -30,8 +30,10 @@ export class ClientsComponent implements OnInit {
   }
 
  filterClients(users: any){
-    let user = users.usuarios
-    this.clients = remove(user, item => (!item.funcionario || item.funcionario === undefined) && !item.admin);
+  let clients = users.usuarios
+  this.clients = remove(clients, item => item.admin);
+  this.clients = remove(clients, item => item.funcionario);
+  this.clients = clients
   }
 
   deleteUser(id: string): void{
