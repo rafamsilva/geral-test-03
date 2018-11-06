@@ -1,4 +1,3 @@
-import { HOUSES } from './../shared/houses-mock';
 import { Component, OnInit } from '@angular/core';
 import { HousesService } from '../houses.service';
 import { House } from 'src/app/shared/house.model';
@@ -10,7 +9,7 @@ import { ErrorHandlerService } from '../error-handler.service';
   styleUrls: ['./houses-list.component.less']
 })
 export class HousesListComponent implements OnInit {
-  public housesMock: House[] = HOUSES;
+  //public housesMock: House[] = HOUSES;
   public houses: House[];
   public favoriteUrl: string = '../../assets/coracao_vazio.png';
 

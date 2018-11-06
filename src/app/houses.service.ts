@@ -23,10 +23,7 @@ export class HousesService{
   }
 
   public registerHouse(data: House): Observable<any>{
-    let headers: Headers = new Headers()
-    headers.append('Content-type', 'application/json')
     return this.http.post<House>(`${urlExternal}/api/registro/imovel`,data)
-    .pipe(map((response: Response)=>response.json()) )
   }
 
 

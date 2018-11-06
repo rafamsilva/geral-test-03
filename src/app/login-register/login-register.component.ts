@@ -14,7 +14,7 @@ import { ErrorHandlerService } from '../error-handler.service';
 })
 export class LoginRegisterComponent implements OnInit {
   public conectionError: boolean;
-  isRegistered: boolean;
+  isRegistered: boolean = true;
   error: any;
   formChecked: FormGroup;
   form: FormGroup;
@@ -48,7 +48,11 @@ export class LoginRegisterComponent implements OnInit {
     this.newUser = this.form.value
     this.userService.registerUser(this.newUser, false).subscribe(
       (data)=> this.checkRegister(data),
-      error => this.errorService.error.subscribe(state => this.conectionError = state)
+      error => this.errorService.error.subscribe(
+        state => {
+          this.conectionError = state
+          this.isRegistered = state
+        })
       )
   }
 
@@ -58,13 +62,6 @@ export class LoginRegisterComponent implements OnInit {
       this.route.navigate(["/login"]);
     }else{
       alert('nao cadastrado')
-    }
-  }
-
-  checkErrorMsg(error){
-    let x = error.status
-    if(error.status === 500){
-      this.isRegistered = true
     }
   }
 

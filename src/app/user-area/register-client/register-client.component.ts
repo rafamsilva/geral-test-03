@@ -11,6 +11,7 @@ import { ErrorHandlerService } from 'src/app/error-handler.service';
   styleUrls: ['./register-client.component.less']
 })
 export class RegisterClientComponent implements OnInit {
+  public isRegistered: boolean = true;
   public conectionError: boolean;
   public newUser: User;
   public form: FormGroup;
@@ -28,7 +29,11 @@ export class RegisterClientComponent implements OnInit {
     this.newUser = this.form.value
     this.userService.registerUser(this.newUser, false).subscribe(
       data => this.finishRegister(),
-      error => this.errorService.error.subscribe(state => this.conectionError = state)
+      error => this.errorService.error.subscribe(
+        state => {
+          this.conectionError = state
+          this.isRegistered = state
+        })
       )
   }
 

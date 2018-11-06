@@ -13,6 +13,7 @@ import { ErrorHandlerService } from 'src/app/error-handler.service';
   styleUrls: ['./register-employee.component.less']
 })
 export class RegisterEmployeeComponent implements OnInit {
+  public isRegistered: boolean = true;
   public conectionError: boolean;
   public newUser: User;
   public isDifferent: boolean;
@@ -32,8 +33,12 @@ export class RegisterEmployeeComponent implements OnInit {
     this.newUser = this.form.value
     this.userService.registerUser(this.newUser, true).subscribe(
       data => this.finishRegister(),
-      error => this.errorService.error.subscribe(state => this.conectionError = state)
-    )
+      error => this.errorService.error.subscribe(
+        state => {
+          this.conectionError = state
+          this.isRegistered = state
+        })
+      )
   }
 
   public getFormData(): void{
