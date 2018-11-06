@@ -3,6 +3,7 @@ import { matchPasswordValidator } from '../../shared/password-match.validator';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/shared/user.model';
+import { ErrorHandlerService } from 'src/app/error-handler.service';
 
 @Component({
   selector: 'app-register-client',
@@ -10,10 +11,14 @@ import { User } from 'src/app/shared/user.model';
   styleUrls: ['./register-client.component.less']
 })
 export class RegisterClientComponent implements OnInit {
+  public conectionError: boolean;
   public newUser: User;
   public form: FormGroup;
 
-  constructor(public userService: UserService) { }
+  constructor(
+    public userService: UserService,
+    public errorService: ErrorHandlerService
+    ) { }
 
   ngOnInit() {
     this.getFormData()
@@ -21,9 +26,10 @@ export class RegisterClientComponent implements OnInit {
 
   sendData(): void{
     this.newUser = this.form.value
-    this.userService.registerUser(this.newUser, false).subscribe((data)=>{
-      this.finishRegister()
-    })
+    this.userService.registerUser(this.newUser, false).subscribe(
+      data => this.finishRegister(),
+      error => this.errorService.error.subscribe(state => this.conectionError = state)
+      )
   }
 
   getFormData(): void{

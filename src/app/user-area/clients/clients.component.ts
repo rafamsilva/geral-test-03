@@ -2,6 +2,7 @@ import { UserService } from './../../user.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/shared/user.model';
 import { remove } from 'lodash';
+import { ErrorHandlerService } from 'src/app/error-handler.service';
 
 @Component({
   selector: 'app-clients',
@@ -9,8 +10,12 @@ import { remove } from 'lodash';
   styleUrls: ['./clients.component.less']
 })
 export class ClientsComponent implements OnInit {
-  public clients: User[]
-  constructor(private userService: UserService) { }
+  public clients: User[];
+  public conectionError: boolean;
+  constructor(
+    private userService: UserService,
+    private errorService: ErrorHandlerService
+    ) { }
 
   ngOnInit() {
     this.getUsersList()
@@ -18,14 +23,15 @@ export class ClientsComponent implements OnInit {
 
   getUsersList(){
     this.userService.getAllUsers()
-    .subscribe((data)=>{
-      this.filterClients(data)
-    })
+    .subscribe(
+       data => this.filterClients(data),
+       error => this.errorService.error.subscribe(state => this.conectionError = state)
+    )
   }
 
  filterClients(users: any){
-   let user = users.usuarios
-    this.clients = remove(user, item => item.funcionario === false || item.funcionario === undefined );
+    let user = users.usuarios
+    this.clients = remove(user, item => (!item.funcionario || item.funcionario === undefined) && !item.admin);
   }
 
   deleteUser(id: string): void{

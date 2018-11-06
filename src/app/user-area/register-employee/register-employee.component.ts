@@ -4,6 +4,7 @@ import { User } from 'src/app/shared/user.model';
 
 import { matchPasswordValidator } from '../../shared/password-match.validator';
 import { UserService } from 'src/app/user.service';
+import { ErrorHandlerService } from 'src/app/error-handler.service';
 
 
 @Component({
@@ -12,12 +13,16 @@ import { UserService } from 'src/app/user.service';
   styleUrls: ['./register-employee.component.less']
 })
 export class RegisterEmployeeComponent implements OnInit {
+  public conectionError: boolean;
   public newUser: User;
   public isDifferent: boolean;
   public form: FormGroup;
 
 
-  constructor(public userService: UserService) { }
+  constructor(
+    public userService: UserService,
+    public errorService: ErrorHandlerService
+    ) { }
 
   ngOnInit() {
     this.getFormData()
@@ -25,8 +30,9 @@ export class RegisterEmployeeComponent implements OnInit {
 
   public sendData(): void{
     this.newUser = this.form.value
-    this.userService.registerUser(this.newUser, true).subscribe(data =>
-      this.finishRegister()
+    this.userService.registerUser(this.newUser, true).subscribe(
+      data => this.finishRegister(),
+      error => this.errorService.error.subscribe(state => this.conectionError = state)
     )
   }
 

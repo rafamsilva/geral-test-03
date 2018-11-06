@@ -30,6 +30,12 @@
         <input type="password" class="form-control form__field--validation" formControlName="confirmarSenha">
         <small *ngIf="!form.get('confirmarSenha').valid && form.get('confirmarSenha').touched">as senhas precisam ser iguais!</small>
       </div>
+      <div *ngIf="isRegistered" class="alert alert-danger" role="alert">
+        O email desse funcionário já está cadastrado!
+    </div>
+    <div *ngIf="conectionError" class="alert alert-warning" role="alert">
+        Não foi possível efetuar o cadastro, tente novamente mais tarde!
+    </div>
     </div>
     <button type="submit" class="btn btn-primary" [disabled]="form.status === 'INVALID'">Cadastrar</button>
   </form>
