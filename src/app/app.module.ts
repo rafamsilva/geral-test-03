@@ -22,6 +22,7 @@ import { LogStateService } from './log-state.service';
 import { AutenticationService } from './user-area/autentication.service';
 import { Interceptor } from './auth/interceptor.module';
 import { TypingService } from './typing.service';
+import { FavoriteService } from './favorite.service';
 
 
 
@@ -54,7 +55,8 @@ import { TypingService } from './typing.service';
     AutenticationService,
     UserService,
     ErrorHandlerService,
-    TypingService
+    TypingService,
+    FavoriteService
   ],
   bootstrap: [AppComponent]
 })

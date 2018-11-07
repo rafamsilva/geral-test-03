@@ -37,6 +37,9 @@
         <div *ngIf="conectionError" class="alert alert-warning" role="alert">
           Não foi possível efetuar o cadastro, tente novamente mais tarde!
         </div>
+        <div *ngIf="registredSuccess" class="alert alert-warning" role="alert">
+            Cadastro efetuado com sucesso!
+        </div>
       </div>
     </div>
     <button type="submit" class="btn btn-primary" [disabled]="form.status === 'INVALID'">Cadastrar</button>

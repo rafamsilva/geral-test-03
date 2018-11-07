@@ -5,6 +5,7 @@ import { User } from 'src/app/shared/user.model';
 import { matchPasswordValidator } from '../../shared/password-match.validator';
 import { UserService } from 'src/app/user.service';
 import { ErrorHandlerService } from 'src/app/error-handler.service';
+import { LogStateService } from 'src/app/log-state.service';
 
 
 @Component({
@@ -13,6 +14,7 @@ import { ErrorHandlerService } from 'src/app/error-handler.service';
   styleUrls: ['./register-employee.component.less']
 })
 export class RegisterEmployeeComponent implements OnInit {
+  public registredSuccess: boolean;
   public isRegistered: boolean = true;
   public conectionError: boolean;
   public newUser: User;
@@ -22,7 +24,8 @@ export class RegisterEmployeeComponent implements OnInit {
 
   constructor(
     public userService: UserService,
-    public errorService: ErrorHandlerService
+    public errorService: ErrorHandlerService,
+    public logService: LogStateService
     ) { }
 
   ngOnInit() {
@@ -54,7 +57,8 @@ export class RegisterEmployeeComponent implements OnInit {
 
   public finishRegister(): void{
     this.form.reset();
+    this.logService.setRegisterMsg(true)
+    this.logService.isRegistred.subscribe(state => this.registredSuccess = state)
   }
-
 
 }

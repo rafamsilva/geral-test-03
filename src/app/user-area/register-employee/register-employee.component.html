@@ -1,7 +1,7 @@
 <div class="register-panel">
   <form [formGroup]="form"  class="form">
     <div class="form-row">
-      <div class="col-md-6">
+      <div class="form-group col-md-6">
         <label>Nome</label>
         <input type="text" class="form-control form__field--validation" placeholder="José" formControlName="nome">
       </div>
@@ -36,6 +36,9 @@
       </div>
       <div *ngIf="conectionError" class="alert alert-warning" role="alert">
           Não foi possível efetuar o cadastro, tente novamente mais tarde!
+      </div>
+      <div *ngIf="registredSuccess" class="alert alert-warning" role="alert">
+          Cadastro efetuado com sucesso!
       </div>
       </div>
     </div>

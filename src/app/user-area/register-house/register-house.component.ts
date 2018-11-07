@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { HousesService } from '../../houses.service';
 import { ErrorHandlerService } from 'src/app/error-handler.service';
+import { LogStateService } from 'src/app/log-state.service';
 
 @Component({
   selector: 'app-register-house',
@@ -10,15 +11,16 @@ import { ErrorHandlerService } from 'src/app/error-handler.service';
   styleUrls: ['./register-house.component.less']
 })
 export class RegisterHouseComponent implements OnInit {
+  public registredSuccess: boolean;
   public isRegistered: boolean = true;
   public conectionError: boolean;
-  public registerSuccess: boolean;
   public form: FormGroup;
   public house: House;
 
   constructor(
     private houseService: HousesService,
-    public errorService: ErrorHandlerService
+    public errorService: ErrorHandlerService,
+    public logService: LogStateService
     ) { }
 
   ngOnInit() {
@@ -59,8 +61,9 @@ export class RegisterHouseComponent implements OnInit {
   }
 
   registerDataSuccess(){
-    this.form.reset()
-    this.registerSuccess = true
+    this.form.reset();
+    this.logService.setRegisterMsg(true)
+    this.logService.isRegistred.subscribe(state => this.registredSuccess = state)
   }
 
 }

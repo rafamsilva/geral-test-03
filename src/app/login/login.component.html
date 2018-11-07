@@ -21,6 +21,9 @@
         </div>
         <div *ngIf="conectionError" class="alert alert-warning" role="alert">
             Não foi possível efetuar login, tente novamente mais tarde!
+        </div>
+        <div *ngIf="registerSuccess" class="alert alert-warning" role="alert">
+            Usuário cadastrado com sucesso, agora voce pode acessar o painel exclusivo!
           </div>
         <div class="form__btn-box">
           <button #btnLogin type="submit" class="btn btn-primary form__btn" [disabled]="form.invalid">Login</button>
