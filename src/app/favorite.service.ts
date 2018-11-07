@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 
 @Injectable()
 export class FavoriteService{
-  private favorites: number[] = []
+  private favorites: number
 
   constructor(
     private userservice: UserService
@@ -11,7 +11,7 @@ export class FavoriteService{
 
   setFavorite(id: number, action: boolean){
     if(action){
-      this.favorites.push(id)
+      this.favorites =id
       this.updateFavoriteDataBase(this.favorites)
     }else{
       //deletar do array de favoritos

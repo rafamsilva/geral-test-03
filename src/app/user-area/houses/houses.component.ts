@@ -31,7 +31,9 @@ export class HousesComponent implements OnInit {
   }
 
   removeHouse(id: number){
-    this.housesService.deleteHouse(id).subscribe()
+    this.housesService.deleteHouse(id).subscribe(
+      data => this.getHousesList()
+    )
   }
 
 }
