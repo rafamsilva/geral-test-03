@@ -36,8 +36,10 @@ export class EmployeesComponent implements OnInit {
     this.employees = employees
   }
 
-  deleteUser(id: string){
-    this.userService.deleteUser(id).subscribe()
+  deleteUser(id: string): void{
+    this.userService.deleteUser(id).subscribe(
+      data => this.getUsersList()
+    )
   }
 
 }

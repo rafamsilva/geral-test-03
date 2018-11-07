@@ -14,7 +14,7 @@ export class LogStateService{
     this.isLogged.next(state)
   }
 
-  getUserName(name: string){
+  setUserName(name: string){
     this.userName.next(name)
   }
 }

@@ -4,13 +4,18 @@
   background-color: @secondary-color;
   padding: @padding-content;
   box-shadow: @shadow;
+  min-height: 80vh;
   @media @max576{
     margin: 0;
     padding: 20px;
   }
-  &_error{
-    display: flex;
-    justify-content: center;
+  .houses-panel_error{
+    margin: 6% 0 0 2%;
+    border: 1px solid;
+    border-radius: 6px;
+    background-color: white;
+    padding: 5px 8px;
+    box-shadow: @shadow
   }
   .houses-panel__cards-list{
     padding: 8px;

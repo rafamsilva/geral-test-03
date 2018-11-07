@@ -30,7 +30,7 @@ export class ClientsComponent implements OnInit {
   }
 
  filterClients(users: any){
-  let clients = users.usuarios
+  let clients: User[] = users.usuarios
   this.clients = remove(clients, item => item.admin);
   this.clients = remove(clients, item => item.funcionario);
   this.clients = clients
@@ -38,7 +38,7 @@ export class ClientsComponent implements OnInit {
 
   deleteUser(id: string): void{
     this.userService.deleteUser(id).subscribe(
-      data => {let x = data}
+      data => this.getUsersList()
     )
   }
 

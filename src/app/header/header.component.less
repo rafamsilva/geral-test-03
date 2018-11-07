@@ -59,9 +59,23 @@
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     @media @max576{
       display: none;
+    }
+    .header__login-name{
+      text-transform: capitalize;
+      color: black;
+      font-weight: 600;
+      margin-top: 8;
+      height: 8px;
+    }
+    .header__login-link{
+      font-weight: 600;
+    }
+    .header__logout{
+      color: #ABD406;
+      font-weight: 600
     }
   }
 }

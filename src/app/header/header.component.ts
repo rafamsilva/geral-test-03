@@ -26,7 +26,9 @@ import { Router } from '@angular/router';
 
       ngOnInit() {
         this.changeState()
+        this.getUserName()
       }
+
 
       public logout(): void{
         this.route.navigate(["./"]);
@@ -36,7 +38,10 @@ import { Router } from '@angular/router';
       }
 
       changeState(){
-        this.log.atualState.subscribe(state => this.isLogged = state)
+        this.log.atualState.subscribe(
+          state => {
+            this.isLogged = state
+          })
       }
 
       getUserName(){

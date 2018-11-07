@@ -24,8 +24,10 @@ export class UserAreaComponent implements OnInit {
 
   getUserData(): void{
     this.userService.getUser()
-    .subscribe((user: any) => {
+    .subscribe(
+      (user: any) => {
       this.checkUserTyper(user)
+      this.setUserName(user)
     })
   }
 
@@ -40,6 +42,9 @@ export class UserAreaComponent implements OnInit {
     }
   }
 
-  //this.user ===== receber nome do usuario
+  setUserName(user: any){
+    let name = user.usuarios[0].nome
+    this.logService.setUserName(name)
+  }
 
 }
