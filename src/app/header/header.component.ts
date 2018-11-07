@@ -1,10 +1,9 @@
-import { Component, OnInit, OnChanges} from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { User } from '../shared/user.model';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LogStateService } from '../log-state.service';
 import { LoginCheckService } from '../login-check.service';
+import { User } from '../shared/user.model';
 import { UserService } from '../user.service';
-import { Router } from '@angular/router';
 
   @Component({
     selector: 'app-header',

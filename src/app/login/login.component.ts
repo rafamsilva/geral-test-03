@@ -45,7 +45,9 @@ export class LoginComponent implements OnInit {
         let passForm = this.form.value.password;
 
         this.loginservice.checkUser(userForm, passForm).subscribe(
-          data => this.enterArea(data),
+          data => {
+            this.enterArea(data)
+          },
           error => this.errorService.error.subscribe(state => this.conectionError = state)
           );
       }
@@ -66,4 +68,5 @@ export class LoginComponent implements OnInit {
     showRegisterMsg(): void {
       this.notRegistred = true;
     }
+
   }

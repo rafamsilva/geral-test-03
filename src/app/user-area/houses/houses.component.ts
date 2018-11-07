@@ -30,8 +30,8 @@ export class HousesComponent implements OnInit {
     this.houses = houses.imoveis
   }
 
-  removeHouse(){
-    this.housesService.deleteHouse(15).subscribe()
+  removeHouse(id: number){
+    this.housesService.deleteHouse(id).subscribe()
   }
 
 }

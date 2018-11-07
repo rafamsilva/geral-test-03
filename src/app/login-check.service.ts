@@ -34,8 +34,17 @@ export class LoginCheckService{
     this.userService.setUser(email);
   }
 
-  public storageUserSession(user: User){
-    sessionStorage.setItem('user', JSON.stringify(user))
+  public storageUserSession(type){
+    sessionStorage.setItem('type', type )
+  }
+
+  public getUserType(){
+    let type = sessionStorage.getItem('type');
+    if(type == undefined || type == null){
+      return false
+    }else{
+      return type
+    }
   }
 
   public getUserSession(){
@@ -49,6 +58,7 @@ export class LoginCheckService{
 
   public removeUseSession(){
     sessionStorage.removeItem('token')
+    sessionStorage.removeItem('type')
   }
 
 

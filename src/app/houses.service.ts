@@ -18,8 +18,7 @@ export class HousesService{
   }
 
   public deleteHouse(id: number): Observable<any>{
-    alert('na função de delete')
-    return this.http.delete(`http://localhost:3000/houses/${id}`)
+    return this.http.delete(`${urlLocal}/api/imoveis/${id}`)
   }
 
   public registerHouse(data: House): Observable<any>{
