@@ -7,7 +7,7 @@ export class House{
       public quartos: string,
       public vagas: string,
       public suites: string,
-      public desc: string,
+      public descricao: string,
       public bairro: string,
       public nro: string,
       public imgs: Array<object>

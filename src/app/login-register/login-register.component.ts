@@ -6,6 +6,7 @@ import { matchPasswordValidator } from '../shared/password-match.validator';
 import { User } from '../shared/user.model';
 import { UserService } from '../user.service';
 import { ErrorHandlerService } from '../error-handler.service';
+import { LogStateService } from '../log-state.service';
 
 @Component({
   selector: 'app-login-register',
@@ -13,8 +14,9 @@ import { ErrorHandlerService } from '../error-handler.service';
   styleUrls: ['./login-register.component.less']
 })
 export class LoginRegisterComponent implements OnInit {
-  public conectionError: boolean;
-  isRegistered: boolean;
+  registerSuccess: boolean;
+  conectionError: boolean;
+  isRegistered: boolean = true;
   error: any;
   formChecked: FormGroup;
   form: FormGroup;
@@ -25,7 +27,8 @@ export class LoginRegisterComponent implements OnInit {
     public userService: UserService,
     public renderer: Renderer2,
     public route: Router,
-    public errorService: ErrorHandlerService
+    public errorService: ErrorHandlerService,
+    public logService: LogStateService
     )
    { }
 
@@ -48,23 +51,20 @@ export class LoginRegisterComponent implements OnInit {
     this.newUser = this.form.value
     this.userService.registerUser(this.newUser, false).subscribe(
       (data)=> this.checkRegister(data),
-      error => this.errorService.error.subscribe(state => this.conectionError = state)
+      error => this.errorService.error.subscribe(
+        state => {
+          this.conectionError = state
+          this.isRegistered = state
+        })
       )
   }
 
   checkRegister(status): void{
     if(status){
-      //colocar um aviso de usuario cadastrado com sucesso
+      this.logService.setRegisterMsg(true)
       this.route.navigate(["/login"]);
     }else{
-      alert('nao cadastrado')
-    }
-  }
 
-  checkErrorMsg(error){
-    let x = error.status
-    if(error.status === 500){
-      this.isRegistered = true
     }
   }
 

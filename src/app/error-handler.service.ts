@@ -18,11 +18,15 @@ export class ErrorHandlerService{
   setErrorMsg(msg){
     if(msg === 0){
       this.showMsgError(true)
+    }else if(msg === 501){
+      this.setErrorMsg(false)
     }
   }
 
   loginError(error){
     this.setErrorMsg(error.status)
   }
+
+
 
 }

@@ -21,6 +21,9 @@ import { HousesService } from './houses.service';
 import { LogStateService } from './log-state.service';
 import { AutenticationService } from './user-area/autentication.service';
 import { Interceptor } from './auth/interceptor.module';
+import { TypingService } from './typing.service';
+import { FavoriteService } from './favorite.service';
+
 
 
 
@@ -51,7 +54,9 @@ import { Interceptor } from './auth/interceptor.module';
     RecoveryPasswordService,
     AutenticationService,
     UserService,
-    ErrorHandlerService
+    ErrorHandlerService,
+    TypingService,
+    FavoriteService
   ],
   bootstrap: [AppComponent]
 })

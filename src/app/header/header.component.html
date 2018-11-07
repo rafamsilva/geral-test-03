@@ -9,7 +9,7 @@
       <a class="header__item" routerLink="/imoveis">Imóveis</a>
     </div>
     <div class="header__links-item">
-      <a class="header__item" href="#">Fale Conosco</a>
+      <a class="header__item">Fale Conosco</a>
     </div>
   </div>
 
@@ -23,8 +23,8 @@
     <div class="header__login--on">
       <span class="header__login-name">Olá, {{userName}}</span>
       <br>
-      <a class="header__login-panel" routerLink="./area-do-usuario">Acessar meu painel</a>
-      <a (click)="logout()">Sair</a>
+      <a class="header__login-link" routerLink="./area-do-usuario">Acessar meu painel</a>
+      <a class="header__logout" (click)="logout()">Sair</a>
     </div>
   </ng-template>
 </nav>

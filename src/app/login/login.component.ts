@@ -4,9 +4,7 @@ import {
   OnInit,
   ViewChild,
   ElementRef,
-  Renderer2
 } from "@angular/core";
-import { User } from "src/app/shared/user.model";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { LoginCheckService } from "../login-check.service";
@@ -20,6 +18,7 @@ import { LogStateService } from "../log-state.service";
   styleUrls: ["./login.component.less"]
 })
 export class LoginComponent implements OnInit {
+  public registerSuccess: boolean;
   public conectionError: boolean;
   public notRegistred: boolean;
   @ViewChild("msgInvalid")
@@ -37,7 +36,9 @@ export class LoginComponent implements OnInit {
     ) {}
 
     ngOnInit() {
+      this.data.isRegistred.subscribe(state => this.registerSuccess = state)
     }
+
 
     enterUserArea(): void {
       if (!this.form.invalid) {
@@ -66,4 +67,5 @@ export class LoginComponent implements OnInit {
     showRegisterMsg(): void {
       this.notRegistred = true;
     }
+
   }

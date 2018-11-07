@@ -4,30 +4,84 @@
   background-color: @secondary-color;
   padding: @padding-content;
   box-shadow: @shadow;
+  min-height: 80vh;
+  @media @max576{
+    margin: 0;
+    padding: 20px;
+  }
+  .houses-panel_error{
+    margin: 6% 0 0 2%;
+    border: 1px solid;
+    border-radius: 6px;
+    background-color: white;
+    padding: 5px 8px;
+    box-shadow: @shadow
+  }
   .houses-panel__cards-list{
     padding: 8px;
     display: flex;
     .card{
       margin: 8px 0;
-      .houses-panel__fav{
-        color: white;
-        position: absolute;
-        align-self: flex-end;
-        margin: 2% -3%;
-        cursor: pointer
+    }
+  }
+  .card-body{
+    display: flex;
+    padding: 0.8rem 0.3rem;
+    justify-content: space-between;
+    &_info{
+      margin-left: 3%;
+      .bairro{
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+      .tipo{
+        text-transform: lowercase;
+        font-style: oblique
+      }
+      .desc{
+
+      }
+    }
+    &_favorite{
+      width: 8%;
+      &-icon{
+        cursor: pointer;
+        width: 100%;
       }
     }
   }
-}
+  .welcome{
 
+  }
 
-@media (max-width: 650px){
-  .houses-panel{
-    margin: 0;
-    padding: 20px;
+  .row{
+    justify-content: space-between;
   }
 }
 
+.typewriter h3 {
+  padding-left: 6%;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .05em solid #08080873; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .08em; /* Adjust as needed */
+  animation:
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #08080873; }
+}
 
 
 

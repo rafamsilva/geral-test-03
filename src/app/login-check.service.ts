@@ -3,7 +3,7 @@ import { User } from "./shared/user.model";
 import { EventEmitter } from "events";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { urlLocal, urlExternal } from "src/environments/urls.dev";
+import { urlExternal } from "src/environments/urls.dev";
 import { UserService } from './user.service';
 import { map, retry } from "rxjs/operators";
 
@@ -22,7 +22,7 @@ export class LoginCheckService{
     ){}
 
   public checkUser(user,pass): Observable<any>{
-    return this.http.post<User>(`${urlLocal}/api/autenticacao`,{email: user, senha: pass})
+    return this.http.post<User>(`${urlExternal}/api/autenticacao`,{email: user, senha: pass})
     .pipe(retry(1));
   }
 
@@ -34,8 +34,17 @@ export class LoginCheckService{
     this.userService.setUser(email);
   }
 
-  public storageUserSession(user: User){
-    sessionStorage.setItem('user', JSON.stringify(user))
+  public storageUserSession(type){
+    sessionStorage.setItem('type', type )
+  }
+
+  public getUserType(){
+    let type = sessionStorage.getItem('type');
+    if(type == undefined || type == null){
+      return false
+    }else{
+      return type
+    }
   }
 
   public getUserSession(){
@@ -49,6 +58,7 @@ export class LoginCheckService{
 
   public removeUseSession(){
     sessionStorage.removeItem('token')
+    sessionStorage.removeItem('type')
   }
 
 

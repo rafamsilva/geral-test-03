@@ -1,4 +1,4 @@
-import { HOUSES } from './../../shared/houses-mock';
+//import { HOUSES } from './../../shared/houses-mock';
 import { Component, OnInit } from '@angular/core';
 import { House } from '../../shared/house.model';
 import { HousesService } from '../../houses.service';
@@ -9,7 +9,7 @@ import { HousesService } from '../../houses.service';
   styleUrls: ['./houses.component.less']
 })
 export class HousesComponent implements OnInit {
-  public housesMock: House[] = HOUSES
+  //public housesMock: House[] = HOUSES
   public houses: House[];
   public id = 15
 
@@ -21,11 +21,17 @@ export class HousesComponent implements OnInit {
 
   getHousesList(){
     this.housesService.getHouses()
-    .subscribe((data)=>this.houses = data)
+    .subscribe(
+       data => this.setHouses(data)
+      )
   }
 
-  removeHouse(){
-    this.housesService.deleteHouse(15).subscribe()
+  setHouses(houses: any){
+    this.houses = houses.imoveis
+  }
+
+  removeHouse(id: number){
+    this.housesService.deleteHouse(id).subscribe()
   }
 
 }

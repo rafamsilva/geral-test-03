@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/shared/user.model';
 import { ErrorHandlerService } from 'src/app/error-handler.service';
+import { LogStateService } from 'src/app/log-state.service';
 
 @Component({
   selector: 'app-register-client',
@@ -11,13 +12,16 @@ import { ErrorHandlerService } from 'src/app/error-handler.service';
   styleUrls: ['./register-client.component.less']
 })
 export class RegisterClientComponent implements OnInit {
+  public registredSuccess: boolean;
+  public isRegistered: boolean = true;
   public conectionError: boolean;
   public newUser: User;
   public form: FormGroup;
 
   constructor(
     public userService: UserService,
-    public errorService: ErrorHandlerService
+    public errorService: ErrorHandlerService,
+    public logService: LogStateService
     ) { }
 
   ngOnInit() {
@@ -28,7 +32,11 @@ export class RegisterClientComponent implements OnInit {
     this.newUser = this.form.value
     this.userService.registerUser(this.newUser, false).subscribe(
       data => this.finishRegister(),
-      error => this.errorService.error.subscribe(state => this.conectionError = state)
+      error => this.errorService.error.subscribe(
+        state => {
+          this.conectionError = state
+          this.isRegistered = state
+        })
       )
   }
 
@@ -45,6 +53,8 @@ export class RegisterClientComponent implements OnInit {
 
   public finishRegister(): void{
     this.form.reset();
+    this.logService.setRegisterMsg(true)
+    this.logService.isRegistred.subscribe(state => this.registredSuccess = state)
   }
 
 }
