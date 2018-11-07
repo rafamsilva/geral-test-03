@@ -16,12 +16,17 @@
     width: 30%;
     display: flex;
     align-items: center;
+    @media @max576{
+      width: 40%;
+    }
     &-img{
       margin-left: 10%;
       width: 50%;
       @media @max576{
-        width: 80%;
-        height: 90%
+        width: 70%;
+      }
+      @media @middle{
+        width: 80%!important;
       }
     }
   }
@@ -72,12 +77,6 @@
   }
 }
 
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .header{
-    background-color: lightcyan
-  }
-}
 
 
 

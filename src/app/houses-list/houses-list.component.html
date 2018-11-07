@@ -14,19 +14,29 @@
   <h4 class="houses-panel__subtitle">Destaques:</h4>
   <hr>
   <div class="houses-panel__cards-list row">
-    <div class="card col-md-6 col-lg-4" *ngFor="let house of housesMock">
+    <div class="card col-md-6 col-lg-4" *ngFor="let house of houses">
       <img class="card-img-top" src="../../assets/imoveis/casa-planalto-01.jpg" alt="Card image cap">
 
       <div class="card-body">
-        <h4 class="card-title">{{house.bairro}}</h4>
-        <h5>{{house.tipo}}</h5>
-        <img [src]="favoriteUrl" alt="Adicionar aos favoritos" (click)="favoriteToggle()">
-        <p class="card-text">{{house.desc}}</p>
+        <div class="card-body_info">
+            <h4 class="card-title bairro">{{house.bairro}}</h4>
+            <h5 class="tipo">{{house.tipo}}</h5>
+            <p class="card-text desc">{{house.desc}}</p>
+        </div>
+        <div class="card-body_favorite">
+            <img class="card-body_favorite-icon" [src]="favoriteUrl" (click)="favoriteToggle($event)" #icon id="{{house._id}}">
+          </div>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">R$ {{house.valor}}</li>
         <li class="list-group-item">{{house.quartos}} Quartos</li>
         <li class="list-group-item">Área: {{house.area}}</li>
       </ul>
+    </div>
+  </div>
+
+  <div class="houses-panel" *ngIf="conectionError">
+    <div class="row houses-panel_error">
+      <h3>Não foi possível carregar a lista de imóveis, tente novamente mais tarde...</h3>
     </div>
   </div>

@@ -4,27 +4,46 @@
   background-color: @secondary-color;
   padding: @padding-content;
   box-shadow: @shadow;
+  @media @max576{
+    margin: 0;
+    padding: 20px;
+  }
+  &_error{
+    display: flex;
+    justify-content: center;
+  }
   .houses-panel__cards-list{
     padding: 8px;
     display: flex;
     .card{
       margin: 8px 0;
-      .houses-panel__fav{
-        color: white;
-        position: absolute;
-        align-self: flex-end;
-        margin: 2% -3%;
-        cursor: pointer
-      }
     }
   }
-}
+  .card-body{
+    display: flex;
+    padding: 0.8rem 0.3rem;
+    justify-content: space-between;
+    &_info{
+      margin-left: 3%;
+      .bairro{
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+      .tipo{
+        text-transform: lowercase;
+        font-style: oblique
+      }
+      .desc{
 
-
-@media (max-width: 650px){
-  .houses-panel{
-    margin: 0;
-    padding: 20px;
+      }
+    }
+    &_favorite{
+      width: 8%;
+      &-icon{
+        cursor: pointer;
+        width: 100%;
+      }
+    }
   }
 }
 
