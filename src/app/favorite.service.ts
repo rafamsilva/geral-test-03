@@ -19,9 +19,14 @@ export class FavoriteService{
   }
 
   updateFavoriteDataBase(favorites: any){
-    let id = this.userservice.getLoginData();
+    let id = this.userservice.getUserId();
     this.userservice.updateUser(id,favorites).subscribe(
-      user => this.favorites = user
+      user => {
+        this.favorites = user
+        this.userservice.getUser().subscribe(
+          data => this.userservice.setUser(data)
+        )
+        }
     )
   }
 

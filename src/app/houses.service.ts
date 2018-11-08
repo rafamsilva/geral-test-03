@@ -4,7 +4,7 @@ import { House } from "src/app/shared/house.model";
 import { Observable } from "rxjs";
 import { map } from 'rxjs/operators';
 import { HttpClient } from "@angular/common/http";
-import { urlExternal } from "src/environments/urls.dev";
+import { urlLocal } from "src/environments/urls.dev";
 
 
 @Injectable()
@@ -14,15 +14,15 @@ export class HousesService{
   }
 
   public getHouses(): Observable<any>{
-    return this.http.get(`${urlExternal}/api/imoveis`)
+    return this.http.get(`${urlLocal}/api/imoveis`)
   }
 
   public deleteHouse(id: number): Observable<any>{
-    return this.http.delete(`${urlExternal}/api/imoveis/${id}`)
+    return this.http.delete(`${urlLocal}/api/imoveis/${id}`)
   }
 
   public registerHouse(data: House): Observable<any>{
-    return this.http.post<House>(`${urlExternal}/api/registro/imovel`,data)
+    return this.http.post<House>(`${urlLocal}/api/registro/imovel`,data)
   }
 
 

@@ -3,7 +3,7 @@ import { User } from "./shared/user.model";
 import { EventEmitter } from "events";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { urlExternal } from "src/environments/urls.dev";
+import { urlLocal } from "src/environments/urls.dev";
 import { UserService } from './user.service';
 import { map, retry } from "rxjs/operators";
 
@@ -22,16 +22,16 @@ export class LoginCheckService{
     ){}
 
   public checkUser(user,pass): Observable<any>{
-    return this.http.post<User>(`${urlExternal}/api/autenticacao`,{email: user, senha: pass})
-    .pipe(retry(1));
+    return this.http.post<User>(`${urlLocal}/api/autenticacao`,{email: user, senha: pass})
+    //.pipe(retry(1));
   }
 
   public userIsAuth(){
     this.isAuth = true;
   }
 
-  public saveUserData(email: string){
-    this.userService.setUser(email);
+  public saveUserData(loginData: string){
+    this.userService.setUser(loginData);
   }
 
   public storageUserSession(type){
