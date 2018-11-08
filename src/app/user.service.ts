@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { User } from "src/app/shared/user.model";
 import { HttpClient, HTTP_INTERCEPTORS } from "@angular/common/http";
-import { urlLocal, urlMockup, mockupsEndPoints } from "src/environments/urls.dev";
+import { urlExternal, urlMockup, mockupsEndPoints } from "src/environments/urls.dev";
 
 
 @Injectable()
@@ -25,7 +25,7 @@ export class UserService{
   }
 
   getUser(): Observable<any>{
-    return this.http.get(`${urlLocal}/api/usuarios/${this.loginData.usuarioID}`)
+    return this.http.get(`${urlExternal}/api/usuarios/${this.loginData.usuarioID}`)
   }
 
   getUserName(): string{
@@ -33,20 +33,20 @@ export class UserService{
   }
 
   getAllUsers(): Observable<any>{
-    return this.http.get(`${urlLocal}/api/usuarios`)
+    return this.http.get(`${urlExternal}/api/usuarios`)
   }
 
   updateUser(id: number, favorites): Observable<any>{
-    return this.http.put(`${urlLocal}/api/usuarios/${id}`, {favoritos : favorites})
+    return this.http.put(`${urlExternal}/api/usuarios/${id}`, {favoritos : favorites})
   }
 
   deleteUser(id: string): Observable<any>{
-    return this.http.delete(`${urlLocal}/api/usuarios/${id}`)
+    return this.http.delete(`${urlExternal}/api/usuarios/${id}`)
   }
 
   registerUser(data: User, employee: boolean): Observable<User>{
     this.filterUserReceived(data, employee)
-    return this.http.post<User>(`${urlLocal}/api/registro/usuario`,data)
+    return this.http.post<User>(`${urlExternal}/api/registro/usuario`,data)
   }
 
   private filterUserReceived(user: User, admin: boolean): void{

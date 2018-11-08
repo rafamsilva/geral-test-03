@@ -10,6 +10,9 @@ import { House } from "src/app/shared/house.model";
 import { ErrorHandlerService } from "../error-handler.service";
 import { FavoriteService } from "../favorite.service";
 import { LogStateService } from '../log-state.service';
+import * as _ from "lodash";
+import { BehaviorSubject } from "rxjs";
+
 
 @Component({
   selector: "app-houses-list",
@@ -22,13 +25,14 @@ export class HousesListComponent implements OnInit {
   public isLogged: boolean;
   public conectionError: boolean;
   public houses: House[];
+  public newHouses: House[] = [];
   public favoriteUrl: string = "../../assets/coracao_vazio.png";
   constructor(
     private housesService: HousesService,
     private errorService: ErrorHandlerService,
     public renderer: Renderer2,
     public favoriteService: FavoriteService,
-    public logStateService: LogStateService
+    public logStateService: LogStateService,
   ) {}
 
   ngOnInit() {
@@ -75,5 +79,20 @@ export class HousesListComponent implements OnInit {
     this.logStateService.atualState.subscribe(state => {
       this.isLogged = state;
     });
+  }
+
+  searchHouse(txt: string){
+    if(!_.isEmpty(txt)){
+      this.houses.forEach(element => {
+        if(element.bairro.includes(txt)){
+          this.newHouses.push(element);
+          this.houses = this.newHouses;
+        }else{
+          //this.notFind.next(true)
+        }
+      });
+    }else{
+      this.getHousesList()
+    }
   }
 }

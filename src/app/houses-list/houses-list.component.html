@@ -2,13 +2,23 @@
   <div class="row">
     <div class="typewriter"><h3 class="welcome">Catálogo de imóveis</h3></div>
     <div class="input-group mb-3 col-lg-6 col-md-6 col-sm-12">
-      <input type="text" class="form-control" placeholder="Procure seu imóvel através do bairro" aria-label="Recipient's username" aria-describedby="basic-addon2">
+      <input type="text" class="form-control"
+      placeholder="Procure seu imóvel através do bairro"
+      aria-label="Recipient's username"
+      aria-describedby="basic-addon2"
+      #inputTxt
+      >
       <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button">procurar</button>
+        <button class="btn btn-outline-secondary" type="button" (click)="searchHouse(inputTxt.value)">procurar</button>
       </div>
     </div>
-    <div class="houses-panel_error" *ngIf="conectionError">
-      <h3>Não foi possível carregar a lista de imóveis, tente novamente mais tarde...</h3>
+    <div class="panel-error">
+      <div *ngIf="conectionError" class="alert alert-warning" role="alert">
+        Não foi possível carregar a lista de imóveis, tente novamente mais tarde...
+      </div>
+      <div *ngIf="notFind" class="alert alert-warning" role="alert">
+        Não foi encontrado nenhum bairro com esse nome!
+      </div>
     </div>
   </div>
   <hr>

@@ -1,33 +1,33 @@
 import { Injectable } from "@angular/core";
-import { Response, Headers, RequestOptions } from "../../node_modules/@angular/http";
 import { House } from "src/app/shared/house.model";
-import { Observable } from "rxjs";
+import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient } from "@angular/common/http";
-import { urlLocal } from "src/environments/urls.dev";
+import { urlExternal } from "src/environments/urls.dev";
 
 
 @Injectable()
 export class HousesService{
+  public houses = new BehaviorSubject(House)
+
   constructor(public http: HttpClient){
 
   }
 
   public getHouses(): Observable<any>{
-    return this.http.get(`${urlLocal}/api/imoveis`)
+    return this.http.get(`${urlExternal}/api/imoveis`)
   }
 
   public getHouse(id: number): Observable<any>{
-    return this.http.get(`${urlLocal}/api/imoveis/${id}`)
+    return this.http.get(`${urlExternal}/api/imoveis/${id}`)
   }
 
   public deleteHouse(id: number): Observable<any>{
-    return this.http.delete(`${urlLocal}/api/imoveis/${id}`)
+    return this.http.delete(`${urlExternal}/api/imoveis/${id}`)
   }
 
   public registerHouse(data: House): Observable<any>{
-    return this.http.post<House>(`${urlLocal}/api/registro/imovel`,data)
+    return this.http.post<House>(`${urlExternal}/api/registro/imovel`,data)
   }
-
 
 }
