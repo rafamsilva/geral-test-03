@@ -3,10 +3,9 @@ import { User } from "./shared/user.model";
 import { EventEmitter } from "events";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { urlExternal } from "src/environments/urls.dev";
 import { UserService } from './user.service';
 import { map, retry } from "rxjs/operators";
-
+import { urlExternal, urlMockup, mockupsEndPoints, urlLocal  } from "src/environments/urls.dev";
 
 
 
@@ -22,7 +21,7 @@ export class LoginCheckService{
     ){}
 
   public checkUser(user,pass): Observable<any>{
-    return this.http.post<User>(`${urlExternal}/api/autenticacao`,{email: user, senha: pass})
+    return this.http.post<User>(`${urlLocal}/api/autenticacao`,{email: user, senha: pass})
     .pipe(retry(1));
   }
 

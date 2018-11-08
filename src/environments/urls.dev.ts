@@ -7,9 +7,9 @@ const mockupsEndPoints = {
   findUser: '/user?email='
 }
 
-const endPoints= {
-  registro: '/api/registro',
-  login: '/api/autenticacao',
+const endPoints = {
+  registro: '/api/registro/usuario',
+  login: '/api/autenticacao'
 }
 
 export { urlLocal, urlExternal, urlMockup, endPoints, mockupsEndPoints}
