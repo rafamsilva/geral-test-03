@@ -22,7 +22,7 @@
           <h5 class="tipo">{{house.tipo}}</h5>
           <p class="card-text desc">{{house.desc}}</p>
         </div>
-        <div class="card-body_favorite">
+        <div class="card-body_favorite" *ngIf="isLogged">
           <img class="card-body_favorite-icon" [src]="favoriteUrl" (click)="favoriteToggle($event)" #icon id="{{house._id}}">
         </div>
       </div>
