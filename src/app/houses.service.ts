@@ -15,6 +15,7 @@ export class HousesService{
 
   }
 
+
   public getAllHouses(): Observable<any>{
     return this.http.get(`${urlLocal}/api/imoveis`)
   }
