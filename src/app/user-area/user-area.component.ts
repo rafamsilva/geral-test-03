@@ -27,7 +27,7 @@ export class UserAreaComponent implements OnInit {
 
 
   getUserData(): void{
-    this.userService.getUser()
+    this.userService.getUser(this.userService.getUserId())
     .subscribe(
       (user: any) => {
       this.checkUserTyper(user)

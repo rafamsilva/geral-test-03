@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginCheckService } from './login-check.service';
 import { LogStateService } from './log-state.service';
+import { UserService } from './user.service';
 
 
 
@@ -11,19 +12,26 @@ import { LogStateService } from './log-state.service';
 })
 export class AppComponent implements OnInit {
   title = 'imobiliaria-project';
-  public userLog: boolean;
+  public userIsSaveOnBrownser: boolean;
 
   constructor(
-    public logService: LoginCheckService,
-    public logStateService: LogStateService,
-    public logCheckService: LoginCheckService
+    private logService: LoginCheckService,
+    private logStateService: LogStateService,
+    private logCheckService: LoginCheckService,
+    private userService: UserService
     ){
 
   }
 
   ngOnInit(){
-    this.userLog = this.logService.getUserSession()
-    if(this.userLog){
+    this.userIsSaveOnBrownser = this.logService.getUserSession()
+    if(this.userIsSaveOnBrownser){
+      this.userService.getUser(this.userService.getUserId()).subscribe(
+        data => {
+          this.userService.setUser(data.usuarios[0])
+          this.userService.getUserName()
+        }
+      )
       this.logStateService.changeStateLogin(true)
       this.logCheckService.userIsAuth();
     }

@@ -2,8 +2,6 @@ import { ErrorHandlerService } from './../error-handler.service';
 import {
   Component,
   OnInit,
-  ViewChild,
-  ElementRef,
 } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
@@ -21,8 +19,6 @@ export class LoginComponent implements OnInit {
   public registerSuccess: boolean;
   public conectionError: boolean;
   public notRegistred: boolean;
-  @ViewChild("msgInvalid")
-  msgInvalid: ElementRef;
   public form: FormGroup = new FormGroup({
     user: new FormControl(null, [Validators.required]),
     password: new FormControl(null, [Validators.required])
@@ -31,12 +27,12 @@ export class LoginComponent implements OnInit {
   constructor(
     private route: Router,
     private loginservice: LoginCheckService,
-    private data: LogStateService,
+    private loginStateService: LogStateService,
     private errorService: ErrorHandlerService
     ) {}
 
     ngOnInit() {
-      this.data.isRegistred.subscribe(state => this.registerSuccess = state)
+      this.loginStateService.isRegistred.subscribe(state => this.registerSuccess = state)
     }
 
 
@@ -45,26 +41,26 @@ export class LoginComponent implements OnInit {
         let userForm = this.form.value.user;
         let passForm = this.form.value.password;
 
-        this.loginservice.checkUser(userForm, passForm).subscribe(
-          data => this.enterArea(data),
+        this.loginservice.tryLogin(userForm, passForm).subscribe(
+          data => this.validateToken(data),
           error => this.errorService.error.subscribe(state => this.conectionError = state)
           );
       }
     }
 
-    enterArea(data) {
+    validateToken(data) {
       if(data.token !== undefined){
         this.loginservice.saveUserData(data)
         this.loginservice.userIsAuth();
         this.route.navigate(["/area-do-usuario"]);
-        this.data.changeStateLogin(true);
+        this.loginStateService.changeStateLogin(true);
       }else{
-        this.showRegisterMsg()
+        this.showInvalidLoginMsg()
       }
 
     }
 
-    showRegisterMsg(): void {
+    showInvalidLoginMsg(): void {
       this.notRegistred = true;
     }
 

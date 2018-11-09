@@ -31,7 +31,7 @@ export class FavoritesComponent implements OnInit {
 
   getUserInfo() {
     this.userService
-      .getUser()
+      .getUser(this.userService.getUserId())
       .subscribe(data => this.getFavoriteList(data.usuarios[0]));
   }
 

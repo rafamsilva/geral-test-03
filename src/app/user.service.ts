@@ -3,33 +3,36 @@ import { Observable } from "rxjs";
 import { User } from "src/app/shared/user.model";
 import { HttpClient, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { urlLocal } from "src/environments/urls.dev";
+import { LogStateService } from "./log-state.service";
 
 
 @Injectable()
 export class UserService{
   public loginData;
   public user: User;
+  public loginSucessData: any;
   public userEmail: string = '';
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private logService: LogStateService
     ){
 
   }
 
   setUser(data: any){
-    this.loginData = data
+    this.user = data
   }
 
   getUserId(){
-    return this.loginData.usuarioID;
+    return sessionStorage.getItem('id')
   }
 
-  getUser(): Observable<any>{
-    return this.http.get(`${urlLocal}/api/usuarios/${this.loginData.usuarioID}`)
+  getUser(id: string): Observable<any>{
+    return this.http.get(`${urlLocal}/api/usuarios/${id}`)
   }
 
-  getUserName(): string{
-    return this.user.nome
+  getUserName(){
+    this.logService.setUserName(this.user.nome)
   }
 
   getAllUsers(): Observable<any>{
