@@ -20,7 +20,7 @@ export class HousesComponent implements OnInit {
   }
 
   getHousesList(){
-    this.housesService.getHouses()
+    this.housesService.getAllHouses()
     .subscribe(
        data => this.setHouses(data)
       )

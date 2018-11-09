@@ -42,7 +42,7 @@ export class HousesListComponent implements OnInit {
 
   getHousesList() {
     this.housesService
-      .getHouses()
+      .getAllHouses()
       .subscribe(
         data => (
           this.houses = data.imoveis
