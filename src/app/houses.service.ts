@@ -3,7 +3,8 @@ import { House } from "src/app/shared/house.model";
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient } from "@angular/common/http";
-import { urlLocal } from "src/environments/urls.dev";
+import { urlExternal, urlMockup, mockupsEndPoints, urlLocal  } from "src/environments/urls.dev";
+
 
 
 @Injectable()
@@ -12,10 +13,6 @@ export class HousesService{
 
   constructor(public http: HttpClient){
 
-  }
-
-  public getHouses(): Observable<any>{
-    return this.http.get(`${urlLocal}/api/imoveis`)
   }
 
   public getHouse(id: number): Observable<any>{

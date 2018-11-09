@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { User } from "src/app/shared/user.model";
 import { HttpClient, HTTP_INTERCEPTORS } from "@angular/common/http";
-import { urlLocal } from "src/environments/urls.dev";
+import { urlExternal, urlMockup, mockupsEndPoints, urlLocal  } from "src/environments/urls.dev";
 
 
 @Injectable()
