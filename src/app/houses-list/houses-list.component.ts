@@ -44,7 +44,10 @@ export class HousesListComponent implements OnInit {
     this.housesService
       .getHouses()
       .subscribe(
-        data => (this.houses = data.imoveis),
+        data => (
+          this.houses = data.imoveis
+          //this.favoriteService.markAllFavoritedItens()
+          ),
         error =>
           this.errorService.error.subscribe(
             state => (this.conectionError = state)

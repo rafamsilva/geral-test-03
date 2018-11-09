@@ -12,12 +12,12 @@ import * as _ from "lodash";
 })
 export class FavoritesComponent implements OnInit {
   public favorites: number[] = [];
-  public houses: House[];
+  public houses: House[] = [];
 
   constructor(
     private housesService: HousesService,
     private userService: UserService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.getUserInfo();
@@ -31,7 +31,7 @@ export class FavoritesComponent implements OnInit {
 
   getUserInfo() {
     this.userService
-      .getUser()
+      .getUser(this.userService.getUserId())
       .subscribe(data => this.getFavoriteList(data.usuarios[0]));
   }
 
@@ -41,11 +41,11 @@ export class FavoritesComponent implements OnInit {
   }
 
   getFavoriteHouses(favorites) {
-    favorites.forEach( e => {
+    favorites.forEach(e => {
       this.housesService.getHouse(e).subscribe(
-        data => this.houses = data
+        data => this.houses.push(data[0])
       )
     });
-
+    this.houses;
   }
 }

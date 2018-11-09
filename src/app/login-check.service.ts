@@ -3,9 +3,12 @@ import { User } from "./shared/user.model";
 import { EventEmitter } from "events";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { urlLocal } from "src/environments/urls.dev";
 import { UserService } from './user.service';
 import { map, retry } from "rxjs/operators";
-import { urlExternal, urlMockup, mockupsEndPoints, urlLocal  } from "src/environments/urls.dev";
+import { Router } from "@angular/router";
+import { LogStateService } from "./log-state.service";
+
 
 
 
@@ -17,11 +20,21 @@ export class LoginCheckService{
 
   constructor(
     public http: HttpClient,
-    public userService: UserService
+    public userService: UserService,
+    private route: Router,
+    private loginState: LogStateService,
     ){}
+  
+  public tryLogin(user,pass): Observable<any>{
+    return this.http.post<User>(`${urlLocal}/api/autenticacao`,{email: user, senha: pass})
+  }
 
-  public checkUser(user,pass): Observable<any>{
-    return this.http.post<User>(`${urlExternal}/api/autenticacao`,{email: user, senha: pass})
+  public userLogout(){
+    this.route.navigate(["./"]);
+    this.loginState.changeStateLogin(false)
+    sessionStorage.removeItem('token')
+    sessionStorage.removeItem('type')
+    sessionStorage.removeItem('id')
   }
 
   public userIsAuth(){
@@ -46,19 +59,12 @@ export class LoginCheckService{
   }
 
   public getUserSession(){
-    let token = sessionStorage.getItem('token');
-    if(token == undefined || token == null){
+    let id = sessionStorage.getItem('id');
+    if(id == undefined || id == null){
       return false
     }else{
       return true
     }
   }
-
-  public removeUseSession(){
-    sessionStorage.removeItem('token')
-    sessionStorage.removeItem('type')
-  }
-
-
 
 }

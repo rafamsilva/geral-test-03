@@ -4,18 +4,12 @@
           <label class="col-form-label">Email:</label>
           <input type="text" class="form-control form__field--validation" formControlName="user">
           <small  *ngIf="!form.get('user').valid && form.get('user').touched">Digite um nome de usuário!</small>
-
         </div>
         <div class="form-group panel__pass-block">
           <label class="col-form-label">Senha:</label>
           <input type="password" class="form-control form__field--validation" formControlName="password">
           <small  *ngIf="!form.get('password').valid && form.get('password').touched">Digite uma senha!</small>
         </div>
-        <!--
-        <div *ngIf="forgotPassword" class="alert alert-danger" role="alert">
-          Parece que voce esqueceu sua senha, <a class="panel__btn-recovery" data-toggle="modal" data-target="#recoveryPassModal">recupere aqui</a>
-        </div>
-      -->
         <div *ngIf="notRegistred" class="alert alert-danger" role="alert">
           Email ou senha inválidos!
         </div>
@@ -23,7 +17,7 @@
             Não foi possível efetuar login, tente novamente mais tarde!
         </div>
         <div *ngIf="registerSuccess" class="alert alert-warning" role="alert">
-            Usuário cadastrado com sucesso, agora voce pode acessar o painel exclusivo!
+            Usuário cadastrado com sucesso, agora voce pode acessar o painel exclusivo para clientes!
           </div>
         <div class="form__btn-box">
           <button #btnLogin type="submit" class="btn btn-primary form__btn" [disabled]="form.invalid">Login</button>
@@ -33,29 +27,5 @@
     </form>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="recoveryPassModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Informe o email para recuperar sua senha</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="form" (ngSubmit)="enterUserArea()">
-        <div class="form-group">
-          <input type="text" class="form-control" formControlName="user" placeholder="Email">
-        </div>
-    </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" disabled>Recuperar</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 

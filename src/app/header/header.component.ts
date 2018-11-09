@@ -33,7 +33,7 @@ import { UserService } from '../user.service';
         this.route.navigate(["./"]);
         this.isLogged = false
         this.log.changeStateLogin(false)
-        this.loginService.removeUseSession()
+        this.loginService.userLogout()
       }
 
       changeState(){
