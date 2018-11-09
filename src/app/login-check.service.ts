@@ -24,7 +24,7 @@ export class LoginCheckService{
     private route: Router,
     private loginState: LogStateService,
     ){}
-
+  
   public tryLogin(user,pass): Observable<any>{
     return this.http.post<User>(`${urlLocal}/api/autenticacao`,{email: user, senha: pass})
   }
