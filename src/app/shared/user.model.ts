@@ -6,6 +6,7 @@ export class User{
       public sobrenome: string,
       public senha: string,
       public admin: boolean,
-      public funcionario: boolean
+      public funcionario: boolean,
+      public favoritos: number[]
       ){}
 }

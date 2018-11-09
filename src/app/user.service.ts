@@ -4,6 +4,7 @@ import { User } from "src/app/shared/user.model";
 import { HttpClient, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { urlExternal, urlMockup, mockupsEndPoints, urlLocal  } from "src/environments/urls.dev";
 
+
 @Injectable()
 export class UserService{
   public loginData;
@@ -19,7 +20,7 @@ export class UserService{
     this.loginData = data
   }
 
-  getLoginData(){
+  getUserId(){
     return this.loginData.usuarioID;
   }
 
