@@ -8,7 +8,6 @@ import { LogStateService } from "./log-state.service";
 
 @Injectable()
 export class UserService{
-  public loginData;
   public user: User;
   public loginSucessData: any;
   public userEmail: string = '';
@@ -31,6 +30,10 @@ export class UserService{
     return this.http.get(`${urlLocal}/api/usuarios/${id}`)
   }
 
+  getUserEmail(){
+    return this.user.email
+  }
+
   getUserName(){
     this.logService.setUserName(this.user.nome)
   }
@@ -39,8 +42,12 @@ export class UserService{
     return this.http.get(`${urlLocal}/api/usuarios`)
   }
 
-  updateUser(id: string, favorites: number[]): Observable<any>{
+  updateUserFavorite(id: string, favorites: any): Observable<any>{
     return this.http.put(`${urlLocal}/api/usuarios/${id}`, {favoritos : favorites})
+  }
+
+  updateUserPass(id: string, senha: string): Observable<any>{
+    return this.http.put(`${urlLocal}/api/usuarios/${id}`, {senha : senha})
   }
 
   deleteUser(id: string): Observable<any>{

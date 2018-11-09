@@ -32,6 +32,7 @@ export class HttpsRequestInterceptor implements HttpInterceptor {
       return next.handle(cloneReq).pipe(
         tap(event => {
           if (event instanceof HttpResponse) {
+           // if(event.)
             if(event && event.body && event.body.token){
               sessionStorage.setItem('token',event.body.token)
               sessionStorage.setItem('id',event.body.usuarioID)

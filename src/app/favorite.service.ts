@@ -22,7 +22,7 @@ export class FavoriteService{
 
   updateFavoriteDataBase(favorites: any){
     let id = this.userservice.getUserId();
-    this.userservice.updateUser(id,favorites).subscribe(
+    this.userservice.updateUserFavorite(id,favorites).subscribe(
       user => {let msg = user }
     )
   }
