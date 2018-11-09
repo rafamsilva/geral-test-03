@@ -15,6 +15,10 @@ export class HousesService{
 
   }
 
+  public getHouses(): Observable<any>{
+    return this.http.get(`${urlLocal}/api/imoveis`)
+  }
+
   public getHouse(id: number): Observable<any>{
     return this.http.get(`${urlLocal}/api/imoveis/${id}`)
   }
