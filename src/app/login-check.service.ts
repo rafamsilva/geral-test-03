@@ -23,15 +23,15 @@ export class LoginCheckService{
 
   public checkUser(user,pass): Observable<any>{
     return this.http.post<User>(`${urlExternal}/api/autenticacao`,{email: user, senha: pass})
-    .pipe(retry(1));
+    //.pipe(retry(1));
   }
 
   public userIsAuth(){
     this.isAuth = true;
   }
 
-  public saveUserData(email: string){
-    this.userService.setUser(email);
+  public saveUserData(loginData: string){
+    this.userService.setUser(loginData);
   }
 
   public storageUserSession(type){

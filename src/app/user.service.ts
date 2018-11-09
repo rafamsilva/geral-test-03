@@ -20,7 +20,7 @@ export class UserService{
     this.loginData = data
   }
 
-  getLoginData(){
+  getUserId(){
     return this.loginData.usuarioID;
   }
 
