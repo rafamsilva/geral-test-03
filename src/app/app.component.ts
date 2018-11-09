@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginCheckService } from './login-check.service';
 import { LogStateService } from './log-state.service';
 import { UserService } from './user.service';
+import * as _ from 'lodash';
 
 
 
@@ -15,7 +16,6 @@ export class AppComponent implements OnInit {
   public userIsSaveOnBrownser: boolean;
 
   constructor(
-    private logService: LoginCheckService,
     private logStateService: LogStateService,
     private logCheckService: LoginCheckService,
     private userService: UserService
@@ -24,12 +24,16 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(){
-    this.userIsSaveOnBrownser = this.logService.getUserSession()
+    this.userIsSaveOnBrownser = this.logCheckService.getUserSession()
     if(this.userIsSaveOnBrownser){
       this.userService.getUser(this.userService.getUserId()).subscribe(
         data => {
+          if(data.success){
           this.userService.setUser(data.usuarios[0])
           this.userService.getUserName()
+          }else{
+            this.logCheckService.userLogout()
+          }
         }
       )
       this.logStateService.changeStateLogin(true)

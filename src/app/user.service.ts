@@ -39,7 +39,7 @@ export class UserService{
     return this.http.get(`${urlLocal}/api/usuarios`)
   }
 
-  updateUser(id: number, favorites): Observable<any>{
+  updateUser(id: string, favorites: number[]): Observable<any>{
     return this.http.put(`${urlLocal}/api/usuarios/${id}`, {favoritos : favorites})
   }
 
